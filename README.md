@@ -1,1 +1,1 @@
-# semestor-projekt-2
+# semester-projekt-2
