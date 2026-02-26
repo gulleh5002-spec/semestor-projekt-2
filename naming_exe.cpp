@@ -1,4 +1,4 @@
-class sum 
+class Sum 
 {
   public: 
   int beregnSum(int* tal, int size) 
