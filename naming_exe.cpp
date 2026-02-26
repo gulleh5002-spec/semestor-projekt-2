@@ -1,11 +1,14 @@
 class sum 
 {
   public: 
-  int d(int* a, int size) 
+  int bergenSum(int* tal, int size) 
       {
-          int s = 0;
+          int sum = 0;
           for (int i = 0; i < size; i++)
-              s += a[i];
-          return s;
+              sum += tal[i];
+          return sum;
       }
 };
+
+
+
