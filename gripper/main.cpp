@@ -2,7 +2,7 @@
 
 // Pins: PWM, Direction1, Direction2
 // Adjust these to match your wiring on the Pico
-Gripper gripper(16, 0, 1);
+Gripper gripper(0, 1);
 
 
 
@@ -20,18 +20,17 @@ void loop()
   // put your main code here, to run repeatedly:
 
   Serial.println("Closing...");
-  gripper.close(200);   // speed 0-255
-  delay(2000);
+  gripper.close(150);   // speed 0-255
+  delay(6000);
 
   gripper.stop();
   delay(500);
 
   Serial.println("Opening...");
-  gripper.open(200);
-  delay(2000);
+  gripper.open(150);
+  delay(6000);
 
   gripper.stop();
   delay(500);
 
 }
-
