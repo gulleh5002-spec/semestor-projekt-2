@@ -1,0 +1,9 @@
+Kør dette samme sted som control.cpp ligger:
+
+g++ control.cpp -o control \
+-I../ur_rtde/include \
+-I/opt/homebrew/include \
+-L../ur_rtde/build \
+-L/opt/homebrew/lib \
+-lrtde \
+-std=c++17
