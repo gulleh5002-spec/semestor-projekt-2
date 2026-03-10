@@ -7,7 +7,7 @@ class RobotMovements:
         self.ip = ip
         self.rtde_c = rtde_control.RTDEControlInterface(ip)
         self.rtde_r = rtde_receive.RTDEReceiveInterface(ip)
-        print("forbundet til:" + ip)
+        print("forbundet til: " + ip)
 
     def get_position(self):
         pose = self.rtde_r.getActualTCPPose()
@@ -28,8 +28,8 @@ class RobotMovements:
 
 
 
-better = RobotMovements("192.168.1.11")
+robot = RobotMovements("192.168.64.3")
 
-better.home()
+robot.home()
 
 
