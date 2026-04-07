@@ -1,27 +1,40 @@
-#include <iostream>
 #include "Grid.h"
+#include "Block.h"
+
+#include <iostream>
+#include <memory>
 
 using namespace std;
 
 int main()
 {
-  Grid mitGrid(5, 4); // bredde = 5, højde = 4
+  Grid grid(5, 5, 100, 0);
 
-  mitGrid.saetKlods(1, 1);
-  mitGrid.saetKlods(2, 2);
+  // Lav blocks
+  unique_ptr<Block> b1 = make_unique<Block>(0, 0);
+  unique_ptr<Block> b2 = make_unique<Block>(0, 0);
 
-  cout << "Start grid:" << endl;
-  mitGrid.printGrid();
+  // Sæt dem i grid
+  grid.setBlock(std::move(b1), 1, 1);
 
-  mitGrid.flytKlods(1, 1, 3, 0);
+  grid.printGrid();
 
-  cout << "\nEfter flytning:" << endl;
-  mitGrid.printGrid();
+  Coord from = grid.getBlockCoord(1, 1);
+  Coord too = grid.getWorldCoord(3, 3);
 
-  mitGrid.fjernKlods(2, 2);
+  cout << from.x << ", " << from.y << ", " << from.z << endl;
+  cout << too.x << ", " << too.y << ", " << too.z << endl;
 
-  cout << "\nEfter fjernelse:" << endl;
-  mitGrid.printGrid();
+  grid.moveBlock(1, 1, 3, 3);
+  // cout << "\nFlytter block...\n";
+  // grid.moveBlock(1, 1, 3, 3);
+
+  // grid.printGrid();
+
+  // cout << "\nFjerner block...\n";
+  // grid.deleteBlock(2, 2);
+
+  grid.printGrid();
 
   return 0;
 }

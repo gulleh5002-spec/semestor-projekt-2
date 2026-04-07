@@ -3,57 +3,88 @@
 using namespace std;
 
 // Constructor
-Grid::Grid(int b, int h)
+Grid::Grid(int l, int h, double size, double z)
 {
-  bredde = b;
-  hoejde = h;
+  length = l;
+  height = h;
+  blockSize = size;
+  baseZ = z;
 
-  // Lav 2D grid fyldt med 0
-  grid.resize(hoejde, vector<int>(bredde, 0));
-}
+  // Lav 2D grid fyldt med tomme pointers
+  grid.resize(height);
 
-// Sæt en klods (1)
-void Grid::saetKlods(int x, int y)
-{
-  if (x >= 0 && x < bredde && y >= 0 && y < hoejde)
+  for (int y = 0; y < height; y++)
   {
-    grid[y][x] = 1;
+    grid[y].resize(length);
   }
 }
 
-// Fjern klods (0)
-void Grid::fjernKlods(int x, int y)
+// Sæt en klods (peger på en klods)
+bool Grid::setBlock(unique_ptr<Block> block, int x, int y)
 {
-  if (x >= 0 && x < bredde && y >= 0 && y < hoejde)
+  if (grid[y][x] == nullptr)
   {
-    grid[y][x] = 0;
+    block->setPosition(x, y);
+    grid[y][x] = std::move(block); // 🔥 ownership flyttes
+    return true;
   }
+  return false;
+}
+
+// Fjern block (auto delete)
+void Grid::deleteBlock(int x, int y)
+{
+  grid[y][x] = nullptr;
 }
 
 // Flyt klods fra (x1,y1) til (x2,y2)
-void Grid::flytKlods(int x1, int y1, int x2, int y2)
+bool Grid::moveBlock(int x1, int y1, int x2, int y2)
 {
-  if (x1 >= 0 && x1 < bredde && y1 >= 0 && y1 < hoejde &&
-      x2 >= 0 && x2 < bredde && y2 >= 0 && y2 < hoejde)
+  if (grid[y1][x1] != nullptr && grid[y2][x2] == nullptr)
   {
 
-    if (grid[y1][x1] == 1)
-    {
-      grid[y1][x1] = 0;
-      grid[y2][x2] = 1;
-    }
+    grid[y2][x2] = std::move(grid[y1][x1]); // flyt pointer
+    grid[y1][x1] = nullptr;
+
+    grid[y2][x2]->setPosition(x2, y2);
+
+    return true;
   }
+  return false;
 }
 
 // Print grid
 void Grid::printGrid()
 {
-  for (int y = 0; y < hoejde; y++)
+  for (int y = 0; y < height; y++)
   {
-    for (int x = 0; x < bredde; x++)
+    for (int x = 0; x < length; x++)
     {
-      cout << grid[y][x] << " ";
+      if (grid[y][x] == nullptr)
+        cout << "0 ";
+      else
+        cout << "1 ";
     }
     cout << endl;
   }
+}
+
+Coord Grid::getWorldCoord(int x, int y)
+{
+  Coord c;
+  c.x = x * blockSize;
+  c.y = y * blockSize;
+  c.z = baseZ;
+  return c;
+}
+
+Coord Grid::getBlockCoord(int x, int y)
+{
+  if (grid[y][x] != nullptr)
+  {
+    return getWorldCoord(x, y);
+  }
+
+  // hvis tomt → return 0
+  return {0, 0, 0};
 }
