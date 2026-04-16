@@ -12,6 +12,8 @@ QT_END_NAMESPACE
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
+private slots:
+    void onCellClicked(int row, int column);
 
 public:
     MainWindow(QWidget *parent = nullptr);

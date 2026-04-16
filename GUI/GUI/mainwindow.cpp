@@ -3,6 +3,7 @@
 #include "QHeaderView"
 #include <QAbstractItemView>
 #include <QTableWidgetItem>
+#include <QBrush>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -12,17 +13,13 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->tableWidget->setRowCount(5);
     ui->tableWidget->setColumnCount(5);
+
     for (int row = 0; row < 5; ++row) {
         for (int col = 0; col < 5; ++col) {
             QTableWidgetItem *item = new QTableWidgetItem();
             item->setText("");
+            item->setBackground(Qt::white);
             ui->tableWidget->setItem(row, col, item);
-        }
-    }
-
-    for (int row = 0; row < 5; ++row) {
-        for (int col = 0; col < 5; ++col) {
-            ui->tableWidget->item(row, col)->setBackground(Qt::white);
         }
     }
 
@@ -34,11 +31,23 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->tableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
     ui->tableWidget->setSelectionMode(QAbstractItemView::NoSelection);
+
+    connect(ui->tableWidget, &QTableWidget::cellClicked,
+            this, &MainWindow::onCellClicked);
+}
+
+void MainWindow::onCellClicked(int row, int column)
+{
+    QTableWidgetItem *item = ui->tableWidget->item(row, column);
+
+    if (item->background() == QBrush(Qt::blue)) {
+        item->setBackground(Qt::white);
+    } else {
+        item->setBackground(Qt::blue);
+    }
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
 }
-
-
