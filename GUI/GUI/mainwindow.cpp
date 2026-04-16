@@ -8,6 +8,8 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
+    matrix = std::vector<std::vector<int>>(5, std::vector<int>(5, 0));
+
     ui->tableWidget->setRowCount(5);
     ui->tableWidget->setColumnCount(5);
 
