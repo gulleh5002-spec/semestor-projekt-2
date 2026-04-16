@@ -35,7 +35,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->tableWidget, &QTableWidget::cellClicked,
             this, &MainWindow::onCellClicked);
 }
-
+//TODO: Moce CellClicked into its own class
 void MainWindow::onCellClicked(int row, int column)
 {
     QTableWidgetItem *item = ui->tableWidget->item(row, column);
