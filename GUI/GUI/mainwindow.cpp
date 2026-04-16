@@ -9,6 +9,12 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->tableWidget->setRowCount(5);
     ui->tableWidget->setColumnCount(5);
+
+    ui->tableWidget->horizontalHeader()->setVisible(false);
+    ui->tableWidget->verticalHeader()->setVisible(false);
+
+    ui->tableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    ui->tableWidget->verticalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 }
 
 MainWindow::~MainWindow()
