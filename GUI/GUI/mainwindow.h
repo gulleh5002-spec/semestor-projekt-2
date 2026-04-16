@@ -2,6 +2,10 @@
 #define MAINWINDOW_H
 #include <vector>
 #include <QMainWindow>
+#include "QHeaderView"
+#include <QAbstractItemView>
+#include <QTableWidgetItem>
+#include <QBrush>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {

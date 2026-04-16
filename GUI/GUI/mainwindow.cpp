@@ -1,9 +1,6 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
-#include "QHeaderView"
-#include <QAbstractItemView>
-#include <QTableWidgetItem>
-#include <QBrush>
+
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
