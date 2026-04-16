@@ -37,12 +37,12 @@ MainWindow::MainWindow(QWidget *parent)
 //TODO: Moce CellClicked into its own class
 void MainWindow::onCellClicked(int row, int column)
 {
-    QTableWidgetItem *item = ui->tableWidget->item(row, column);
-
-    if (item->background() == QBrush(Qt::blue)) {
-        item->setBackground(Qt::white);
+    if (matrix[row][column] == 0) {
+        matrix[row][column] = 1;
+        ui->tableWidget->item(row, column)->setBackground(Qt::blue);
     } else {
-        item->setBackground(Qt::blue);
+        matrix[row][column] = 0;
+        ui->tableWidget->item(row, column)->setBackground(Qt::white);
     }
 }
 
