@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
+#include <QDebug>
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -44,6 +45,8 @@ void MainWindow::onCellClicked(int row, int column)
         matrix[row][column] = 0;
         ui->tableWidget->item(row, column)->setBackground(Qt::white);
     }
+
+    qDebug() << "Række værdi:" << row << "kolonne værdi:" << column;
 }
 
 MainWindow::~MainWindow()
