@@ -1,13 +1,16 @@
 cmake_minimum_required(VERSION 3.16)
 project(RobotArm)
-
 set(CMAKE_CXX_STANDARD 17)
 
-# Find required libraries
-find_package(Eigen3 REQUIRED)
-find_package(ur_rtde REQUIRED)
+# Brug Boost fra vcpkg (fuldt installeret, matcher 1.90)
+set(CMAKE_PREFIX_PATH "C:/vcpkg/installed/x64-windows" ${CMAKE_PREFIX_PATH})
 
-# Source files
+# Eigen (header-only)
+set(EIGEN3_INCLUDE_DIR "C:/Users/GusHansen/Desktop/c++/Robotarm/Robotarm")
+
+# ur_rtde
+find_package(ur_rtde REQUIRED PATHS "C:/Users/GusHansen/ur_rtde/build/ur_rtde")
+
 add_executable(RobotArm
     main.cpp
     RobotArm.cpp
@@ -18,14 +21,20 @@ add_executable(RobotArm
     ur_kin.cpp
 )
 
-# Include directories
 target_include_directories(RobotArm PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}
     ${EIGEN3_INCLUDE_DIR}
 )
 
-# Link libraries
-target_link_libraries(RobotArm
+target_link_libraries(RobotArm PRIVATE
     ur_rtde::rtde
-    Eigen3::Eigen
+)
+
+add_custom_command(TARGET RobotArm POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+        "C:/Users/GusHansen/ur_rtde/bin/Release"
+        $<TARGET_FILE_DIR:RobotArm>
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+        "C:/vcpkg/installed/x64-windows/bin"
+        $<TARGET_FILE_DIR:RobotArm>
 )

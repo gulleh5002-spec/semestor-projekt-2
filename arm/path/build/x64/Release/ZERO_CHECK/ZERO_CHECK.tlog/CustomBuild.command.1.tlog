@@ -1,0 +1,10 @@
+^C:\USERS\GUSHANSEN\DESKTOP\SEMESTORPROJEKT2\SEMESTOR-PROJEKT-2\ARM\PATH\BUILD\CMAKEFILES\5F2F78294C9E78B6B7B8E546D298B70B\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/GusHansen/Desktop/semestorprojekt2/semestor-projekt-2/arm/path -BC:/Users/GusHansen/Desktop/semestorprojekt2/semestor-projekt-2/arm/path/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/GusHansen/Desktop/semestorprojekt2/semestor-projekt-2/arm/path/build/RobotArm.slnx
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

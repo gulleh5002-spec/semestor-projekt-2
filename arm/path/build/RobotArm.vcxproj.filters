@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\GusHansen\Desktop\semestorprojekt2\semestor-projekt-2\arm\path\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\GusHansen\Desktop\semestorprojekt2\semestor-projekt-2\arm\path\RobotArm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\GusHansen\Desktop\semestorprojekt2\semestor-projekt-2\arm\path\PathFinder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\GusHansen\Desktop\semestorprojekt2\semestor-projekt-2\arm\path\IKcal.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\GusHansen\Desktop\semestorprojekt2\semestor-projekt-2\arm\path\repsetory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\GusHansen\Desktop\semestorprojekt2\semestor-projekt-2\arm\path\ObjDet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\GusHansen\Desktop\semestorprojekt2\semestor-projekt-2\arm\path\ur_kin.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\GusHansen\Desktop\semestorprojekt2\semestor-projekt-2\arm\path\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Natvis Include="C:\vcpkg\installed\x64-windows\share\boost-1.90.0\assert\boost_assert.natvis" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{D5D34655-59D5-371D-B303-F488CCE071DF}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
