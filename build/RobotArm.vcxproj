@@ -441,7 +441,6 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="C:\Users\GusHansen\Desktop\semestorprojekt2\semestor-projekt-2\arm\path\PathFinder.cpp" />
     <ClCompile Include="C:\Users\GusHansen\Desktop\semestorprojekt2\semestor-projekt-2\arm\path\IKcal.cpp" />
     <ClCompile Include="C:\Users\GusHansen\Desktop\semestorprojekt2\semestor-projekt-2\arm\path\repsetory.cpp" />
-    <ClCompile Include="C:\Users\GusHansen\Desktop\semestorprojekt2\semestor-projekt-2\arm\path\ObjDet.cpp" />
     <ClCompile Include="C:\Users\GusHansen\Desktop\semestorprojekt2\semestor-projekt-2\arm\path\ur_kin.cpp" />
     <Natvis Include="C:\vcpkg\installed\x64-windows\share\boost-1.90.0\assert\boost_assert.natvis">
     </Natvis>

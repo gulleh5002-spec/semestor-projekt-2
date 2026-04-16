@@ -48,15 +48,15 @@ std::vector<std::vector<double>> PathFinder::resolutionpath(std::vector<double> 
 
 }
 
-std::vector<std::vector<double>> PathFinder::obstacalcheck(std::vector<std::vector<double>> path)
-{
+//std::vector<std::vector<double>> PathFinder::obstacalcheck(std::vector<std::vector<double>> path)
+//{
    // std::vector<std::vector<double>> newPath;
     //for (int i = 0; i < obstiacals.size(); i++)
    // {
     //    newPath = obstiacals[i].objektAvoid(path, tcpRadius);
     //}
   //  return newPath;
-}
+//}
 
 std::vector<std::vector<std::vector<double>>> PathFinder::getPreferedInvseKinamtikSoltions(std::vector<std::vector<double>> points)
 {
@@ -75,6 +75,7 @@ std::vector<std::vector<std::vector<double>>> PathFinder::getPreferedInvseKinamt
         }
         else
         {
+            std::cout << "full" << std::endl;
             std::vector <std::vector<double>>sortetdList = solutuonSorter(JointList, "albowOp");
             preferedJointsList.push_back(sortetdList);
 

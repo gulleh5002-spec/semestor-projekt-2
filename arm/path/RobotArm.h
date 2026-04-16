@@ -3,6 +3,7 @@
 #define _USE_MATH_DEFINES
 #include "PathFinder.h"
 #include "repsetory.h"
+#include "IKcal.h"
 #include <cmath>
 #include <iostream>
 #include <string>
@@ -38,6 +39,7 @@ private:
   ur_rtde::RTDEControlInterface rtde_c;
   PathFinder pf;
   repsetory repsetory;
+  IKcal IKcal;
 };
 
 // regn på albuernes postioner og sørgde for der ikke kommer koliktions med

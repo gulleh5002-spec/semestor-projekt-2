@@ -28,11 +28,14 @@ void RobotArm::movetool(std::vector<double> koordinat, double speed, double acce
     
     std::vector<double> startPose = rtde_r.getActualTCPPose();
     std::vector<double> StartAngle = rtde_r.getActualQ();
-    startPose[0] -= tcp[0];
-    startPose[1] -= tcp[1];
-    startPose[2] -= tcp[2];
+    Eigen::Matrix4d startPose_T = IKcal.AngelPoseToTransform(startPose);
+    
 
-
+    startPose[0] = startPose_T(0, 3);
+    startPose[1] = startPose_T(1, 3);
+    startPose[2] = startPose_T(2, 3);
+    
+    std::cout << "startPose: " << startPose[0] << ", " << startPose[1] << ", " << startPose[2] << std::endl;
 
 
     std::vector<std::vector<double>> joints = pf.findPath(startPose, koordinat, StartAngle);

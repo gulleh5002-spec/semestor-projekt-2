@@ -78,7 +78,7 @@ events:
       The output was:
       0
       MSBuild version 18.4.0+6e61e96ac for .NET Framework
-      Build started 16-04-2026 13:17:12.
+      Build started 16-04-2026 13:29:39.
       
       Project "C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\4.3.0-rc2\\CompilerIdC\\CompilerIdC.vcxproj" on node 1 (default targets).
       PrepareForBuild:
@@ -116,7 +116,7 @@ events:
           0 Warning(s)
           0 Error(s)
       
-      Time Elapsed 00:00:01.54
+      Time Elapsed 00:00:01.49
       
       
       Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.exe"
@@ -645,7 +645,7 @@ events:
       The output was:
       0
       MSBuild version 18.4.0+6e61e96ac for .NET Framework
-      Build started 16-04-2026 13:17:14.
+      Build started 16-04-2026 13:29:40.
       
       Project "C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\4.3.0-rc2\\CompilerIdCXX\\CompilerIdCXX.vcxproj" on node 1 (default targets).
       PrepareForBuild:
@@ -683,7 +683,7 @@ events:
           0 Warning(s)
           0 Error(s)
       
-      Time Elapsed 00:00:01.33
+      Time Elapsed 00:00:01.35
       
       
       Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
@@ -995,8 +995,8 @@ events:
     checks:
       - "Detecting C compiler ABI info"
     directories:
-      source: "C:/Users/GusHansen/Desktop/semestorprojekt2/semestor-projekt-2/arm/path/build/CMakeFiles/CMakeScratch/TryCompile-d2d1pi"
-      binary: "C:/Users/GusHansen/Desktop/semestorprojekt2/semestor-projekt-2/arm/path/build/CMakeFiles/CMakeScratch/TryCompile-d2d1pi"
+      source: "C:/Users/GusHansen/Desktop/semestorprojekt2/semestor-projekt-2/arm/path/build/CMakeFiles/CMakeScratch/TryCompile-oqu77u"
+      binary: "C:/Users/GusHansen/Desktop/semestorprojekt2/semestor-projekt-2/arm/path/build/CMakeFiles/CMakeScratch/TryCompile-oqu77u"
     cmakeVariables:
       CMAKE_CXX_STDLIB_MODULES_JSON: ""
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
@@ -1006,48 +1006,48 @@ events:
       variable: "CMAKE_C_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/GusHansen/Desktop/semestorprojekt2/semestor-projekt-2/arm/path/build/CMakeFiles/CMakeScratch/TryCompile-d2d1pi'
+        Change Dir: 'C:/Users/GusHansen/Desktop/semestorprojekt2/semestor-projekt-2/arm/path/build/CMakeFiles/CMakeScratch/TryCompile-oqu77u'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/18/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_0f58c.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=18.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/18/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_600dd.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=18.0 /v:n
         MSBuild version 18.4.0+6e61e96ac for .NET Framework
-        Build started 16-04-2026 13:17:15.
+        Build started 16-04-2026 13:29:42.
         
-        Project "C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-d2d1pi\\cmTC_0f58c.vcxproj" on node 1 (default targets).
+        Project "C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-oqu77u\\cmTC_600dd.vcxproj" on node 1 (default targets).
         PrepareForBuild:
           Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
-          Creating directory "C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-d2d1pi\\Debug\\".
-          Creating directory "cmTC_0f58c.dir\\Debug\\cmTC_0f58c.tlog\\".
+          Creating directory "C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-oqu77u\\Debug\\".
+          Creating directory "cmTC_600dd.dir\\Debug\\cmTC_600dd.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_0f58c.dir\\Debug\\cmTC_0f58c.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
-          Touching "cmTC_0f58c.dir\\Debug\\cmTC_0f58c.tlog\\unsuccessfulbuild".
+          Creating "cmTC_600dd.dir\\Debug\\cmTC_600dd.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_600dd.dir\\Debug\\cmTC_600dd.tlog\\unsuccessfulbuild".
         VcpkgTripletSelection:
           Using triplet "x64-windows" from "C:\\vcpkg\\installed\\x64-windows\\"
           Using normalized configuration "Debug"
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x64\\CL.exe /c /I"C:\\vcpkg\\installed\\x64-windows\\include" /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_0f58c.dir\\Debug\\\\" /Fd"cmTC_0f58c.dir\\Debug\\vc145.pdb" /external:W1 /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.3\\Modules\\CMakeCCompilerABI.c"
+          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x64\\CL.exe /c /I"C:\\vcpkg\\installed\\x64-windows\\include" /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_600dd.dir\\Debug\\\\" /Fd"cmTC_600dd.dir\\Debug\\vc145.pdb" /external:W1 /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.3\\Modules\\CMakeCCompilerABI.c"
           Microsoft (R) C/C++ Optimizing Compiler Version 19.50.35728 for x64
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /I"C:\\vcpkg\\installed\\x64-windows\\include" /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_0f58c.dir\\Debug\\\\" /Fd"cmTC_0f58c.dir\\Debug\\vc145.pdb" /external:W1 /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.3\\Modules\\CMakeCCompilerABI.c"
+          cl /c /I"C:\\vcpkg\\installed\\x64-windows\\include" /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_600dd.dir\\Debug\\\\" /Fd"cmTC_600dd.dir\\Debug\\vc145.pdb" /external:W1 /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.3\\Modules\\CMakeCCompilerABI.c"
           CMakeCCompilerABI.c
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-d2d1pi\\Debug\\cmTC_0f58c.exe" /INCREMENTAL /ILK:"cmTC_0f58c.dir\\Debug\\cmTC_0f58c.ilk" /NOLOGO /LIBPATH:"C:\\vcpkg\\installed\\x64-windows\\debug\\lib" /LIBPATH:"C:\\vcpkg\\installed\\x64-windows\\debug\\lib\\manual-link" kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib "C:\\vcpkg\\installed\\x64-windows\\debug\\lib\\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/GusHansen/Desktop/semestorprojekt2/semestor-projekt-2/arm/path/build/CMakeFiles/CMakeScratch/TryCompile-d2d1pi/Debug/cmTC_0f58c.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/GusHansen/Desktop/semestorprojekt2/semestor-projekt-2/arm/path/build/CMakeFiles/CMakeScratch/TryCompile-d2d1pi/Debug/cmTC_0f58c.lib" /MACHINE:X64  /machine:x64 cmTC_0f58c.dir\\Debug\\CMakeCCompilerABI.obj
-          cmTC_0f58c.vcxproj -> C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-d2d1pi\\Debug\\cmTC_0f58c.exe
+          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-oqu77u\\Debug\\cmTC_600dd.exe" /INCREMENTAL /ILK:"cmTC_600dd.dir\\Debug\\cmTC_600dd.ilk" /NOLOGO /LIBPATH:"C:\\vcpkg\\installed\\x64-windows\\debug\\lib" /LIBPATH:"C:\\vcpkg\\installed\\x64-windows\\debug\\lib\\manual-link" kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib "C:\\vcpkg\\installed\\x64-windows\\debug\\lib\\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/GusHansen/Desktop/semestorprojekt2/semestor-projekt-2/arm/path/build/CMakeFiles/CMakeScratch/TryCompile-oqu77u/Debug/cmTC_600dd.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/GusHansen/Desktop/semestorprojekt2/semestor-projekt-2/arm/path/build/CMakeFiles/CMakeScratch/TryCompile-oqu77u/Debug/cmTC_600dd.lib" /MACHINE:X64  /machine:x64 cmTC_600dd.dir\\Debug\\CMakeCCompilerABI.obj
+          cmTC_600dd.vcxproj -> C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-oqu77u\\Debug\\cmTC_600dd.exe
         AppLocalFromInstalled:
-          pwsh.exe -ExecutionPolicy Bypass -noprofile -File "C:\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-d2d1pi\\Debug\\cmTC_0f58c.exe" "C:\\vcpkg\\installed\\x64-windows\\debug\\bin" "cmTC_0f58c.dir\\Debug\\cmTC_0f58c.tlog\\cmTC_0f58c.write.1u.tlog" "cmTC_0f58c.dir\\Debug\\vcpkg.applocal.log"
+          pwsh.exe -ExecutionPolicy Bypass -noprofile -File "C:\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-oqu77u\\Debug\\cmTC_600dd.exe" "C:\\vcpkg\\installed\\x64-windows\\debug\\bin" "cmTC_600dd.dir\\Debug\\cmTC_600dd.tlog\\cmTC_600dd.write.1u.tlog" "cmTC_600dd.dir\\Debug\\vcpkg.applocal.log"
           'pwsh.exe' is not recognized as an internal or external command,
           operable program or batch file.
-          The command "pwsh.exe -ExecutionPolicy Bypass -noprofile -File "C:\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-d2d1pi\\Debug\\cmTC_0f58c.exe" "C:\\vcpkg\\installed\\x64-windows\\debug\\bin" "cmTC_0f58c.dir\\Debug\\cmTC_0f58c.tlog\\cmTC_0f58c.write.1u.tlog" "cmTC_0f58c.dir\\Debug\\vcpkg.applocal.log"" exited with code 9009.
-          "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -ExecutionPolicy Bypass -noprofile -File "C:\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-d2d1pi\\Debug\\cmTC_0f58c.exe" "C:\\vcpkg\\installed\\x64-windows\\debug\\bin" "cmTC_0f58c.dir\\Debug\\cmTC_0f58c.tlog\\cmTC_0f58c.write.1u.tlog" "cmTC_0f58c.dir\\Debug\\vcpkg.applocal.log"
+          The command "pwsh.exe -ExecutionPolicy Bypass -noprofile -File "C:\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-oqu77u\\Debug\\cmTC_600dd.exe" "C:\\vcpkg\\installed\\x64-windows\\debug\\bin" "cmTC_600dd.dir\\Debug\\cmTC_600dd.tlog\\cmTC_600dd.write.1u.tlog" "cmTC_600dd.dir\\Debug\\vcpkg.applocal.log"" exited with code 9009.
+          "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -ExecutionPolicy Bypass -noprofile -File "C:\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-oqu77u\\Debug\\cmTC_600dd.exe" "C:\\vcpkg\\installed\\x64-windows\\debug\\bin" "cmTC_600dd.dir\\Debug\\cmTC_600dd.tlog\\cmTC_600dd.write.1u.tlog" "cmTC_600dd.dir\\Debug\\vcpkg.applocal.log"
         FinalizeBuildStatus:
-          Deleting file "cmTC_0f58c.dir\\Debug\\cmTC_0f58c.tlog\\unsuccessfulbuild".
-          Touching "cmTC_0f58c.dir\\Debug\\cmTC_0f58c.tlog\\cmTC_0f58c.lastbuildstate".
-        Done Building Project "C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-d2d1pi\\cmTC_0f58c.vcxproj" (default targets).
+          Deleting file "cmTC_600dd.dir\\Debug\\cmTC_600dd.tlog\\unsuccessfulbuild".
+          Touching "cmTC_600dd.dir\\Debug\\cmTC_600dd.tlog\\cmTC_600dd.lastbuildstate".
+        Done Building Project "C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-oqu77u\\cmTC_600dd.vcxproj" (default targets).
         
         Build succeeded.
             0 Warning(s)
             0 Error(s)
         
-        Time Elapsed 00:00:01.43
+        Time Elapsed 00:00:01.56
         
       exitCode: 0
   -
@@ -1087,8 +1087,8 @@ events:
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "C:/Users/GusHansen/Desktop/semestorprojekt2/semestor-projekt-2/arm/path/build/CMakeFiles/CMakeScratch/TryCompile-kjtd3o"
-      binary: "C:/Users/GusHansen/Desktop/semestorprojekt2/semestor-projekt-2/arm/path/build/CMakeFiles/CMakeScratch/TryCompile-kjtd3o"
+      source: "C:/Users/GusHansen/Desktop/semestorprojekt2/semestor-projekt-2/arm/path/build/CMakeFiles/CMakeScratch/TryCompile-r4j5za"
+      binary: "C:/Users/GusHansen/Desktop/semestorprojekt2/semestor-projekt-2/arm/path/build/CMakeFiles/CMakeScratch/TryCompile-r4j5za"
     cmakeVariables:
       CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /GR /EHsc"
       CMAKE_CXX_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
@@ -1099,48 +1099,48 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/GusHansen/Desktop/semestorprojekt2/semestor-projekt-2/arm/path/build/CMakeFiles/CMakeScratch/TryCompile-kjtd3o'
+        Change Dir: 'C:/Users/GusHansen/Desktop/semestorprojekt2/semestor-projekt-2/arm/path/build/CMakeFiles/CMakeScratch/TryCompile-r4j5za'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/18/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_15b29.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=18.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/18/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_d490c.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=18.0 /v:n
         MSBuild version 18.4.0+6e61e96ac for .NET Framework
-        Build started 16-04-2026 13:17:17.
+        Build started 16-04-2026 13:29:44.
         
-        Project "C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-kjtd3o\\cmTC_15b29.vcxproj" on node 1 (default targets).
+        Project "C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-r4j5za\\cmTC_d490c.vcxproj" on node 1 (default targets).
         PrepareForBuild:
           Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
-          Creating directory "C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-kjtd3o\\Debug\\".
-          Creating directory "cmTC_15b29.dir\\Debug\\cmTC_15b29.tlog\\".
+          Creating directory "C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-r4j5za\\Debug\\".
+          Creating directory "cmTC_d490c.dir\\Debug\\cmTC_d490c.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_15b29.dir\\Debug\\cmTC_15b29.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
-          Touching "cmTC_15b29.dir\\Debug\\cmTC_15b29.tlog\\unsuccessfulbuild".
+          Creating "cmTC_d490c.dir\\Debug\\cmTC_d490c.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_d490c.dir\\Debug\\cmTC_d490c.tlog\\unsuccessfulbuild".
         VcpkgTripletSelection:
           Using triplet "x64-windows" from "C:\\vcpkg\\installed\\x64-windows\\"
           Using normalized configuration "Debug"
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x64\\CL.exe /c /I"C:\\vcpkg\\installed\\x64-windows\\include" /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GR /Fo"cmTC_15b29.dir\\Debug\\\\" /Fd"cmTC_15b29.dir\\Debug\\vc145.pdb" /external:W1 /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.3\\Modules\\CMakeCXXCompilerABI.cpp"
+          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x64\\CL.exe /c /I"C:\\vcpkg\\installed\\x64-windows\\include" /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GR /Fo"cmTC_d490c.dir\\Debug\\\\" /Fd"cmTC_d490c.dir\\Debug\\vc145.pdb" /external:W1 /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.3\\Modules\\CMakeCXXCompilerABI.cpp"
           Microsoft (R) C/C++ Optimizing Compiler Version 19.50.35728 for x64
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /I"C:\\vcpkg\\installed\\x64-windows\\include" /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GR /Fo"cmTC_15b29.dir\\Debug\\\\" /Fd"cmTC_15b29.dir\\Debug\\vc145.pdb" /external:W1 /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.3\\Modules\\CMakeCXXCompilerABI.cpp"
+          cl /c /I"C:\\vcpkg\\installed\\x64-windows\\include" /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GR /Fo"cmTC_d490c.dir\\Debug\\\\" /Fd"cmTC_d490c.dir\\Debug\\vc145.pdb" /external:W1 /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.3\\Modules\\CMakeCXXCompilerABI.cpp"
           CMakeCXXCompilerABI.cpp
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-kjtd3o\\Debug\\cmTC_15b29.exe" /INCREMENTAL /ILK:"cmTC_15b29.dir\\Debug\\cmTC_15b29.ilk" /NOLOGO /LIBPATH:"C:\\vcpkg\\installed\\x64-windows\\debug\\lib" /LIBPATH:"C:\\vcpkg\\installed\\x64-windows\\debug\\lib\\manual-link" kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib "C:\\vcpkg\\installed\\x64-windows\\debug\\lib\\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/GusHansen/Desktop/semestorprojekt2/semestor-projekt-2/arm/path/build/CMakeFiles/CMakeScratch/TryCompile-kjtd3o/Debug/cmTC_15b29.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/GusHansen/Desktop/semestorprojekt2/semestor-projekt-2/arm/path/build/CMakeFiles/CMakeScratch/TryCompile-kjtd3o/Debug/cmTC_15b29.lib" /MACHINE:X64  /machine:x64 cmTC_15b29.dir\\Debug\\CMakeCXXCompilerABI.obj
-          cmTC_15b29.vcxproj -> C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-kjtd3o\\Debug\\cmTC_15b29.exe
+          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-r4j5za\\Debug\\cmTC_d490c.exe" /INCREMENTAL /ILK:"cmTC_d490c.dir\\Debug\\cmTC_d490c.ilk" /NOLOGO /LIBPATH:"C:\\vcpkg\\installed\\x64-windows\\debug\\lib" /LIBPATH:"C:\\vcpkg\\installed\\x64-windows\\debug\\lib\\manual-link" kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib "C:\\vcpkg\\installed\\x64-windows\\debug\\lib\\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/GusHansen/Desktop/semestorprojekt2/semestor-projekt-2/arm/path/build/CMakeFiles/CMakeScratch/TryCompile-r4j5za/Debug/cmTC_d490c.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/GusHansen/Desktop/semestorprojekt2/semestor-projekt-2/arm/path/build/CMakeFiles/CMakeScratch/TryCompile-r4j5za/Debug/cmTC_d490c.lib" /MACHINE:X64  /machine:x64 cmTC_d490c.dir\\Debug\\CMakeCXXCompilerABI.obj
+          cmTC_d490c.vcxproj -> C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-r4j5za\\Debug\\cmTC_d490c.exe
         AppLocalFromInstalled:
-          pwsh.exe -ExecutionPolicy Bypass -noprofile -File "C:\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-kjtd3o\\Debug\\cmTC_15b29.exe" "C:\\vcpkg\\installed\\x64-windows\\debug\\bin" "cmTC_15b29.dir\\Debug\\cmTC_15b29.tlog\\cmTC_15b29.write.1u.tlog" "cmTC_15b29.dir\\Debug\\vcpkg.applocal.log"
+          pwsh.exe -ExecutionPolicy Bypass -noprofile -File "C:\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-r4j5za\\Debug\\cmTC_d490c.exe" "C:\\vcpkg\\installed\\x64-windows\\debug\\bin" "cmTC_d490c.dir\\Debug\\cmTC_d490c.tlog\\cmTC_d490c.write.1u.tlog" "cmTC_d490c.dir\\Debug\\vcpkg.applocal.log"
           'pwsh.exe' is not recognized as an internal or external command,
           operable program or batch file.
-          The command "pwsh.exe -ExecutionPolicy Bypass -noprofile -File "C:\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-kjtd3o\\Debug\\cmTC_15b29.exe" "C:\\vcpkg\\installed\\x64-windows\\debug\\bin" "cmTC_15b29.dir\\Debug\\cmTC_15b29.tlog\\cmTC_15b29.write.1u.tlog" "cmTC_15b29.dir\\Debug\\vcpkg.applocal.log"" exited with code 9009.
-          "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -ExecutionPolicy Bypass -noprofile -File "C:\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-kjtd3o\\Debug\\cmTC_15b29.exe" "C:\\vcpkg\\installed\\x64-windows\\debug\\bin" "cmTC_15b29.dir\\Debug\\cmTC_15b29.tlog\\cmTC_15b29.write.1u.tlog" "cmTC_15b29.dir\\Debug\\vcpkg.applocal.log"
+          The command "pwsh.exe -ExecutionPolicy Bypass -noprofile -File "C:\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-r4j5za\\Debug\\cmTC_d490c.exe" "C:\\vcpkg\\installed\\x64-windows\\debug\\bin" "cmTC_d490c.dir\\Debug\\cmTC_d490c.tlog\\cmTC_d490c.write.1u.tlog" "cmTC_d490c.dir\\Debug\\vcpkg.applocal.log"" exited with code 9009.
+          "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -ExecutionPolicy Bypass -noprofile -File "C:\\vcpkg\\scripts\\buildsystems\\msbuild\\applocal.ps1" "C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-r4j5za\\Debug\\cmTC_d490c.exe" "C:\\vcpkg\\installed\\x64-windows\\debug\\bin" "cmTC_d490c.dir\\Debug\\cmTC_d490c.tlog\\cmTC_d490c.write.1u.tlog" "cmTC_d490c.dir\\Debug\\vcpkg.applocal.log"
         FinalizeBuildStatus:
-          Deleting file "cmTC_15b29.dir\\Debug\\cmTC_15b29.tlog\\unsuccessfulbuild".
-          Touching "cmTC_15b29.dir\\Debug\\cmTC_15b29.tlog\\cmTC_15b29.lastbuildstate".
-        Done Building Project "C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-kjtd3o\\cmTC_15b29.vcxproj" (default targets).
+          Deleting file "cmTC_d490c.dir\\Debug\\cmTC_d490c.tlog\\unsuccessfulbuild".
+          Touching "cmTC_d490c.dir\\Debug\\cmTC_d490c.tlog\\cmTC_d490c.lastbuildstate".
+        Done Building Project "C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-r4j5za\\cmTC_d490c.vcxproj" (default targets).
         
         Build succeeded.
             0 Warning(s)
             0 Error(s)
         
-        Time Elapsed 00:00:01.26
+        Time Elapsed 00:00:01.48
         
       exitCode: 0
   -
@@ -2978,8 +2978,8 @@ events:
       - "C:/Users/GusHansen/ur_rtde/build/ur_rtde/ur_rtdeConfig.cmake:75 (find_package)"
       - "CMakeLists.txt:12 (find_package)"
     directories:
-      source: "C:/Users/GusHansen/Desktop/semestorprojekt2/semestor-projekt-2/arm/path/build/CMakeFiles/CMakeScratch/TryCompile-hk6skf"
-      binary: "C:/Users/GusHansen/Desktop/semestorprojekt2/semestor-projekt-2/arm/path/build/CMakeFiles/CMakeScratch/TryCompile-hk6skf"
+      source: "C:/Users/GusHansen/Desktop/semestorprojekt2/semestor-projekt-2/arm/path/build/CMakeFiles/CMakeScratch/TryCompile-sei6xc"
+      binary: "C:/Users/GusHansen/Desktop/semestorprojekt2/semestor-projekt-2/arm/path/build/CMakeFiles/CMakeScratch/TryCompile-sei6xc"
     cmakeVariables:
       CMAKE_CXX_STDLIB_MODULES_JSON: ""
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
@@ -2989,42 +2989,42 @@ events:
       variable: "CMAKE_HAVE_LIBC_PTHREAD"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/GusHansen/Desktop/semestorprojekt2/semestor-projekt-2/arm/path/build/CMakeFiles/CMakeScratch/TryCompile-hk6skf'
+        Change Dir: 'C:/Users/GusHansen/Desktop/semestorprojekt2/semestor-projekt-2/arm/path/build/CMakeFiles/CMakeScratch/TryCompile-sei6xc'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/18/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_f4c80.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=18.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/18/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_9febb.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=18.0 /v:n
         MSBuild version 18.4.0+6e61e96ac for .NET Framework
-        Build started 16-04-2026 13:17:19.
+        Build started 16-04-2026 13:29:46.
         
-        Project "C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-hk6skf\\cmTC_f4c80.vcxproj" on node 1 (default targets).
+        Project "C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-sei6xc\\cmTC_9febb.vcxproj" on node 1 (default targets).
         PrepareForBuild:
           Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
-          Creating directory "C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-hk6skf\\Debug\\".
-          Creating directory "cmTC_f4c80.dir\\Debug\\cmTC_f4c80.tlog\\".
+          Creating directory "C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-sei6xc\\Debug\\".
+          Creating directory "cmTC_9febb.dir\\Debug\\cmTC_9febb.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_f4c80.dir\\Debug\\cmTC_f4c80.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
-          Touching "cmTC_f4c80.dir\\Debug\\cmTC_f4c80.tlog\\unsuccessfulbuild".
+          Creating "cmTC_9febb.dir\\Debug\\cmTC_9febb.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_9febb.dir\\Debug\\cmTC_9febb.tlog\\unsuccessfulbuild".
         VcpkgTripletSelection:
           Using triplet "x64-windows" from "C:\\vcpkg\\installed\\x64-windows\\"
           Using normalized configuration "Debug"
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x64\\CL.exe /c /I"C:\\vcpkg\\installed\\x64-windows\\include" /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CMAKE_HAVE_LIBC_PTHREAD /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_f4c80.dir\\Debug\\\\" /Fd"cmTC_f4c80.dir\\Debug\\vc145.pdb" /external:W1 /TC /errorReport:queue "C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-hk6skf\\src.c"
+          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x64\\CL.exe /c /I"C:\\vcpkg\\installed\\x64-windows\\include" /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CMAKE_HAVE_LIBC_PTHREAD /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_9febb.dir\\Debug\\\\" /Fd"cmTC_9febb.dir\\Debug\\vc145.pdb" /external:W1 /TC /errorReport:queue "C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-sei6xc\\src.c"
           Microsoft (R) C/C++ Optimizing Compiler Version 19.50.35728 for x64
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /I"C:\\vcpkg\\installed\\x64-windows\\include" /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CMAKE_HAVE_LIBC_PTHREAD /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_f4c80.dir\\Debug\\\\" /Fd"cmTC_f4c80.dir\\Debug\\vc145.pdb" /external:W1 /TC /errorReport:queue "C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-hk6skf\\src.c"
+          cl /c /I"C:\\vcpkg\\installed\\x64-windows\\include" /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CMAKE_HAVE_LIBC_PTHREAD /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_9febb.dir\\Debug\\\\" /Fd"cmTC_9febb.dir\\Debug\\vc145.pdb" /external:W1 /TC /errorReport:queue "C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-sei6xc\\src.c"
           src.c
-        C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-hk6skf\\src.c(1,10): error C1083: Cannot open include file: 'pthread.h': No such file or directory [C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-hk6skf\\cmTC_f4c80.vcxproj]
-        Done Building Project "C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-hk6skf\\cmTC_f4c80.vcxproj" (default targets) -- FAILED.
+        C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-sei6xc\\src.c(1,10): error C1083: Cannot open include file: 'pthread.h': No such file or directory [C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-sei6xc\\cmTC_9febb.vcxproj]
+        Done Building Project "C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-sei6xc\\cmTC_9febb.vcxproj" (default targets) -- FAILED.
         
         Build FAILED.
         
-        "C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-hk6skf\\cmTC_f4c80.vcxproj" (default target) (1) ->
+        "C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-sei6xc\\cmTC_9febb.vcxproj" (default target) (1) ->
         (ClCompile target) -> 
-          C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-hk6skf\\src.c(1,10): error C1083: Cannot open include file: 'pthread.h': No such file or directory [C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-hk6skf\\cmTC_f4c80.vcxproj]
+          C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-sei6xc\\src.c(1,10): error C1083: Cannot open include file: 'pthread.h': No such file or directory [C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-sei6xc\\cmTC_9febb.vcxproj]
         
             0 Warning(s)
             1 Error(s)
         
-        Time Elapsed 00:00:00.37
+        Time Elapsed 00:00:00.46
         
       exitCode: 1
   -
@@ -3045,8 +3045,8 @@ events:
       - "C:/Users/GusHansen/ur_rtde/build/ur_rtde/ur_rtdeConfig.cmake:75 (find_package)"
       - "CMakeLists.txt:12 (find_package)"
     directories:
-      source: "C:/Users/GusHansen/Desktop/semestorprojekt2/semestor-projekt-2/arm/path/build/CMakeFiles/CMakeScratch/TryCompile-6y790m"
-      binary: "C:/Users/GusHansen/Desktop/semestorprojekt2/semestor-projekt-2/arm/path/build/CMakeFiles/CMakeScratch/TryCompile-6y790m"
+      source: "C:/Users/GusHansen/Desktop/semestorprojekt2/semestor-projekt-2/arm/path/build/CMakeFiles/CMakeScratch/TryCompile-u07o8m"
+      binary: "C:/Users/GusHansen/Desktop/semestorprojekt2/semestor-projekt-2/arm/path/build/CMakeFiles/CMakeScratch/TryCompile-u07o8m"
     cmakeVariables:
       CMAKE_CXX_STDLIB_MODULES_JSON: ""
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
@@ -3056,44 +3056,44 @@ events:
       variable: "CMAKE_HAVE_PTHREADS_CREATE"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/GusHansen/Desktop/semestorprojekt2/semestor-projekt-2/arm/path/build/CMakeFiles/CMakeScratch/TryCompile-6y790m'
+        Change Dir: 'C:/Users/GusHansen/Desktop/semestorprojekt2/semestor-projekt-2/arm/path/build/CMakeFiles/CMakeScratch/TryCompile-u07o8m'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/18/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_9340f.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=18.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/18/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_865f0.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=18.0 /v:n
         MSBuild version 18.4.0+6e61e96ac for .NET Framework
-        Build started 16-04-2026 13:17:19.
+        Build started 16-04-2026 13:29:46.
         
-        Project "C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-6y790m\\cmTC_9340f.vcxproj" on node 1 (default targets).
+        Project "C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-u07o8m\\cmTC_865f0.vcxproj" on node 1 (default targets).
         PrepareForBuild:
           Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
-          Creating directory "C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-6y790m\\Debug\\".
-          Creating directory "cmTC_9340f.dir\\Debug\\cmTC_9340f.tlog\\".
+          Creating directory "C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-u07o8m\\Debug\\".
+          Creating directory "cmTC_865f0.dir\\Debug\\cmTC_865f0.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_9340f.dir\\Debug\\cmTC_9340f.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
-          Touching "cmTC_9340f.dir\\Debug\\cmTC_9340f.tlog\\unsuccessfulbuild".
+          Creating "cmTC_865f0.dir\\Debug\\cmTC_865f0.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_865f0.dir\\Debug\\cmTC_865f0.tlog\\unsuccessfulbuild".
         VcpkgTripletSelection:
           Using triplet "x64-windows" from "C:\\vcpkg\\installed\\x64-windows\\"
           Using normalized configuration "Debug"
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x64\\CL.exe /c /I"C:\\vcpkg\\installed\\x64-windows\\include" /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_9340f.dir\\Debug\\\\" /Fd"cmTC_9340f.dir\\Debug\\vc145.pdb" /external:W1 /TC /errorReport:queue "C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-6y790m\\CheckFunctionExists.c"
+          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x64\\CL.exe /c /I"C:\\vcpkg\\installed\\x64-windows\\include" /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_865f0.dir\\Debug\\\\" /Fd"cmTC_865f0.dir\\Debug\\vc145.pdb" /external:W1 /TC /errorReport:queue "C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-u07o8m\\CheckFunctionExists.c"
           Microsoft (R) C/C++ Optimizing Compiler Version 19.50.35728 for x64
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /I"C:\\vcpkg\\installed\\x64-windows\\include" /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_9340f.dir\\Debug\\\\" /Fd"cmTC_9340f.dir\\Debug\\vc145.pdb" /external:W1 /TC /errorReport:queue "C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-6y790m\\CheckFunctionExists.c"
+          cl /c /I"C:\\vcpkg\\installed\\x64-windows\\include" /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_865f0.dir\\Debug\\\\" /Fd"cmTC_865f0.dir\\Debug\\vc145.pdb" /external:W1 /TC /errorReport:queue "C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-u07o8m\\CheckFunctionExists.c"
           CheckFunctionExists.c
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-6y790m\\Debug\\cmTC_9340f.exe" /INCREMENTAL /ILK:"cmTC_9340f.dir\\Debug\\cmTC_9340f.ilk" /NOLOGO /LIBPATH:"C:\\vcpkg\\installed\\x64-windows\\debug\\lib" /LIBPATH:"C:\\vcpkg\\installed\\x64-windows\\debug\\lib\\manual-link" pthreads.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib "C:\\vcpkg\\installed\\x64-windows\\debug\\lib\\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/GusHansen/Desktop/semestorprojekt2/semestor-projekt-2/arm/path/build/CMakeFiles/CMakeScratch/TryCompile-6y790m/Debug/cmTC_9340f.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/GusHansen/Desktop/semestorprojekt2/semestor-projekt-2/arm/path/build/CMakeFiles/CMakeScratch/TryCompile-6y790m/Debug/cmTC_9340f.lib" /MACHINE:X64  /machine:x64 cmTC_9340f.dir\\Debug\\CheckFunctionExists.obj
-        LINK : fatal error LNK1104: cannot open file 'pthreads.lib' [C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-6y790m\\cmTC_9340f.vcxproj]
-        Done Building Project "C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-6y790m\\cmTC_9340f.vcxproj" (default targets) -- FAILED.
+          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-u07o8m\\Debug\\cmTC_865f0.exe" /INCREMENTAL /ILK:"cmTC_865f0.dir\\Debug\\cmTC_865f0.ilk" /NOLOGO /LIBPATH:"C:\\vcpkg\\installed\\x64-windows\\debug\\lib" /LIBPATH:"C:\\vcpkg\\installed\\x64-windows\\debug\\lib\\manual-link" pthreads.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib "C:\\vcpkg\\installed\\x64-windows\\debug\\lib\\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/GusHansen/Desktop/semestorprojekt2/semestor-projekt-2/arm/path/build/CMakeFiles/CMakeScratch/TryCompile-u07o8m/Debug/cmTC_865f0.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/GusHansen/Desktop/semestorprojekt2/semestor-projekt-2/arm/path/build/CMakeFiles/CMakeScratch/TryCompile-u07o8m/Debug/cmTC_865f0.lib" /MACHINE:X64  /machine:x64 cmTC_865f0.dir\\Debug\\CheckFunctionExists.obj
+        LINK : fatal error LNK1104: cannot open file 'pthreads.lib' [C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-u07o8m\\cmTC_865f0.vcxproj]
+        Done Building Project "C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-u07o8m\\cmTC_865f0.vcxproj" (default targets) -- FAILED.
         
         Build FAILED.
         
-        "C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-6y790m\\cmTC_9340f.vcxproj" (default target) (1) ->
+        "C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-u07o8m\\cmTC_865f0.vcxproj" (default target) (1) ->
         (Link target) -> 
-          LINK : fatal error LNK1104: cannot open file 'pthreads.lib' [C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-6y790m\\cmTC_9340f.vcxproj]
+          LINK : fatal error LNK1104: cannot open file 'pthreads.lib' [C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-u07o8m\\cmTC_865f0.vcxproj]
         
             0 Warning(s)
             1 Error(s)
         
-        Time Elapsed 00:00:00.56
+        Time Elapsed 00:00:00.59
         
       exitCode: 1
   -
@@ -3114,8 +3114,8 @@ events:
       - "C:/Users/GusHansen/ur_rtde/build/ur_rtde/ur_rtdeConfig.cmake:75 (find_package)"
       - "CMakeLists.txt:12 (find_package)"
     directories:
-      source: "C:/Users/GusHansen/Desktop/semestorprojekt2/semestor-projekt-2/arm/path/build/CMakeFiles/CMakeScratch/TryCompile-2920ta"
-      binary: "C:/Users/GusHansen/Desktop/semestorprojekt2/semestor-projekt-2/arm/path/build/CMakeFiles/CMakeScratch/TryCompile-2920ta"
+      source: "C:/Users/GusHansen/Desktop/semestorprojekt2/semestor-projekt-2/arm/path/build/CMakeFiles/CMakeScratch/TryCompile-wb8l5y"
+      binary: "C:/Users/GusHansen/Desktop/semestorprojekt2/semestor-projekt-2/arm/path/build/CMakeFiles/CMakeScratch/TryCompile-wb8l5y"
     cmakeVariables:
       CMAKE_CXX_STDLIB_MODULES_JSON: ""
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
@@ -3125,44 +3125,44 @@ events:
       variable: "CMAKE_HAVE_PTHREAD_CREATE"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/GusHansen/Desktop/semestorprojekt2/semestor-projekt-2/arm/path/build/CMakeFiles/CMakeScratch/TryCompile-2920ta'
+        Change Dir: 'C:/Users/GusHansen/Desktop/semestorprojekt2/semestor-projekt-2/arm/path/build/CMakeFiles/CMakeScratch/TryCompile-wb8l5y'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/18/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_66fbb.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=18.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/18/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_91bcc.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=18.0 /v:n
         MSBuild version 18.4.0+6e61e96ac for .NET Framework
-        Build started 16-04-2026 13:17:20.
+        Build started 16-04-2026 13:29:47.
         
-        Project "C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-2920ta\\cmTC_66fbb.vcxproj" on node 1 (default targets).
+        Project "C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-wb8l5y\\cmTC_91bcc.vcxproj" on node 1 (default targets).
         PrepareForBuild:
           Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
-          Creating directory "C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-2920ta\\Debug\\".
-          Creating directory "cmTC_66fbb.dir\\Debug\\cmTC_66fbb.tlog\\".
+          Creating directory "C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-wb8l5y\\Debug\\".
+          Creating directory "cmTC_91bcc.dir\\Debug\\cmTC_91bcc.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_66fbb.dir\\Debug\\cmTC_66fbb.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
-          Touching "cmTC_66fbb.dir\\Debug\\cmTC_66fbb.tlog\\unsuccessfulbuild".
+          Creating "cmTC_91bcc.dir\\Debug\\cmTC_91bcc.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_91bcc.dir\\Debug\\cmTC_91bcc.tlog\\unsuccessfulbuild".
         VcpkgTripletSelection:
           Using triplet "x64-windows" from "C:\\vcpkg\\installed\\x64-windows\\"
           Using normalized configuration "Debug"
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x64\\CL.exe /c /I"C:\\vcpkg\\installed\\x64-windows\\include" /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_66fbb.dir\\Debug\\\\" /Fd"cmTC_66fbb.dir\\Debug\\vc145.pdb" /external:W1 /TC /errorReport:queue "C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-2920ta\\CheckFunctionExists.c"
+          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x64\\CL.exe /c /I"C:\\vcpkg\\installed\\x64-windows\\include" /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_91bcc.dir\\Debug\\\\" /Fd"cmTC_91bcc.dir\\Debug\\vc145.pdb" /external:W1 /TC /errorReport:queue "C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-wb8l5y\\CheckFunctionExists.c"
           Microsoft (R) C/C++ Optimizing Compiler Version 19.50.35728 for x64
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /I"C:\\vcpkg\\installed\\x64-windows\\include" /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_66fbb.dir\\Debug\\\\" /Fd"cmTC_66fbb.dir\\Debug\\vc145.pdb" /external:W1 /TC /errorReport:queue "C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-2920ta\\CheckFunctionExists.c"
+          cl /c /I"C:\\vcpkg\\installed\\x64-windows\\include" /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_91bcc.dir\\Debug\\\\" /Fd"cmTC_91bcc.dir\\Debug\\vc145.pdb" /external:W1 /TC /errorReport:queue "C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-wb8l5y\\CheckFunctionExists.c"
           CheckFunctionExists.c
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-2920ta\\Debug\\cmTC_66fbb.exe" /INCREMENTAL /ILK:"cmTC_66fbb.dir\\Debug\\cmTC_66fbb.ilk" /NOLOGO /LIBPATH:"C:\\vcpkg\\installed\\x64-windows\\debug\\lib" /LIBPATH:"C:\\vcpkg\\installed\\x64-windows\\debug\\lib\\manual-link" pthread.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib "C:\\vcpkg\\installed\\x64-windows\\debug\\lib\\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/GusHansen/Desktop/semestorprojekt2/semestor-projekt-2/arm/path/build/CMakeFiles/CMakeScratch/TryCompile-2920ta/Debug/cmTC_66fbb.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/GusHansen/Desktop/semestorprojekt2/semestor-projekt-2/arm/path/build/CMakeFiles/CMakeScratch/TryCompile-2920ta/Debug/cmTC_66fbb.lib" /MACHINE:X64  /machine:x64 cmTC_66fbb.dir\\Debug\\CheckFunctionExists.obj
-        LINK : fatal error LNK1104: cannot open file 'pthread.lib' [C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-2920ta\\cmTC_66fbb.vcxproj]
-        Done Building Project "C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-2920ta\\cmTC_66fbb.vcxproj" (default targets) -- FAILED.
+          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-wb8l5y\\Debug\\cmTC_91bcc.exe" /INCREMENTAL /ILK:"cmTC_91bcc.dir\\Debug\\cmTC_91bcc.ilk" /NOLOGO /LIBPATH:"C:\\vcpkg\\installed\\x64-windows\\debug\\lib" /LIBPATH:"C:\\vcpkg\\installed\\x64-windows\\debug\\lib\\manual-link" pthread.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib "C:\\vcpkg\\installed\\x64-windows\\debug\\lib\\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/GusHansen/Desktop/semestorprojekt2/semestor-projekt-2/arm/path/build/CMakeFiles/CMakeScratch/TryCompile-wb8l5y/Debug/cmTC_91bcc.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/GusHansen/Desktop/semestorprojekt2/semestor-projekt-2/arm/path/build/CMakeFiles/CMakeScratch/TryCompile-wb8l5y/Debug/cmTC_91bcc.lib" /MACHINE:X64  /machine:x64 cmTC_91bcc.dir\\Debug\\CheckFunctionExists.obj
+        LINK : fatal error LNK1104: cannot open file 'pthread.lib' [C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-wb8l5y\\cmTC_91bcc.vcxproj]
+        Done Building Project "C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-wb8l5y\\cmTC_91bcc.vcxproj" (default targets) -- FAILED.
         
         Build FAILED.
         
-        "C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-2920ta\\cmTC_66fbb.vcxproj" (default target) (1) ->
+        "C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-wb8l5y\\cmTC_91bcc.vcxproj" (default target) (1) ->
         (Link target) -> 
-          LINK : fatal error LNK1104: cannot open file 'pthread.lib' [C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-2920ta\\cmTC_66fbb.vcxproj]
+          LINK : fatal error LNK1104: cannot open file 'pthread.lib' [C:\\Users\\GusHansen\\Desktop\\semestorprojekt2\\semestor-projekt-2\\arm\\path\\build\\CMakeFiles\\CMakeScratch\\TryCompile-wb8l5y\\cmTC_91bcc.vcxproj]
         
             0 Warning(s)
             1 Error(s)
         
-        Time Elapsed 00:00:00.55
+        Time Elapsed 00:00:00.61
         
       exitCode: 1
   -

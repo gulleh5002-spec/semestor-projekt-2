@@ -17,7 +17,6 @@ add_executable(RobotArm
     PathFinder.cpp
     IKcal.cpp
     repsetory.cpp
-    ObjDet.cpp
     ur_kin.cpp
 )
 

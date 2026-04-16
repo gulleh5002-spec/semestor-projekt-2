@@ -16,7 +16,7 @@ public:
 
 	std::vector<std::vector<double>> resolutionpath(std::vector<double> koordinat, std::vector<double> startPose);
 
-	std::vector<std::vector<double>> obstacalcheck(std::vector<std::vector<double>> path);
+	//std::vector<std::vector<double>> obstacalcheck(std::vector<std::vector<double>> path);
 
 	std::vector<std::vector<double>> findPath(std::vector<double> startPose, std::vector<double> endPose, std::vector<double> lastJoint);
 
