@@ -1,6 +1,6 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
-
+#include <vector>
 #include <QMainWindow>
 
 QT_BEGIN_NAMESPACE
@@ -21,5 +21,6 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    std::vector<std::vector<int>> matrix;
 };
 #endif // MAINWINDOW_H
