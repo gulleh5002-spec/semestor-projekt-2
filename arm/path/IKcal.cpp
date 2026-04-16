@@ -51,11 +51,10 @@ std::vector<std::vector<double>> IKcal::getInvseKinamtiksList(std::vector<double
 
 void IKcal::makeTransformMatrix(std::vector<double> moveVector, double T[16])
 {
-   
-    Eigen::Matrix4d T_BASE_TCP = AngelPoseToTransform(moveVector);
-    Eigen::Matrix4d T_BASE_TCP = MatrixIKcon(T_BASE_TCP);
+    Eigen::Matrix4d T_BASE_TCP = AngelPoseToTransform(moveVector);  // definer og tildel i én linje
+    T_BASE_TCP = MatrixIKcon(T_BASE_TCP);
     Eigen::Matrix4d T_world_TCP = FindTCP_WORLD(T_BASE_TCP);
-    Matrix4dToArry(T_BASE_TCP, T);
+    Matrix4dToArry(T_world_TCP, T);
 
 
 }
@@ -98,10 +97,10 @@ Eigen::Matrix4d IKcal::AngelPoseToTransform(std::vector<double> pose)
     Eigen::Matrix4d T_BASE_TCP;
 
     T_BASE_TCP << 
-    -R02, R00, R01, -x,
-    -R12, R10, R11, -y,
-    R22, -R20, -R21, z,
-    0, 0, 0, 1;
+        R00, R01, R02, x,
+        R10, R11, R12, y,
+        R20, R21, R22, z,
+        0,   0,   0,   1;
 
     return T_BASE_TCP;
 }
@@ -129,13 +128,13 @@ std::vector<double> IKcal::Matrix4Todvec(Eigen::Matrix4d T)
 
 Eigen::Matrix4d IKcal::MatrixIKcon(Eigen::Matrix4d T)
 {
-    Eigen::Matrix4d T_BASE_TCP;
-    T_BASE_TCP << 
+    Eigen::Matrix4d T_ROS;
+    T_ROS << 
     -T(0, 2), T(0, 0), T(0, 1), -T(0, 3),
     -T(1, 2), T(1, 0), T(1, 1), -T(1, 3),
     T(2, 2), -T(2, 0), -T(2, 1), T(2, 3),
     0, 0, 0, 1;
 
-    return T_BASE_TCP;
+    return T_ROS;
 }
 
