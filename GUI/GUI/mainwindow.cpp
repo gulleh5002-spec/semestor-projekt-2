@@ -46,7 +46,7 @@ void MainWindow::onCellClicked(int row, int column)
         ui->tableWidget->item(row, column)->setBackground(Qt::white);
     }
 
-    qDebug() << "Række værdi:" << row << "kolonne værdi:" << column;
+    qDebug() << "Input værdi : R [" << row << "] og K [" << column << "] =" << matrix[row][column];
 }
 
 MainWindow::~MainWindow()
