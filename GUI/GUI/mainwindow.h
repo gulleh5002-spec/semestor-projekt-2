@@ -27,5 +27,7 @@ private:
     Ui::MainWindow *ui;
     std::vector<std::vector<std::vector<int>>> layers;
     int currentLayer = 0;
+
+    void updateGrid();
 };
 #endif // MAINWINDOW_H

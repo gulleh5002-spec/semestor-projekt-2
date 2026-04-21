@@ -35,6 +35,20 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->tableWidget, &QTableWidget::cellClicked,
             this, &MainWindow::onCellClicked);
 }
+void MainWindow::updateGrid()
+{
+    for (int row = 0; row < 5; ++row) {
+        for (int col = 0; col < 5; ++col) {
+            QTableWidgetItem *item = ui->tableWidget->item(row, col);
+            bool hasBlock = layers[currentLayer][row][col] == 1;
+
+            item->setBackground(hasBlock ? Qt::blue : Qt::white);
+        }
+    }
+}
+
+
+
 //TODO: Moce CellClicked into its own class
 void MainWindow::onCellClicked(int row, int column)
 {
@@ -50,6 +64,8 @@ void MainWindow::onCellClicked(int row, int column)
              << "Række:" << row
              << "Kolonne:" << column
              << "Værdi:" << layers[currentLayer][row][column];
+
+    updateGrid();
 }
 
 MainWindow::~MainWindow()
