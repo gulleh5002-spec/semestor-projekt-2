@@ -35,7 +35,7 @@
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_4"/>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="pushButtonNewLayer">
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -45,7 +45,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>Nyt Lag</string>
     </property>
    </widget>
   </widget>

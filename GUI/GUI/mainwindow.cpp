@@ -34,6 +34,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(ui->tableWidget, &QTableWidget::cellClicked,
             this, &MainWindow::onCellClicked);
+    connect(ui->pushButtonNewLayer, &QPushButton::clicked,
+            this, &MainWindow::onNewLayerClicked);
 }
 void MainWindow::updateGrid()
 {
@@ -47,7 +49,12 @@ void MainWindow::updateGrid()
     }
 }
 
-
+void MainWindow::onNewLayerClicked()
+{
+    layers.push_back(std::vector<std::vector<int>>(5, std::vector<int>(5, 0)));
+    currentLayer = layers.size() - 1;
+    updateGrid();
+}
 
 //TODO: Moce CellClicked into its own class
 void MainWindow::onCellClicked(int row, int column)
