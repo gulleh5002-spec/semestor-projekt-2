@@ -9,7 +9,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    matrix = std::vector<std::vector<int>>(5, std::vector<int>(5, 0));
+    layers.push_back(std::vector<std::vector<int>>(5, std::vector<int>(5, 0)));
 
     ui->tableWidget->setRowCount(5);
     ui->tableWidget->setColumnCount(5);
@@ -38,24 +38,18 @@ MainWindow::MainWindow(QWidget *parent)
 //TODO: Moce CellClicked into its own class
 void MainWindow::onCellClicked(int row, int column)
 {
-    if (matrix[row][column] == 0) {
-        matrix[row][column] = 1;
+    if (layers[currentLayer][row][column] == 0) {
+        layers[currentLayer][row][column] = 1;
         ui->tableWidget->item(row, column)->setBackground(Qt::blue);
     } else {
-        matrix[row][column] = 0;
+        layers[currentLayer][row][column] = 0;
         ui->tableWidget->item(row, column)->setBackground(Qt::white);
     }
 
-    qDebug() << "Input værdi : R [" << row << "] og K [" << column << "] =" << matrix[row][column];
-
-    qDebug() << "Hele Matrix grid værdi:";
-    for (int r = 0; r < 5; ++r) {
-        QString line;
-        for (int c = 0; c < 5; ++c) {
-            line += QString::number(matrix[r][c]) + " ";
-        }
-        qDebug() << line;
-    }
+    qDebug() << "Lag:" << currentLayer
+             << "Række:" << row
+             << "Kolonne:" << column
+             << "Værdi:" << layers[currentLayer][row][column];
 }
 
 MainWindow::~MainWindow()

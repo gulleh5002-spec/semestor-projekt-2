@@ -25,6 +25,7 @@ public:
 
 private:
     Ui::MainWindow *ui;
-    std::vector<std::vector<int>> matrix;
+    std::vector<std::vector<std::vector<int>>> layers;
+    int currentLayer = 0;
 };
 #endif // MAINWINDOW_H
