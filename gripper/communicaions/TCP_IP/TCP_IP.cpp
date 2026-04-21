@@ -11,14 +11,14 @@
 
 namespace
 {
-
+    // constexpr er compile-time constants, så det kører ved compile tid og ikke runtime. Er altså const variabler
     constexpr char WIFI_SSID[] = "Jeppe - iPhone";
     constexpr char WIFI_PASSWORD[] = "banankage3021";
     constexpr uint16_t SERVER_PORT = 4242;
     constexpr size_t BUFFER_SIZE = 128;
     constexpr uint32_t USB_SERIAL_WAIT_MS = 10000;
 
-    enum class GripperState
+    enum class GripperState // state machine
     {
         OPEN,
         CLOSED,
@@ -31,7 +31,7 @@ namespace
     };
 
     TcpServerState g_tcp_server;
-    GripperState g_gripper_state = GripperState::OPEN;
+    GripperState g_gripper_state = GripperState::OPEN; // Åben gripper
 
     const char *state_to_text(GripperState state)
     {
@@ -46,7 +46,7 @@ namespace
         cyw43_arch_gpio_put(CYW43_WL_GPIO_LED_PIN, state == GripperState::OPEN);
     }
 
-    err_t send_response(tcp_pcb *pcb, const char *text)
+    err_t send_response(tcp_pcb *pcb, const char *text) // tcp_pcb is a data structure like IP, portnumber and connection state
     {
         if (pcb == nullptr)
         {
@@ -65,7 +65,7 @@ namespace
 
     err_t handle_command(tcp_pcb *pcb, const char *command)
     {
-        if (std::strcmp(command, "OPEN") == 0)
+        if (std::strcmp(command, "OPEN") == 0) // strcmp sammenligner om command og "OPEN" er ens
         {
             apply_gripper_state(GripperState::OPEN);
             return send_response(pcb, "OK OPEN\n");
@@ -92,6 +92,7 @@ namespace
         return send_response(pcb, "ERR UNKNOWN_COMMAND\n");
     }
 
+    // fjerner \n, \r (Carriage Return ) og mellemrum
     void trim_command(char *buffer)
     {
         size_t length = std::strlen(buffer);
@@ -102,6 +103,7 @@ namespace
         }
     }
 
+    // Lukker socket og sætter pointers til nulpointers
     void close_client_connection()
     {
         if (g_tcp_server.client_pcb == nullptr)
@@ -140,10 +142,10 @@ namespace
         char buffer[BUFFER_SIZE];
         const uint16_t copy_length = static_cast<uint16_t>(packet->tot_len < BUFFER_SIZE - 1 ? packet->tot_len : BUFFER_SIZE - 1);
         std::memset(buffer, 0, sizeof(buffer));
-        pbuf_copy_partial(packet, buffer, copy_length, 0);
-        buffer[copy_length] = '\0';
+        pbuf_copy_partial(packet, buffer, copy_length, 0); // kopier data fra pakke
+        buffer[copy_length] = '\0';                        // endline
         tcp_recved(pcb, packet->tot_len);
-        pbuf_free(packet);
+        pbuf_free(packet); // frigør pakke
 
         trim_command(buffer);
         if (buffer[0] == '\0')
@@ -162,14 +164,14 @@ namespace
             return error;
         }
 
-        if (g_tcp_server.client_pcb != nullptr)
+        if (g_tcp_server.client_pcb != nullptr) // der kan kun være en client
         {
             send_response(client_pcb, "ERR BUSY\n");
             tcp_close(client_pcb);
             return ERR_OK;
         }
 
-        g_tcp_server.client_pcb = client_pcb;
+        g_tcp_server.client_pcb = client_pcb; // gem client info
         tcp_arg(client_pcb, nullptr);
         tcp_recv(client_pcb, on_tcp_receive);
         tcp_err(client_pcb, on_tcp_error);
@@ -178,6 +180,7 @@ namespace
         return ERR_OK;
     }
 
+    // forbind til WiFi og print IP
     bool connect_to_wifi()
     {
         printf("Connecting to WiFi SSID '%s'...\n", WIFI_SSID);
@@ -202,6 +205,7 @@ namespace
     {
         cyw43_arch_lwip_begin();
 
+        // lav socket
         tcp_pcb *pcb = tcp_new_ip_type(IPADDR_TYPE_V4);
         if (pcb == nullptr)
         {
@@ -210,6 +214,7 @@ namespace
             return false;
         }
 
+        // bind til port
         err_t result = tcp_bind(pcb, IP_ANY_TYPE, SERVER_PORT);
         if (result != ERR_OK)
         {
@@ -219,6 +224,7 @@ namespace
             return false;
         }
 
+        // lyt
         g_tcp_server.server_pcb = tcp_listen_with_backlog(pcb, 1);
         if (g_tcp_server.server_pcb == nullptr)
         {
@@ -228,7 +234,7 @@ namespace
         }
 
         tcp_arg(g_tcp_server.server_pcb, nullptr);
-        tcp_accept(g_tcp_server.server_pcb, on_client_connected);
+        tcp_accept(g_tcp_server.server_pcb, on_client_connected); // sæt callbacks
         cyw43_arch_lwip_end();
 
         printf("TCP server listening on port %u\n", SERVER_PORT);
@@ -239,6 +245,7 @@ namespace
 
 int main()
 {
+    // USB interface til debug
     stdio_init_all();
 
     absolute_time_t usb_wait_deadline = make_timeout_time_ms(USB_SERIAL_WAIT_MS);
