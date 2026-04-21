@@ -47,6 +47,15 @@ void MainWindow::onCellClicked(int row, int column)
     }
 
     qDebug() << "Input værdi : R [" << row << "] og K [" << column << "] =" << matrix[row][column];
+
+    qDebug() << "Hele Matrix grid værdi:";
+    for (int r = 0; r < 5; ++r) {
+        QString line;
+        for (int c = 0; c < 5; ++c) {
+            line += QString::number(matrix[r][c]) + " ";
+        }
+        qDebug() << line;
+    }
 }
 
 MainWindow::~MainWindow()
