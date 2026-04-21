@@ -1,8 +1,8 @@
 #include "Gripper.h"
 
-// Pins: PWM, Direction1, Direction2
+// pinA, pinB, ADC pin
 // Adjust these to match your wiring on the Pico
-Gripper gripper(0, 1);
+Gripper gripper(0, 1, 27);
 
 
 
@@ -11,26 +11,30 @@ void setup()
 {
   // put your setup code here, to run once:
   Serial.begin(115200);
+  delay(3000);
   gripper.begin();
   Serial.println("Gripper ready.");
 }
 
-void loop() 
+
+void loop()
 {
-  // put your main code here, to run repeatedly:
+    gripper.close(150);
+    for(int i = 0; i < 60; i++) {  // 6 seconds worth of readings
+        Serial.println(analogRead(27));
+        delay(100);
+    }
 
-  Serial.println("Closing...");
-  gripper.close(150);   // speed 0-255
-  delay(6000);
+    gripper.stop();
+    delay(500);
 
-  gripper.stop();
-  delay(500);
+    gripper.open(150);
+    for(int i = 0; i < 60; i++) {
+        Serial.println(analogRead(27));
+        delay(100);
+    }
 
-  Serial.println("Opening...");
-  gripper.open(150);
-  delay(6000);
-
-  gripper.stop();
-  delay(500);
-
+    gripper.stop();
+    delay(500);
 }
+
