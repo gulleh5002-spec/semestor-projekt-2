@@ -49,7 +49,7 @@ void MainWindow::updateGrid()
     }
 }
 
-void MainWindow::onNewLayerClicked()
+void MainWindow::onNewLayerClicked() //Button ++Layer
 {
     layers.push_back(std::vector<std::vector<int>>(5, std::vector<int>(5, 0)));
     currentLayer = layers.size() - 1;
