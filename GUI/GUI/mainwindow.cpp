@@ -11,7 +11,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    layers.push_back(std::vector<std::vector<int>>(5, std::vector<int>(5, 0)));
+    layers.push_back(std::vector<std::vector<int>>(gridSize, std::vector<int>(gridSize, 0)));
 
     ui->tableWidget->setRowCount(gridSize);
     ui->tableWidget->setColumnCount(gridSize);
