@@ -9,15 +9,17 @@ MainWindow::MainWindow(QWidget *parent)
 
 // =======================UI WIDGETS=============================
 {
+
+
     ui->setupUi(this);
 
-    layers.push_back(std::vector<std::vector<int>>(gridSize, std::vector<int>(gridSize, 0)));
+    layers.push_back(std::vector<std::vector<int>>(gridHeight, std::vector<int>(gridWitdh, 0)));
 
-    ui->tableWidget->setRowCount(gridSize);
-    ui->tableWidget->setColumnCount(gridSize);
+    ui->tableWidget->setRowCount(gridHeight);
+    ui->tableWidget->setColumnCount(gridWitdh);
 
-    for (int row = {0}; row < gridSize; ++row) {
-        for (int col = {0}; col < gridSize; ++col) {
+    for (int row = {0}; row < gridHeight; ++row) {
+        for (int col = {0}; col < gridWitdh; ++col) {
             QTableWidgetItem *item = new QTableWidgetItem();
             item->setText("");
             item->setBackground(Qt::white);
@@ -38,13 +40,45 @@ MainWindow::MainWindow(QWidget *parent)
             this, &MainWindow::onCellClicked);
     connect(ui->pushButtonNewLayer, &QPushButton::clicked,
             this, &MainWindow::onNewLayerClicked);
+    connect(ui->pushButtonCreateGrid, &QPushButton::clicked,
+            this, &MainWindow::onCreateGridClicked);
 }
 //==================================================================================
+void MainWindow::onCreateGridClicked()
+{
+    gridWitdh = ui->spinBoxWitdh->value();
+    gridHeight = ui->spinBoxHeight->value();
+
+    layers.clear();
+    currentLayer = 0;
+
+    layers.push_back(std::vector<std::vector<int>>(gridHeight, std::vector<int>(gridWitdh, 0)));
+
+    ui->tableWidget->clear();
+    ui->tableWidget->setRowCount(gridHeight);
+    ui->tableWidget->setColumnCount(gridWitdh);
+
+    for (int row = 0; row < gridHeight; ++row) {
+        for (int col = 0; col < gridWitdh; ++col) {
+            QTableWidgetItem *item = new QTableWidgetItem();
+            item->setText("");
+            item->setBackground(Qt::white);
+            ui->tableWidget->setItem(row, col, item);
+        }
+    }
+
+    ui->tableWidget->horizontalHeader()->setVisible(false);
+    ui->tableWidget->verticalHeader()->setVisible(false);
+    ui->tableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    ui->tableWidget->verticalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+
+    updateGrid();
+}
 
 void MainWindow::updateGrid()
 {
-    for (int row = 0; row < gridSize; ++row) {
-        for (int col = 0; col < gridSize; ++col) {
+    for (int row = 0; row < gridHeight; ++row) {
+        for (int col = 0; col < gridWitdh; ++col) {
             QTableWidgetItem *item = ui->tableWidget->item(row, col);
             bool hasBlock = layers[currentLayer][row][col] == 1;
 
@@ -55,7 +89,7 @@ void MainWindow::updateGrid()
 
 void MainWindow::onNewLayerClicked() //Button ++Layer
 {
-    layers.push_back(std::vector<std::vector<int>>(gridSize, std::vector<int>(gridSize, 0)));
+    layers.push_back(std::vector<std::vector<int>>(gridHeight, std::vector<int>(gridWitdh, 0)));
     currentLayer = layers.size() - 1;
     updateGrid();
 }

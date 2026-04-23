@@ -19,6 +19,7 @@ class MainWindow : public QMainWindow
 private slots:
     void onCellClicked(int row, int column);
     void onNewLayerClicked();
+    void onCreateGridClicked();
 
 public:
     MainWindow(QWidget *parent = nullptr);
@@ -29,7 +30,9 @@ private:
     std::vector<std::vector<std::vector<int>>> layers;
     int currentLayer = {0};
 
-    int gridSize = {6};
+    int gridHeight = {5};
+    int gridWitdh = {4};
+    //int gridSize = {6};
 
     void updateGrid();
 };
