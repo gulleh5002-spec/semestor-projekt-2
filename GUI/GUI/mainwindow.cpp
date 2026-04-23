@@ -13,11 +13,11 @@ MainWindow::MainWindow(QWidget *parent)
 
     layers.push_back(std::vector<std::vector<int>>(5, std::vector<int>(5, 0)));
 
-    ui->tableWidget->setRowCount(5);
-    ui->tableWidget->setColumnCount(5);
+    ui->tableWidget->setRowCount(gridSize);
+    ui->tableWidget->setColumnCount(gridSize);
 
-    for (int row = 0; row < 5; ++row) {
-        for (int col = 0; col < 5; ++col) {
+    for (int row = {0}; row < gridSize; ++row) {
+        for (int col = {0}; col < gridSize; ++col) {
             QTableWidgetItem *item = new QTableWidgetItem();
             item->setText("");
             item->setBackground(Qt::white);
@@ -43,8 +43,8 @@ MainWindow::MainWindow(QWidget *parent)
 
 void MainWindow::updateGrid()
 {
-    for (int row = 0; row < 5; ++row) {
-        for (int col = 0; col < 5; ++col) {
+    for (int row = 0; row < gridSize; ++row) {
+        for (int col = 0; col < gridSize; ++col) {
             QTableWidgetItem *item = ui->tableWidget->item(row, col);
             bool hasBlock = layers[currentLayer][row][col] == 1;
 
@@ -55,7 +55,7 @@ void MainWindow::updateGrid()
 
 void MainWindow::onNewLayerClicked() //Button ++Layer
 {
-    layers.push_back(std::vector<std::vector<int>>(5, std::vector<int>(5, 0)));
+    layers.push_back(std::vector<std::vector<int>>(gridSize, std::vector<int>(gridSize, 0)));
     currentLayer = layers.size() - 1;
     updateGrid();
 }
@@ -64,10 +64,10 @@ void MainWindow::onNewLayerClicked() //Button ++Layer
 void MainWindow::onCellClicked(int row, int column)
 {
     if (layers[currentLayer][row][column] == 0) {
-        layers[currentLayer][row][column] = 1;
+        layers[currentLayer][row][column] = {1};
         ui->tableWidget->item(row, column)->setBackground(Qt::blue);
     } else {
-        layers[currentLayer][row][column] = 0;
+        layers[currentLayer][row][column] = {0};
         ui->tableWidget->item(row, column)->setBackground(Qt::white);
     }
 

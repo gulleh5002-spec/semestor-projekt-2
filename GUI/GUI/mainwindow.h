@@ -27,7 +27,9 @@ public:
 private:
     Ui::MainWindow *ui;
     std::vector<std::vector<std::vector<int>>> layers;
-    int currentLayer = 0;
+    int currentLayer = {0};
+
+    int gridSize = {6};
 
     void updateGrid();
 };
