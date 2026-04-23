@@ -45,10 +45,8 @@ C:/Users/GusHansen/ur_rtde/build/ur_rtde/ur_rtdeBuildConfig.cmake
 C:/Users/GusHansen/ur_rtde/build/ur_rtde/ur_rtdeConfig.cmake
 C:/Users/GusHansen/ur_rtde/build/ur_rtde/ur_rtdeConfigVersion.cmake
 C:/Users/GusHansen/ur_rtde/build/ur_rtde/ur_rtdeTargets.cmake
-C:/local/boost_1_90_0/lib/cmake/Boost-1.90.0/BoostConfig.cmake
-C:/local/boost_1_90_0/lib/cmake/Boost-1.90.0/BoostConfigVersion.cmake
-C:/local/boost_1_90_0/lib/cmake/boost_headers-1.90.0/boost_headers-config-version.cmake
-C:/local/boost_1_90_0/lib/cmake/boost_headers-1.90.0/boost_headers-config.cmake
+C:/vcpkg/installed/x64-windows/share/boost/BoostConfig.cmake
+C:/vcpkg/installed/x64-windows/share/boost/BoostConfigVersion.cmake
 C:/vcpkg/installed/x64-windows/share/boost_algorithm/boost_algorithm-config-version.cmake
 C:/vcpkg/installed/x64-windows/share/boost_algorithm/boost_algorithm-config.cmake
 C:/vcpkg/installed/x64-windows/share/boost_algorithm/boost_algorithm-targets.cmake
@@ -120,6 +118,9 @@ C:/vcpkg/installed/x64-windows/share/boost_functional/boost_functional-targets.c
 C:/vcpkg/installed/x64-windows/share/boost_fusion/boost_fusion-config-version.cmake
 C:/vcpkg/installed/x64-windows/share/boost_fusion/boost_fusion-config.cmake
 C:/vcpkg/installed/x64-windows/share/boost_fusion/boost_fusion-targets.cmake
+C:/vcpkg/installed/x64-windows/share/boost_headers/boost_headers-config-version.cmake
+C:/vcpkg/installed/x64-windows/share/boost_headers/boost_headers-config.cmake
+C:/vcpkg/installed/x64-windows/share/boost_headers/boost_headers-targets.cmake
 C:/vcpkg/installed/x64-windows/share/boost_integer/boost_integer-config-version.cmake
 C:/vcpkg/installed/x64-windows/share/boost_integer/boost_integer-config.cmake
 C:/vcpkg/installed/x64-windows/share/boost_integer/boost_integer-targets.cmake

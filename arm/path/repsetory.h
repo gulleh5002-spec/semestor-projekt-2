@@ -2,6 +2,7 @@
 #include <vector>
 #include <iostream>
 #include <Eigen/Dense>
+
 class repsetory
 {
 
@@ -15,7 +16,6 @@ public:
 
 private:
 	std::vector<double> tcp = {0, 0, 0};
-
 	Eigen::Matrix4d T;
 
 

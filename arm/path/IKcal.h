@@ -26,6 +26,8 @@ public:
 
 	Eigen::Matrix4d MatrixIKcon(Eigen::Matrix4d tans);
 
+	std::vector<double> TransformToPose(const Eigen::Matrix4d& T);
+
 private:
 	repsetory repsetory;
 };

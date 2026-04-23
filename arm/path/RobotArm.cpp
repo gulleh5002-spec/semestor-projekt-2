@@ -5,47 +5,41 @@
 //defoult contructer
 
 RobotArm::RobotArm(std::string init_ip, double speed, double acceleration)
-
 :speed(speed),
 acceleration(acceleration),
 rtde_r(init_ip),
 rtde_c(init_ip),
 pf()
 {   
-
+//rtde_c.setTcp({0, 0, 0.1, 0, 0, 0});
 }
 //go to home position OBS!! do not take notece of grupper
 void RobotArm::home()
 {
     
-    std::vector<double> joints = { 0, -1.5708, 0, -1.5708, 0, 0 };
-    rtde_c.moveJ(joints, 0.5, 0.5);
+    rtde_c.moveL({ 0.0, 0.5, 0.5, 3.14, 0.0, 0.0 }, 0.5, 0.5);
 }
 
-void RobotArm::movetool(std::vector<double> koordinat, double speed, double acceleration)
+void RobotArm::movetool(std::vector<double> koordinatWorld , double speed, double acceleration)
 {
-    std::vector<double> tcp = repsetory.getTCP();
     
     std::vector<double> startPose = rtde_r.getActualTCPPose();
-    std::vector<double> StartAngle = rtde_r.getActualQ();
-    Eigen::Matrix4d startPose_T = IKcal.AngelPoseToTransform(startPose);
+    std::vector<double> StartAngle = rtde_r.getActualQ();  
     
+    Eigen::Matrix4d T_world_goal = IKcal.AngelPoseToTransform(koordinatWorld);
+    Eigen::Matrix4d T_base_world = repsetory.getT().inverse();
+    Eigen::Matrix4d T_base_goal  = T_base_world * T_world_goal;
 
-    startPose[0] = startPose_T(0, 3);
-    startPose[1] = startPose_T(1, 3);
-    startPose[2] = startPose_T(2, 3);
+    std::vector<double> goalBase = IKcal.TransformToPose(T_base_goal);  
     
-    std::cout << "startPose: " << startPose[0] << ", " << startPose[1] << ", " << startPose[2] << std::endl;
+    std::vector<std::vector<double>> joints = pf.findPath(startPose, goalBase, StartAngle);
 
-
-    std::vector<std::vector<double>> joints = pf.findPath(startPose, koordinat, StartAngle);
     std::vector<std::vector<double>> path;
-    for (size_t i = 0; i < joints.size(); i++)
-    {
+    for (size_t i = 0; i < joints.size(); i++){
         std::vector<double> entry = joints[i];
         for (int j = 0; j < 6; j++)
         {
-           // std::cout << ",: " << joints[i][j];
+           //std::cout << ",: " << joints[i][j];
         }
         //std::cout << std::endl;
         entry.push_back(speed);
@@ -63,6 +57,7 @@ void RobotArm::movetool(std::vector<double> koordinat, double speed, double acce
     }
 
     rtde_c.moveJ(path);
+    std::cout << "new path" << std::endl;
 }
 
 void RobotArm::getRTDEinfor()
@@ -80,7 +75,7 @@ void RobotArm::moveblock(std::vector<double> koordinat1, std::vector<double> koo
 {
     // do so the robot move to were the brik is ind the hight of placement koordiante  so i do not colide
     std::vector<double> newkoordinat1 = koordinat1;
-    double brikoffset = 0.05;
+    double brikoffset = 0.2;
     newkoordinat1[2] = koordinat2[2] + brikoffset;
     movetool(newkoordinat1);
     movetool(koordinat1);
@@ -89,7 +84,8 @@ void RobotArm::moveblock(std::vector<double> koordinat1, std::vector<double> koo
     newkoordinat2[2] += brikoffset;
     movetool(newkoordinat2);
     movetool(koordinat2);
-
+    newkoordinat2[2] += brikoffset;
+    movetool(newkoordinat2);
 
     
 }

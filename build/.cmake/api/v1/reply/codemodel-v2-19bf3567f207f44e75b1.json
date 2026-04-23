@@ -1,0 +1,2316 @@
+{
+	"configurations" : 
+	[
+		{
+			"abstractTargets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::algorithm::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__algorithm-Debug-84e6b5aec78463201c15.json",
+					"name" : "Boost::algorithm",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::align::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__align-Debug-924693745a599e142f38.json",
+					"name" : "Boost::align",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::array::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__array-Debug-5f3508593e3e1f1d1b3b.json",
+					"name" : "Boost::array",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::assert::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__assert-Debug-aef94e710991d7def585.json",
+					"name" : "Boost::assert",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::atomic::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__atomic-Debug-224f7b4d1d2707acf9cc.json",
+					"name" : "Boost::atomic",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::bind::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__bind-Debug-46bfb84ee3153561c1ac.json",
+					"name" : "Boost::bind",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::boost::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__boost-Debug-7d57a979117d9391e2d4.json",
+					"name" : "Boost::boost",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::chrono::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__chrono-Debug-97ba234f560bc059ca2e.json",
+					"name" : "Boost::chrono",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::concept_check::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__concept_check-Debug-163f6b8712a2f637d7d8.json",
+					"name" : "Boost::concept_check",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::config::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__config-Debug-7200d0c91d482895376a.json",
+					"name" : "Boost::config",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::container::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__container-Debug-5bc9df739d5c8d6a9d7c.json",
+					"name" : "Boost::container",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::container_hash::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__container_hash-Debug-a338e5584403ef3b190e.json",
+					"name" : "Boost::container_hash",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::conversion::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__conversion-Debug-a8dc5b96aaf6488998d2.json",
+					"name" : "Boost::conversion",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::core::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__core-Debug-babcecad1fe4848f724e.json",
+					"name" : "Boost::core",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::date_time::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__date_time-Debug-105705b5386e53be9f90.json",
+					"name" : "Boost::date_time",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::describe::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__describe-Debug-36dbf6a3079ec3a2b412.json",
+					"name" : "Boost::describe",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::detail::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__detail-Debug-2174a4896108eb68abbd.json",
+					"name" : "Boost::detail",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::diagnostic_definitions::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__diagnostic_definitions-Debug-1ebe741e36a3e77f5f80.json",
+					"name" : "Boost::diagnostic_definitions",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::disable_autolinking::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__disable_autolinking-Debug-3726b94a94f2153e4315.json",
+					"name" : "Boost::disable_autolinking",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::dynamic_linking::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__dynamic_linking-Debug-c5489fcd5818f328ee14.json",
+					"name" : "Boost::dynamic_linking",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::exception::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__exception-Debug-2035f68dca5779b67d4a.json",
+					"name" : "Boost::exception",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::function::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__function-Debug-a14e6a3c8a623bb4c35e.json",
+					"name" : "Boost::function",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::function_types::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__function_types-Debug-5f6d176a0671421830aa.json",
+					"name" : "Boost::function_types",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::functional::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__functional-Debug-6eb6523626fcb1277200.json",
+					"name" : "Boost::functional",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::fusion::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__fusion-Debug-1e243077ecf31db3efe3.json",
+					"name" : "Boost::fusion",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::headers::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__headers-Debug-5a90a126811bef09c517.json",
+					"name" : "Boost::headers",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::integer::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__integer-Debug-12144917b1d15b003195.json",
+					"name" : "Boost::integer",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::intrusive::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__intrusive-Debug-38ddf0f4696e7b6deb7e.json",
+					"name" : "Boost::intrusive",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::io::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__io-Debug-dc3792d8ce7889d9eb9c.json",
+					"name" : "Boost::io",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::iterator::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__iterator-Debug-a4fb72cbfecb0c822669.json",
+					"name" : "Boost::iterator",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::lexical_cast::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__lexical_cast-Debug-0f3610000672bc34cd00.json",
+					"name" : "Boost::lexical_cast",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::move::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__move-Debug-2bd761b66188ce6ad77e.json",
+					"name" : "Boost::move",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::mp11::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__mp11-Debug-3c34b44a5ab5fd2d64fd.json",
+					"name" : "Boost::mp11",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::mpl::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__mpl-Debug-00baacf04b6bac3307e6.json",
+					"name" : "Boost::mpl",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::numeric_conversion::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__numeric_conversion-Debug-8f4878bd80c564730cd8.json",
+					"name" : "Boost::numeric_conversion",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::optional::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__optional-Debug-17880c963586c98b5c68.json",
+					"name" : "Boost::optional",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::predef::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__predef-Debug-91a6ff7dc2a1406216bc.json",
+					"name" : "Boost::predef",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::preprocessor::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__preprocessor-Debug-5c6473c4dea2f5db2052.json",
+					"name" : "Boost::preprocessor",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::range::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__range-Debug-6e70d8fdbd609ceda423.json",
+					"name" : "Boost::range",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::ratio::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__ratio-Debug-ad431868faff682b4cd0.json",
+					"name" : "Boost::ratio",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::regex::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__regex-Debug-362494cea0ce65737c84.json",
+					"name" : "Boost::regex",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::smart_ptr::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__smart_ptr-Debug-bf6bc48a770a637dcdf9.json",
+					"name" : "Boost::smart_ptr",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::static_assert::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__static_assert-Debug-59c85d627f34456b2d03.json",
+					"name" : "Boost::static_assert",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::system::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__system-Debug-77bc7710e747f6c2fb92.json",
+					"name" : "Boost::system",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::thread::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__thread-Debug-e36ef5b7a85834fdcf6a.json",
+					"name" : "Boost::thread",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::throw_exception::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__throw_exception-Debug-41418cbf3dee42a3eed4.json",
+					"name" : "Boost::throw_exception",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::tokenizer::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__tokenizer-Debug-7f559ab01721bbd477b8.json",
+					"name" : "Boost::tokenizer",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::tuple::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__tuple-Debug-f76f3feab1aa45176d91.json",
+					"name" : "Boost::tuple",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::type_traits::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__type_traits-Debug-3857940c6cc4abd7bc22.json",
+					"name" : "Boost::type_traits",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::typeof::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__typeof-Debug-9aed5bd53d86c60fe222.json",
+					"name" : "Boost::typeof",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::unordered::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__unordered-Debug-150f2d689c61b3ee022e.json",
+					"name" : "Boost::unordered",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::utility::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__utility-Debug-94616aa146f6361de653.json",
+					"name" : "Boost::utility",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::variant2::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__variant2-Debug-bcf88ed3d63bb2c3aeee.json",
+					"name" : "Boost::variant2",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::winapi::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__winapi-Debug-ced36b5a9f7e56a3d5c8.json",
+					"name" : "Boost::winapi",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Threads::Threads::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Threads__Threads-Debug-0af78b798acf37ae1ab3.json",
+					"name" : "Threads::Threads",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ur_rtde::rtde::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ur_rtde__rtde-Debug-914dde2a004bc439a214.json",
+					"name" : "ur_rtde::rtde",
+					"projectIndex" : 0
+				}
+			],
+			"directories" : 
+			[
+				{
+					"abstractTargetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18,
+						19,
+						20,
+						21,
+						22,
+						23,
+						24,
+						25,
+						26,
+						27,
+						28,
+						29,
+						30,
+						31,
+						32,
+						33,
+						34,
+						35,
+						36,
+						37,
+						38,
+						39,
+						40,
+						41,
+						42,
+						43,
+						44,
+						45,
+						46,
+						47,
+						48,
+						49,
+						50,
+						51,
+						52,
+						53,
+						54,
+						55
+					],
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-f040eec181a89de70dbe.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"abstractTargetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18,
+						19,
+						20,
+						21,
+						22,
+						23,
+						24,
+						25,
+						26,
+						27,
+						28,
+						29,
+						30,
+						31,
+						32,
+						33,
+						34,
+						35,
+						36,
+						37,
+						38,
+						39,
+						40,
+						41,
+						42,
+						43,
+						44,
+						45,
+						46,
+						47,
+						48,
+						49,
+						50,
+						51,
+						52,
+						53,
+						54,
+						55
+					],
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "RobotArm",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ALL_BUILD::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ALL_BUILD-Debug-70118e9be07beaf29b98.json",
+					"name" : "ALL_BUILD",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "RobotArm::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-RobotArm-Debug-a28161a5103c82e3040d.json",
+					"name" : "RobotArm",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ZERO_CHECK-Debug-fc2f6fb72819b3669044.json",
+					"name" : "ZERO_CHECK",
+					"projectIndex" : 0
+				}
+			]
+		},
+		{
+			"abstractTargets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::algorithm::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__algorithm-Release-84e6b5aec78463201c15.json",
+					"name" : "Boost::algorithm",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::align::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__align-Release-924693745a599e142f38.json",
+					"name" : "Boost::align",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::array::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__array-Release-5f3508593e3e1f1d1b3b.json",
+					"name" : "Boost::array",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::assert::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__assert-Release-aef94e710991d7def585.json",
+					"name" : "Boost::assert",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::atomic::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__atomic-Release-0adb5942088701eaee5c.json",
+					"name" : "Boost::atomic",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::bind::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__bind-Release-46bfb84ee3153561c1ac.json",
+					"name" : "Boost::bind",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::boost::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__boost-Release-7d57a979117d9391e2d4.json",
+					"name" : "Boost::boost",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::chrono::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__chrono-Release-55ac3154e1a61e425da7.json",
+					"name" : "Boost::chrono",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::concept_check::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__concept_check-Release-163f6b8712a2f637d7d8.json",
+					"name" : "Boost::concept_check",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::config::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__config-Release-7200d0c91d482895376a.json",
+					"name" : "Boost::config",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::container::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__container-Release-2b4823e741bcec6e133d.json",
+					"name" : "Boost::container",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::container_hash::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__container_hash-Release-a338e5584403ef3b190e.json",
+					"name" : "Boost::container_hash",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::conversion::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__conversion-Release-a8dc5b96aaf6488998d2.json",
+					"name" : "Boost::conversion",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::core::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__core-Release-babcecad1fe4848f724e.json",
+					"name" : "Boost::core",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::date_time::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__date_time-Release-5cc15eebfcfb027cfbf2.json",
+					"name" : "Boost::date_time",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::describe::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__describe-Release-36dbf6a3079ec3a2b412.json",
+					"name" : "Boost::describe",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::detail::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__detail-Release-2174a4896108eb68abbd.json",
+					"name" : "Boost::detail",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::diagnostic_definitions::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__diagnostic_definitions-Release-1ebe741e36a3e77f5f80.json",
+					"name" : "Boost::diagnostic_definitions",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::disable_autolinking::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__disable_autolinking-Release-3726b94a94f2153e4315.json",
+					"name" : "Boost::disable_autolinking",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::dynamic_linking::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__dynamic_linking-Release-c5489fcd5818f328ee14.json",
+					"name" : "Boost::dynamic_linking",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::exception::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__exception-Release-2035f68dca5779b67d4a.json",
+					"name" : "Boost::exception",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::function::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__function-Release-a14e6a3c8a623bb4c35e.json",
+					"name" : "Boost::function",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::function_types::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__function_types-Release-5f6d176a0671421830aa.json",
+					"name" : "Boost::function_types",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::functional::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__functional-Release-6eb6523626fcb1277200.json",
+					"name" : "Boost::functional",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::fusion::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__fusion-Release-1e243077ecf31db3efe3.json",
+					"name" : "Boost::fusion",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::headers::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__headers-Release-5a90a126811bef09c517.json",
+					"name" : "Boost::headers",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::integer::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__integer-Release-12144917b1d15b003195.json",
+					"name" : "Boost::integer",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::intrusive::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__intrusive-Release-38ddf0f4696e7b6deb7e.json",
+					"name" : "Boost::intrusive",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::io::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__io-Release-dc3792d8ce7889d9eb9c.json",
+					"name" : "Boost::io",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::iterator::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__iterator-Release-a4fb72cbfecb0c822669.json",
+					"name" : "Boost::iterator",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::lexical_cast::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__lexical_cast-Release-0f3610000672bc34cd00.json",
+					"name" : "Boost::lexical_cast",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::move::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__move-Release-2bd761b66188ce6ad77e.json",
+					"name" : "Boost::move",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::mp11::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__mp11-Release-3c34b44a5ab5fd2d64fd.json",
+					"name" : "Boost::mp11",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::mpl::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__mpl-Release-00baacf04b6bac3307e6.json",
+					"name" : "Boost::mpl",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::numeric_conversion::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__numeric_conversion-Release-8f4878bd80c564730cd8.json",
+					"name" : "Boost::numeric_conversion",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::optional::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__optional-Release-17880c963586c98b5c68.json",
+					"name" : "Boost::optional",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::predef::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__predef-Release-91a6ff7dc2a1406216bc.json",
+					"name" : "Boost::predef",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::preprocessor::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__preprocessor-Release-5c6473c4dea2f5db2052.json",
+					"name" : "Boost::preprocessor",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::range::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__range-Release-6e70d8fdbd609ceda423.json",
+					"name" : "Boost::range",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::ratio::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__ratio-Release-ad431868faff682b4cd0.json",
+					"name" : "Boost::ratio",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::regex::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__regex-Release-362494cea0ce65737c84.json",
+					"name" : "Boost::regex",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::smart_ptr::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__smart_ptr-Release-bf6bc48a770a637dcdf9.json",
+					"name" : "Boost::smart_ptr",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::static_assert::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__static_assert-Release-59c85d627f34456b2d03.json",
+					"name" : "Boost::static_assert",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::system::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__system-Release-77bc7710e747f6c2fb92.json",
+					"name" : "Boost::system",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::thread::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__thread-Release-4750669059401f4f3327.json",
+					"name" : "Boost::thread",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::throw_exception::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__throw_exception-Release-41418cbf3dee42a3eed4.json",
+					"name" : "Boost::throw_exception",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::tokenizer::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__tokenizer-Release-7f559ab01721bbd477b8.json",
+					"name" : "Boost::tokenizer",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::tuple::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__tuple-Release-f76f3feab1aa45176d91.json",
+					"name" : "Boost::tuple",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::type_traits::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__type_traits-Release-3857940c6cc4abd7bc22.json",
+					"name" : "Boost::type_traits",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::typeof::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__typeof-Release-9aed5bd53d86c60fe222.json",
+					"name" : "Boost::typeof",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::unordered::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__unordered-Release-150f2d689c61b3ee022e.json",
+					"name" : "Boost::unordered",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::utility::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__utility-Release-94616aa146f6361de653.json",
+					"name" : "Boost::utility",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::variant2::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__variant2-Release-bcf88ed3d63bb2c3aeee.json",
+					"name" : "Boost::variant2",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::winapi::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__winapi-Release-ced36b5a9f7e56a3d5c8.json",
+					"name" : "Boost::winapi",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Threads::Threads::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Threads__Threads-Release-0af78b798acf37ae1ab3.json",
+					"name" : "Threads::Threads",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ur_rtde::rtde::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ur_rtde__rtde-Release-049f00dd14adc0465cd7.json",
+					"name" : "ur_rtde::rtde",
+					"projectIndex" : 0
+				}
+			],
+			"directories" : 
+			[
+				{
+					"abstractTargetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18,
+						19,
+						20,
+						21,
+						22,
+						23,
+						24,
+						25,
+						26,
+						27,
+						28,
+						29,
+						30,
+						31,
+						32,
+						33,
+						34,
+						35,
+						36,
+						37,
+						38,
+						39,
+						40,
+						41,
+						42,
+						43,
+						44,
+						45,
+						46,
+						47,
+						48,
+						49,
+						50,
+						51,
+						52,
+						53,
+						54,
+						55
+					],
+					"build" : ".",
+					"jsonFile" : "directory-.-Release-f040eec181a89de70dbe.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Release",
+			"projects" : 
+			[
+				{
+					"abstractTargetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18,
+						19,
+						20,
+						21,
+						22,
+						23,
+						24,
+						25,
+						26,
+						27,
+						28,
+						29,
+						30,
+						31,
+						32,
+						33,
+						34,
+						35,
+						36,
+						37,
+						38,
+						39,
+						40,
+						41,
+						42,
+						43,
+						44,
+						45,
+						46,
+						47,
+						48,
+						49,
+						50,
+						51,
+						52,
+						53,
+						54,
+						55
+					],
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "RobotArm",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ALL_BUILD::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ALL_BUILD-Release-70118e9be07beaf29b98.json",
+					"name" : "ALL_BUILD",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "RobotArm::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-RobotArm-Release-a269918576b2035accde.json",
+					"name" : "RobotArm",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ZERO_CHECK-Release-fc2f6fb72819b3669044.json",
+					"name" : "ZERO_CHECK",
+					"projectIndex" : 0
+				}
+			]
+		},
+		{
+			"abstractTargets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::algorithm::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__algorithm-MinSizeRel-84e6b5aec78463201c15.json",
+					"name" : "Boost::algorithm",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::align::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__align-MinSizeRel-924693745a599e142f38.json",
+					"name" : "Boost::align",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::array::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__array-MinSizeRel-5f3508593e3e1f1d1b3b.json",
+					"name" : "Boost::array",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::assert::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__assert-MinSizeRel-aef94e710991d7def585.json",
+					"name" : "Boost::assert",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::atomic::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__atomic-MinSizeRel-224f7b4d1d2707acf9cc.json",
+					"name" : "Boost::atomic",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::bind::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__bind-MinSizeRel-46bfb84ee3153561c1ac.json",
+					"name" : "Boost::bind",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::boost::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__boost-MinSizeRel-7d57a979117d9391e2d4.json",
+					"name" : "Boost::boost",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::chrono::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__chrono-MinSizeRel-97ba234f560bc059ca2e.json",
+					"name" : "Boost::chrono",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::concept_check::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__concept_check-MinSizeRel-163f6b8712a2f637d7d8.json",
+					"name" : "Boost::concept_check",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::config::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__config-MinSizeRel-7200d0c91d482895376a.json",
+					"name" : "Boost::config",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::container::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__container-MinSizeRel-5bc9df739d5c8d6a9d7c.json",
+					"name" : "Boost::container",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::container_hash::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__container_hash-MinSizeRel-a338e5584403ef3b190e.json",
+					"name" : "Boost::container_hash",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::conversion::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__conversion-MinSizeRel-a8dc5b96aaf6488998d2.json",
+					"name" : "Boost::conversion",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::core::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__core-MinSizeRel-babcecad1fe4848f724e.json",
+					"name" : "Boost::core",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::date_time::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__date_time-MinSizeRel-105705b5386e53be9f90.json",
+					"name" : "Boost::date_time",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::describe::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__describe-MinSizeRel-36dbf6a3079ec3a2b412.json",
+					"name" : "Boost::describe",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::detail::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__detail-MinSizeRel-2174a4896108eb68abbd.json",
+					"name" : "Boost::detail",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::diagnostic_definitions::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__diagnostic_definitions-MinSizeRel-1ebe741e36a3e77f5f80.json",
+					"name" : "Boost::diagnostic_definitions",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::disable_autolinking::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__disable_autolinking-MinSizeRel-3726b94a94f2153e4315.json",
+					"name" : "Boost::disable_autolinking",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::dynamic_linking::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__dynamic_linking-MinSizeRel-c5489fcd5818f328ee14.json",
+					"name" : "Boost::dynamic_linking",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::exception::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__exception-MinSizeRel-2035f68dca5779b67d4a.json",
+					"name" : "Boost::exception",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::function::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__function-MinSizeRel-a14e6a3c8a623bb4c35e.json",
+					"name" : "Boost::function",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::function_types::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__function_types-MinSizeRel-5f6d176a0671421830aa.json",
+					"name" : "Boost::function_types",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::functional::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__functional-MinSizeRel-6eb6523626fcb1277200.json",
+					"name" : "Boost::functional",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::fusion::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__fusion-MinSizeRel-1e243077ecf31db3efe3.json",
+					"name" : "Boost::fusion",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::headers::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__headers-MinSizeRel-5a90a126811bef09c517.json",
+					"name" : "Boost::headers",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::integer::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__integer-MinSizeRel-12144917b1d15b003195.json",
+					"name" : "Boost::integer",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::intrusive::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__intrusive-MinSizeRel-38ddf0f4696e7b6deb7e.json",
+					"name" : "Boost::intrusive",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::io::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__io-MinSizeRel-dc3792d8ce7889d9eb9c.json",
+					"name" : "Boost::io",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::iterator::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__iterator-MinSizeRel-a4fb72cbfecb0c822669.json",
+					"name" : "Boost::iterator",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::lexical_cast::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__lexical_cast-MinSizeRel-0f3610000672bc34cd00.json",
+					"name" : "Boost::lexical_cast",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::move::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__move-MinSizeRel-2bd761b66188ce6ad77e.json",
+					"name" : "Boost::move",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::mp11::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__mp11-MinSizeRel-3c34b44a5ab5fd2d64fd.json",
+					"name" : "Boost::mp11",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::mpl::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__mpl-MinSizeRel-00baacf04b6bac3307e6.json",
+					"name" : "Boost::mpl",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::numeric_conversion::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__numeric_conversion-MinSizeRel-8f4878bd80c564730cd8.json",
+					"name" : "Boost::numeric_conversion",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::optional::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__optional-MinSizeRel-17880c963586c98b5c68.json",
+					"name" : "Boost::optional",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::predef::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__predef-MinSizeRel-91a6ff7dc2a1406216bc.json",
+					"name" : "Boost::predef",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::preprocessor::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__preprocessor-MinSizeRel-5c6473c4dea2f5db2052.json",
+					"name" : "Boost::preprocessor",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::range::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__range-MinSizeRel-6e70d8fdbd609ceda423.json",
+					"name" : "Boost::range",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::ratio::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__ratio-MinSizeRel-ad431868faff682b4cd0.json",
+					"name" : "Boost::ratio",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::regex::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__regex-MinSizeRel-362494cea0ce65737c84.json",
+					"name" : "Boost::regex",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::smart_ptr::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__smart_ptr-MinSizeRel-bf6bc48a770a637dcdf9.json",
+					"name" : "Boost::smart_ptr",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::static_assert::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__static_assert-MinSizeRel-59c85d627f34456b2d03.json",
+					"name" : "Boost::static_assert",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::system::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__system-MinSizeRel-77bc7710e747f6c2fb92.json",
+					"name" : "Boost::system",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::thread::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__thread-MinSizeRel-e36ef5b7a85834fdcf6a.json",
+					"name" : "Boost::thread",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::throw_exception::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__throw_exception-MinSizeRel-41418cbf3dee42a3eed4.json",
+					"name" : "Boost::throw_exception",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::tokenizer::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__tokenizer-MinSizeRel-7f559ab01721bbd477b8.json",
+					"name" : "Boost::tokenizer",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::tuple::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__tuple-MinSizeRel-f76f3feab1aa45176d91.json",
+					"name" : "Boost::tuple",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::type_traits::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__type_traits-MinSizeRel-3857940c6cc4abd7bc22.json",
+					"name" : "Boost::type_traits",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::typeof::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__typeof-MinSizeRel-9aed5bd53d86c60fe222.json",
+					"name" : "Boost::typeof",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::unordered::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__unordered-MinSizeRel-150f2d689c61b3ee022e.json",
+					"name" : "Boost::unordered",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::utility::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__utility-MinSizeRel-94616aa146f6361de653.json",
+					"name" : "Boost::utility",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::variant2::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__variant2-MinSizeRel-bcf88ed3d63bb2c3aeee.json",
+					"name" : "Boost::variant2",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::winapi::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__winapi-MinSizeRel-ced36b5a9f7e56a3d5c8.json",
+					"name" : "Boost::winapi",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Threads::Threads::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Threads__Threads-MinSizeRel-0af78b798acf37ae1ab3.json",
+					"name" : "Threads::Threads",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ur_rtde::rtde::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ur_rtde__rtde-MinSizeRel-248a01a0d517438f4481.json",
+					"name" : "ur_rtde::rtde",
+					"projectIndex" : 0
+				}
+			],
+			"directories" : 
+			[
+				{
+					"abstractTargetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18,
+						19,
+						20,
+						21,
+						22,
+						23,
+						24,
+						25,
+						26,
+						27,
+						28,
+						29,
+						30,
+						31,
+						32,
+						33,
+						34,
+						35,
+						36,
+						37,
+						38,
+						39,
+						40,
+						41,
+						42,
+						43,
+						44,
+						45,
+						46,
+						47,
+						48,
+						49,
+						50,
+						51,
+						52,
+						53,
+						54,
+						55
+					],
+					"build" : ".",
+					"jsonFile" : "directory-.-MinSizeRel-f040eec181a89de70dbe.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "MinSizeRel",
+			"projects" : 
+			[
+				{
+					"abstractTargetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18,
+						19,
+						20,
+						21,
+						22,
+						23,
+						24,
+						25,
+						26,
+						27,
+						28,
+						29,
+						30,
+						31,
+						32,
+						33,
+						34,
+						35,
+						36,
+						37,
+						38,
+						39,
+						40,
+						41,
+						42,
+						43,
+						44,
+						45,
+						46,
+						47,
+						48,
+						49,
+						50,
+						51,
+						52,
+						53,
+						54,
+						55
+					],
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "RobotArm",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ALL_BUILD::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ALL_BUILD-MinSizeRel-70118e9be07beaf29b98.json",
+					"name" : "ALL_BUILD",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "RobotArm::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-RobotArm-MinSizeRel-c271872979d75bee601b.json",
+					"name" : "RobotArm",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ZERO_CHECK-MinSizeRel-fc2f6fb72819b3669044.json",
+					"name" : "ZERO_CHECK",
+					"projectIndex" : 0
+				}
+			]
+		},
+		{
+			"abstractTargets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::algorithm::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__algorithm-RelWithDebInfo-84e6b5aec78463201c15.json",
+					"name" : "Boost::algorithm",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::align::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__align-RelWithDebInfo-924693745a599e142f38.json",
+					"name" : "Boost::align",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::array::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__array-RelWithDebInfo-5f3508593e3e1f1d1b3b.json",
+					"name" : "Boost::array",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::assert::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__assert-RelWithDebInfo-aef94e710991d7def585.json",
+					"name" : "Boost::assert",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::atomic::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__atomic-RelWithDebInfo-224f7b4d1d2707acf9cc.json",
+					"name" : "Boost::atomic",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::bind::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__bind-RelWithDebInfo-46bfb84ee3153561c1ac.json",
+					"name" : "Boost::bind",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::boost::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__boost-RelWithDebInfo-7d57a979117d9391e2d4.json",
+					"name" : "Boost::boost",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::chrono::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__chrono-RelWithDebInfo-97ba234f560bc059ca2e.json",
+					"name" : "Boost::chrono",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::concept_check::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__concept_check-RelWithDebInfo-163f6b8712a2f637d7d8.json",
+					"name" : "Boost::concept_check",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::config::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__config-RelWithDebInfo-7200d0c91d482895376a.json",
+					"name" : "Boost::config",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::container::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__container-RelWithDebInfo-5bc9df739d5c8d6a9d7c.json",
+					"name" : "Boost::container",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::container_hash::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__container_hash-RelWithDebInfo-a338e5584403ef3b190e.json",
+					"name" : "Boost::container_hash",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::conversion::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__conversion-RelWithDebInfo-a8dc5b96aaf6488998d2.json",
+					"name" : "Boost::conversion",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::core::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__core-RelWithDebInfo-babcecad1fe4848f724e.json",
+					"name" : "Boost::core",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::date_time::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__date_time-RelWithDebInfo-105705b5386e53be9f90.json",
+					"name" : "Boost::date_time",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::describe::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__describe-RelWithDebInfo-36dbf6a3079ec3a2b412.json",
+					"name" : "Boost::describe",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::detail::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__detail-RelWithDebInfo-2174a4896108eb68abbd.json",
+					"name" : "Boost::detail",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::diagnostic_definitions::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__diagnostic_definitions-RelWithDebInfo-1ebe741e36a3e77f5f80.json",
+					"name" : "Boost::diagnostic_definitions",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::disable_autolinking::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__disable_autolinking-RelWithDebInfo-3726b94a94f2153e4315.json",
+					"name" : "Boost::disable_autolinking",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::dynamic_linking::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__dynamic_linking-RelWithDebInfo-c5489fcd5818f328ee14.json",
+					"name" : "Boost::dynamic_linking",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::exception::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__exception-RelWithDebInfo-2035f68dca5779b67d4a.json",
+					"name" : "Boost::exception",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::function::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__function-RelWithDebInfo-a14e6a3c8a623bb4c35e.json",
+					"name" : "Boost::function",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::function_types::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__function_types-RelWithDebInfo-5f6d176a0671421830aa.json",
+					"name" : "Boost::function_types",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::functional::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__functional-RelWithDebInfo-6eb6523626fcb1277200.json",
+					"name" : "Boost::functional",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::fusion::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__fusion-RelWithDebInfo-1e243077ecf31db3efe3.json",
+					"name" : "Boost::fusion",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::headers::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__headers-RelWithDebInfo-5a90a126811bef09c517.json",
+					"name" : "Boost::headers",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::integer::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__integer-RelWithDebInfo-12144917b1d15b003195.json",
+					"name" : "Boost::integer",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::intrusive::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__intrusive-RelWithDebInfo-38ddf0f4696e7b6deb7e.json",
+					"name" : "Boost::intrusive",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::io::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__io-RelWithDebInfo-dc3792d8ce7889d9eb9c.json",
+					"name" : "Boost::io",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::iterator::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__iterator-RelWithDebInfo-a4fb72cbfecb0c822669.json",
+					"name" : "Boost::iterator",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::lexical_cast::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__lexical_cast-RelWithDebInfo-0f3610000672bc34cd00.json",
+					"name" : "Boost::lexical_cast",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::move::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__move-RelWithDebInfo-2bd761b66188ce6ad77e.json",
+					"name" : "Boost::move",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::mp11::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__mp11-RelWithDebInfo-3c34b44a5ab5fd2d64fd.json",
+					"name" : "Boost::mp11",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::mpl::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__mpl-RelWithDebInfo-00baacf04b6bac3307e6.json",
+					"name" : "Boost::mpl",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::numeric_conversion::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__numeric_conversion-RelWithDebInfo-8f4878bd80c564730cd8.json",
+					"name" : "Boost::numeric_conversion",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::optional::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__optional-RelWithDebInfo-17880c963586c98b5c68.json",
+					"name" : "Boost::optional",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::predef::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__predef-RelWithDebInfo-91a6ff7dc2a1406216bc.json",
+					"name" : "Boost::predef",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::preprocessor::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__preprocessor-RelWithDebInfo-5c6473c4dea2f5db2052.json",
+					"name" : "Boost::preprocessor",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::range::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__range-RelWithDebInfo-6e70d8fdbd609ceda423.json",
+					"name" : "Boost::range",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::ratio::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__ratio-RelWithDebInfo-ad431868faff682b4cd0.json",
+					"name" : "Boost::ratio",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::regex::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__regex-RelWithDebInfo-362494cea0ce65737c84.json",
+					"name" : "Boost::regex",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::smart_ptr::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__smart_ptr-RelWithDebInfo-bf6bc48a770a637dcdf9.json",
+					"name" : "Boost::smart_ptr",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::static_assert::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__static_assert-RelWithDebInfo-59c85d627f34456b2d03.json",
+					"name" : "Boost::static_assert",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::system::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__system-RelWithDebInfo-77bc7710e747f6c2fb92.json",
+					"name" : "Boost::system",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::thread::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__thread-RelWithDebInfo-e36ef5b7a85834fdcf6a.json",
+					"name" : "Boost::thread",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::throw_exception::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__throw_exception-RelWithDebInfo-41418cbf3dee42a3eed4.json",
+					"name" : "Boost::throw_exception",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::tokenizer::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__tokenizer-RelWithDebInfo-7f559ab01721bbd477b8.json",
+					"name" : "Boost::tokenizer",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::tuple::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__tuple-RelWithDebInfo-f76f3feab1aa45176d91.json",
+					"name" : "Boost::tuple",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::type_traits::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__type_traits-RelWithDebInfo-3857940c6cc4abd7bc22.json",
+					"name" : "Boost::type_traits",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::typeof::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__typeof-RelWithDebInfo-9aed5bd53d86c60fe222.json",
+					"name" : "Boost::typeof",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::unordered::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__unordered-RelWithDebInfo-150f2d689c61b3ee022e.json",
+					"name" : "Boost::unordered",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::utility::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__utility-RelWithDebInfo-94616aa146f6361de653.json",
+					"name" : "Boost::utility",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::variant2::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__variant2-RelWithDebInfo-bcf88ed3d63bb2c3aeee.json",
+					"name" : "Boost::variant2",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Boost::winapi::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Boost__winapi-RelWithDebInfo-ced36b5a9f7e56a3d5c8.json",
+					"name" : "Boost::winapi",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Threads::Threads::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Threads__Threads-RelWithDebInfo-0af78b798acf37ae1ab3.json",
+					"name" : "Threads::Threads",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ur_rtde::rtde::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ur_rtde__rtde-RelWithDebInfo-2a06d42d580609280daf.json",
+					"name" : "ur_rtde::rtde",
+					"projectIndex" : 0
+				}
+			],
+			"directories" : 
+			[
+				{
+					"abstractTargetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18,
+						19,
+						20,
+						21,
+						22,
+						23,
+						24,
+						25,
+						26,
+						27,
+						28,
+						29,
+						30,
+						31,
+						32,
+						33,
+						34,
+						35,
+						36,
+						37,
+						38,
+						39,
+						40,
+						41,
+						42,
+						43,
+						44,
+						45,
+						46,
+						47,
+						48,
+						49,
+						50,
+						51,
+						52,
+						53,
+						54,
+						55
+					],
+					"build" : ".",
+					"jsonFile" : "directory-.-RelWithDebInfo-f040eec181a89de70dbe.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "RelWithDebInfo",
+			"projects" : 
+			[
+				{
+					"abstractTargetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18,
+						19,
+						20,
+						21,
+						22,
+						23,
+						24,
+						25,
+						26,
+						27,
+						28,
+						29,
+						30,
+						31,
+						32,
+						33,
+						34,
+						35,
+						36,
+						37,
+						38,
+						39,
+						40,
+						41,
+						42,
+						43,
+						44,
+						45,
+						46,
+						47,
+						48,
+						49,
+						50,
+						51,
+						52,
+						53,
+						54,
+						55
+					],
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "RobotArm",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ALL_BUILD::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ALL_BUILD-RelWithDebInfo-70118e9be07beaf29b98.json",
+					"name" : "ALL_BUILD",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "RobotArm::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-RobotArm-RelWithDebInfo-a88247508433b5a4fb52.json",
+					"name" : "RobotArm",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ZERO_CHECK-RelWithDebInfo-fc2f6fb72819b3669044.json",
+					"name" : "ZERO_CHECK",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/GusHansen/Desktop/semestorprojekt2/semestor-projekt-2/build",
+		"source" : "C:/Users/GusHansen/Desktop/semestorprojekt2/semestor-projekt-2/arm/path"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 10
+	}
+}

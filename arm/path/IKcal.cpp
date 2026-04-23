@@ -53,8 +53,7 @@ void IKcal::makeTransformMatrix(std::vector<double> moveVector, double T[16])
 {
     Eigen::Matrix4d T_BASE_TCP = AngelPoseToTransform(moveVector);  // definer og tildel i én linje
     T_BASE_TCP = MatrixIKcon(T_BASE_TCP);
-    Eigen::Matrix4d T_world_TCP = FindTCP_WORLD(T_BASE_TCP);
-    Matrix4dToArry(T_world_TCP, T);
+    Matrix4dToArry(T_BASE_TCP, T);
 
 
 }
@@ -138,3 +137,17 @@ Eigen::Matrix4d IKcal::MatrixIKcon(Eigen::Matrix4d T)
     return T_ROS;
 }
 
+std::vector<double> IKcal::TransformToPose(const Eigen::Matrix4d& T)
+{
+    std::vector<double> pose(6);
+    pose[0] = T(0,3);
+    pose[1] = T(1,3);
+    pose[2] = T(2,3);
+
+    Eigen::AngleAxisd aa(T.block<3,3>(0,0));
+    Eigen::Vector3d rv = aa.axis() * aa.angle();
+    pose[3] = rv.x();
+    pose[4] = rv.y();
+    pose[5] = rv.z();
+    return pose;
+}

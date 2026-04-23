@@ -21,7 +21,7 @@ public:
   void home();
 
   // keep
-  void movetool(std::vector<double> koordinat, double speed = 0.5,
+  void movetool(std::vector<double> koordinatWorld , double speed = 0.5,
                 double acceleration = 0.5);
 
   void getTcpInfo(std::vector<double> point);

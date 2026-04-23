@@ -33,7 +33,7 @@ std::vector<std::vector<double>> PathFinder::resolutionpath(std::vector<double> 
     double dz = koordinat[2] - startPose[2];
 
     double distance = std::sqrt(dx * dx + dy * dy + dz * dz);
-    int points = std::ceil(distance / 0.001);
+    int points = std::ceil(distance / 0.02);
 
     for (int i = 0; i <= points; i++)
     {
