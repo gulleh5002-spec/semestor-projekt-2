@@ -6,6 +6,8 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
+
+// =======================UI WIDGETS=============================
 {
     ui->setupUi(this);
 
@@ -37,6 +39,8 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->pushButtonNewLayer, &QPushButton::clicked,
             this, &MainWindow::onNewLayerClicked);
 }
+//==================================================================================
+
 void MainWindow::updateGrid()
 {
     for (int row = 0; row < 5; ++row) {
