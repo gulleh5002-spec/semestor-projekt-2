@@ -100,13 +100,40 @@ bool RobotWorkspace::hasBlockAtLayer(int x, int y, int layer) const
     return m_layers[layer][y][x] == 1;
 }
 
+bool RobotWorkspace::canPlaceBlockAtCurrentLayer(int x, int y) const
+{
+    return canPlaceBlockAtLayer(x, y, m_currentLayer);
+}
+
+bool RobotWorkspace::canPlaceBlockAtLayer(int x, int y, int layer) const
+{
+    if (!isValidPosition(x, y, layer) || hasBlockAtLayer(x, y, layer)) {
+        return false;
+    }
+
+    if (layer == firstLayer) {
+        return true;
+    }
+
+    return hasBlockAtLayer(x, y, layer - 1);
+}
+
 bool RobotWorkspace::toggleBlockAtCurrentLayer(int x, int y)
 {
     if (!isValidPosition(x, y, m_currentLayer)) {
         return false;
     }
 
-    m_layers[m_currentLayer][y][x] = m_layers[m_currentLayer][y][x] == 0 ? 1 : 0;
+    if (hasBlockAtCurrentLayer(x, y)) {
+        m_layers[m_currentLayer][y][x] = 0;
+        return true;
+    }
+
+    if (!canPlaceBlockAtCurrentLayer(x, y)) {
+        return false;
+    }
+
+    m_layers[m_currentLayer][y][x] = 1;
     return true;
 }
 

@@ -159,6 +159,7 @@ void MainWindow::onNextLayerClicked()
 void MainWindow::onCellClicked(int row, int column)
 {
     if (!workspace.toggleBlockAtCurrentLayer(column, row)) {
+        ui->statusbar->showMessage("Kan ikke placere klods: der mangler en klods nedenunder.");
         return;
     }
 
@@ -169,6 +170,7 @@ void MainWindow::onCellClicked(int row, int column)
 
     updateGrid();
     updateLayerControls();
+    ui->statusbar->showMessage("Klodsplacering opdateret.");
 }
 
 void MainWindow::updateLayerControls()

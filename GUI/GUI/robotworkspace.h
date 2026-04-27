@@ -35,6 +35,8 @@ public:
 
     // Validering for at man ikke skriver og læser uden for m_layers
     bool hasBlockAtLayer(int x, int y, int layer) const;
+    bool canPlaceBlockAtCurrentLayer(int x, int y) const;
+    bool canPlaceBlockAtLayer(int x, int y, int layer) const;
     bool toggleBlockAtCurrentLayer(int x, int y);
 //=================================================================
 
