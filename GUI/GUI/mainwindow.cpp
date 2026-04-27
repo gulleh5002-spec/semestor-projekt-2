@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
-#include <QDebug>
+#include "debughelper.h"
 #include <QString>
 
 
@@ -49,12 +49,14 @@ void MainWindow::onCreateGridClicked()
     ui->pushButtonNewWorkspace->setEnabled(true);
     updateGrid();
     updateLayerControls();
+    DebugHelper::workspaceCreated(workspace);
     ui->statusbar->showMessage("Arbejdsområde oprettet. Størrelsen er låst indtil Nyt arbejdsområde.");
 }
 
 void MainWindow::onNewWorkspaceClicked()
 {
     clearWorkspace();
+    DebugHelper::workspaceCleared();
     ui->statusbar->showMessage("Nyt arbejdsområde: angiv størrelse og tryk Opret grid");
 }
 
@@ -139,6 +141,7 @@ void MainWindow::onNewLayerClicked() //Button ++Layer
 
     updateGrid();
     updateLayerControls();
+    DebugHelper::layerChanged(workspace);
 }
 
 void MainWindow::onPreviousLayerClicked()
@@ -149,6 +152,7 @@ void MainWindow::onPreviousLayerClicked()
 
     updateGrid();
     updateLayerControls();
+    DebugHelper::layerChanged(workspace);
 }
 
 void MainWindow::onNextLayerClicked()
@@ -159,23 +163,21 @@ void MainWindow::onNextLayerClicked()
 
     updateGrid();
     updateLayerControls();
+    DebugHelper::layerChanged(workspace);
 }
 
 //TODO: Moce CellClicked into its own class
 void MainWindow::onCellClicked(int row, int column)
 {
     if (!workspace.toggleBlockAtCurrentLayer(column, row)) {
+        DebugHelper::blockPlacementRejected(workspace, column, row);
         ui->statusbar->showMessage("Kan ikke placere klods: der mangler en klods nedenunder.");
         return;
     }
 
-    qDebug() << "Lag:" << workspace.currentLayer()
-             << "Række:" << row
-             << "Kolonne:" << column
-             << "Værdi:" << workspace.hasBlockAtCurrentLayer(column, row);
-
     updateGrid();
     updateLayerControls();
+    DebugHelper::blockPlacementUpdated(workspace, column, row);
     ui->statusbar->showMessage("Klodsplacering opdateret.");
 }
 
