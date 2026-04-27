@@ -58,10 +58,10 @@
      </rect>
     </property>
     <property name="text">
-     <string>gridSize</string>
+     <string>Opret grid</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="pushButtonNewWorkspace">
     <property name="geometry">
      <rect>
       <x>200</x>
@@ -71,7 +71,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>Nyt område</string>
     </property>
    </widget>
    <widget class="QSpinBox" name="spinBoxWitdh">
@@ -104,6 +104,45 @@
     </property>
     <property name="maximum">
      <number>20</number>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButtonPreviousLayer">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>520</y>
+      <width>93</width>
+      <height>29</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Lag ned</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButtonNextLayer">
+    <property name="geometry">
+     <rect>
+      <x>500</x>
+      <y>520</y>
+      <width>93</width>
+      <height>29</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Lag op</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="labelCurrentLayer">
+    <property name="geometry">
+     <rect>
+      <x>610</x>
+      <y>520</y>
+      <width>120</width>
+      <height>29</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Lag: -</string>
     </property>
    </widget>
   </widget>

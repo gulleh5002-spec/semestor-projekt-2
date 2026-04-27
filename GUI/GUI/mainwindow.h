@@ -19,7 +19,10 @@ class MainWindow : public QMainWindow
 private slots:
     void onCellClicked(int row, int column);
     void onNewLayerClicked();
+    void onPreviousLayerClicked();
+    void onNextLayerClicked();
     void onCreateGridClicked();
+    void onNewWorkspaceClicked();
 
 public:
     MainWindow(QWidget *parent = nullptr);
@@ -29,13 +32,18 @@ private:
     Ui::MainWindow *ui;
     std::vector<std::vector<std::vector<int>>> layers;
     int currentLayer = {0};
+    bool workspaceCreated = false;
 
     int gridHeight = {5};
     int gridWidth = {4};
     //int gridSize = {6};
 
+    void configureTableWidget();
+    void clearWorkspace();
     void resetLayerData();
+    void setWorkspaceInputEnabled(bool enabled);
     void setupTableGrid();
     void updateGrid();
+    void updateLayerControls();
 };
 #endif // MAINWINDOW_H
