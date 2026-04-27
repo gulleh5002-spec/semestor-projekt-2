@@ -31,9 +31,11 @@ private:
     int currentLayer = {0};
 
     int gridHeight = {5};
-    int gridWitdh = {4};
+    int gridWidth = {4};
     //int gridSize = {6};
 
+    void resetLayerData();
+    void setupTableGrid();
     void updateGrid();
 };
 #endif // MAINWINDOW_H

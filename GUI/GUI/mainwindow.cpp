@@ -13,28 +13,11 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->setupUi(this);
 
-    layers.push_back(std::vector<std::vector<int>>(gridHeight, std::vector<int>(gridWitdh, 0)));
+    ui->spinBoxWitdh->setValue(gridWidth);
+    ui->spinBoxHeight->setValue(gridHeight);
 
-    ui->tableWidget->setRowCount(gridHeight);
-    ui->tableWidget->setColumnCount(gridWitdh);
-
-    for (int row = {0}; row < gridHeight; ++row) {
-        for (int col = {0}; col < gridWitdh; ++col) {
-            QTableWidgetItem *item = new QTableWidgetItem();
-            item->setText("");
-            item->setBackground(Qt::white);
-            ui->tableWidget->setItem(row, col, item);
-        }
-    }
-
-    ui->tableWidget->horizontalHeader()->setVisible(false);
-    ui->tableWidget->verticalHeader()->setVisible(false);
-
-    ui->tableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
-    ui->tableWidget->verticalHeader()->setSectionResizeMode(QHeaderView::Stretch);
-
-    ui->tableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
-    ui->tableWidget->setSelectionMode(QAbstractItemView::NoSelection);
+    resetLayerData();
+    setupTableGrid();
 
     connect(ui->tableWidget, &QTableWidget::cellClicked,
             this, &MainWindow::onCellClicked);
@@ -46,39 +29,49 @@ MainWindow::MainWindow(QWidget *parent)
 //==================================================================================
 void MainWindow::onCreateGridClicked()
 {
-    gridWitdh = ui->spinBoxWitdh->value();
+    gridWidth = ui->spinBoxWitdh->value();
     gridHeight = ui->spinBoxHeight->value();
 
+    resetLayerData();
+    setupTableGrid();
+    updateGrid();
+}
+
+void MainWindow::resetLayerData()
+{
     layers.clear();
+    layers.push_back(std::vector<std::vector<int>>(gridHeight, std::vector<int>(gridWidth, 0)));
     currentLayer = 0;
+}
 
-    layers.push_back(std::vector<std::vector<int>>(gridHeight, std::vector<int>(gridWitdh, 0)));
-
+void MainWindow::setupTableGrid()
+{
     ui->tableWidget->clear();
     ui->tableWidget->setRowCount(gridHeight);
-    ui->tableWidget->setColumnCount(gridWitdh);
-
-    for (int row = 0; row < gridHeight; ++row) {
-        for (int col = 0; col < gridWitdh; ++col) {
-            QTableWidgetItem *item = new QTableWidgetItem();
-            item->setText("");
-            item->setBackground(Qt::white);
-            ui->tableWidget->setItem(row, col, item);
-        }
-    }
+    ui->tableWidget->setColumnCount(gridWidth);
 
     ui->tableWidget->horizontalHeader()->setVisible(false);
     ui->tableWidget->verticalHeader()->setVisible(false);
     ui->tableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     ui->tableWidget->verticalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 
-    updateGrid();
+    ui->tableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    ui->tableWidget->setSelectionMode(QAbstractItemView::NoSelection);
+
+    for (int row = 0; row < gridHeight; ++row) {
+        for (int col = 0; col < gridWidth; ++col) {
+            QTableWidgetItem *item = new QTableWidgetItem();
+            item->setText("");
+            item->setBackground(Qt::white);
+            ui->tableWidget->setItem(row, col, item);
+        }
+    }
 }
 
 void MainWindow::updateGrid()
 {
     for (int row = 0; row < gridHeight; ++row) {
-        for (int col = 0; col < gridWitdh; ++col) {
+        for (int col = 0; col < gridWidth; ++col) {
             QTableWidgetItem *item = ui->tableWidget->item(row, col);
             bool hasBlock = layers[currentLayer][row][col] == 1;
 
@@ -89,7 +82,7 @@ void MainWindow::updateGrid()
 
 void MainWindow::onNewLayerClicked() //Button ++Layer
 {
-    layers.push_back(std::vector<std::vector<int>>(gridHeight, std::vector<int>(gridWitdh, 0)));
+    layers.push_back(std::vector<std::vector<int>>(gridHeight, std::vector<int>(gridWidth, 0)));
     currentLayer = layers.size() - 1;
     updateGrid();
 }
