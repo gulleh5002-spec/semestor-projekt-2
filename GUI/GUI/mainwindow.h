@@ -1,11 +1,11 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
-#include <vector>
 #include <QMainWindow>
 #include "QHeaderView"
 #include <QAbstractItemView>
 #include <QTableWidgetItem>
 #include <QBrush>
+#include "robotworkspace.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -30,17 +30,14 @@ public:
 
 private:
     Ui::MainWindow *ui;
-    std::vector<std::vector<std::vector<int>>> layers;
-    int currentLayer = {0};
-    bool workspaceCreated = false;
+    RobotWorkspace workspace;
 
-    int gridHeight = {5};
-    int gridWidth = {4};
-    //int gridSize = {6};
+    // Default grid størelse
+    static constexpr int defaultGridHeight = {5};
+    static constexpr int defaultGridWidth = {4};
 
     void configureTableWidget();
     void clearWorkspace();
-    void resetLayerData();
     void setWorkspaceInputEnabled(bool enabled);
     void setupTableGrid();
     void updateGrid();

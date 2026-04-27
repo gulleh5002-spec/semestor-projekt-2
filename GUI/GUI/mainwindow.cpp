@@ -14,8 +14,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->setupUi(this);
 
-    ui->spinBoxWitdh->setValue(gridWidth);
-    ui->spinBoxHeight->setValue(gridHeight);
+    ui->spinBoxWitdh->setValue(defaultGridWidth);
+    ui->spinBoxHeight->setValue(defaultGridHeight);
     ui->statusbar->showMessage("Angiv størrelse på arbejdsområdet og tryk Opret grid");
 
     configureTableWidget();
@@ -37,13 +37,12 @@ MainWindow::MainWindow(QWidget *parent)
 //==================================================================================
 void MainWindow::onCreateGridClicked()
 {
-    gridWidth = ui->spinBoxWitdh->value();
-    gridHeight = ui->spinBoxHeight->value();
+    const int gridWidth = ui->spinBoxWitdh->value();
+    const int gridHeight = ui->spinBoxHeight->value();
 
-    resetLayerData();
+    workspace.create(gridWidth, gridHeight);
     setupTableGrid();
 
-    workspaceCreated = true;
     setWorkspaceInputEnabled(false);
     ui->tableWidget->setEnabled(true);
     ui->pushButtonNewLayer->setEnabled(true);
@@ -72,9 +71,7 @@ void MainWindow::configureTableWidget()
 
 void MainWindow::clearWorkspace()
 {
-    layers.clear();
-    currentLayer = 0;
-    workspaceCreated = false;
+    workspace.clear();
 
     ui->tableWidget->clear();
     ui->tableWidget->setRowCount(0);
@@ -89,13 +86,6 @@ void MainWindow::clearWorkspace()
     ui->labelCurrentLayer->setText("Lag: -");
 }
 
-void MainWindow::resetLayerData()
-{
-    layers.clear();
-    layers.push_back(std::vector<std::vector<int>>(gridHeight, std::vector<int>(gridWidth, 0)));
-    currentLayer = 0;
-}
-
 void MainWindow::setWorkspaceInputEnabled(bool enabled)
 {
     ui->spinBoxWitdh->setEnabled(enabled);
@@ -106,11 +96,11 @@ void MainWindow::setWorkspaceInputEnabled(bool enabled)
 void MainWindow::setupTableGrid()
 {
     ui->tableWidget->clear();
-    ui->tableWidget->setRowCount(gridHeight);
-    ui->tableWidget->setColumnCount(gridWidth);
+    ui->tableWidget->setRowCount(workspace.height());
+    ui->tableWidget->setColumnCount(workspace.width());
 
-    for (int row = 0; row < gridHeight; ++row) {
-        for (int col = 0; col < gridWidth; ++col) {
+    for (int row = 0; row < workspace.height(); ++row) {
+        for (int col = 0; col < workspace.width(); ++col) {
             QTableWidgetItem *item = new QTableWidgetItem();
             item->setText("");
             item->setBackground(Qt::white);
@@ -121,14 +111,14 @@ void MainWindow::setupTableGrid()
 
 void MainWindow::updateGrid()
 {
-    if (!workspaceCreated || layers.empty()) {
+    if (!workspace.isCreated()) {
         return;
     }
 
-    for (int row = 0; row < gridHeight; ++row) {
-        for (int col = 0; col < gridWidth; ++col) {
+    for (int row = 0; row < workspace.height(); ++row) {
+        for (int col = 0; col < workspace.width(); ++col) {
             QTableWidgetItem *item = ui->tableWidget->item(row, col);
-            bool hasBlock = layers[currentLayer][row][col] == 1;
+            bool hasBlock = workspace.hasBlockAtCurrentLayer(col, row);
 
             item->setBackground(hasBlock ? Qt::blue : Qt::white);
         }
@@ -137,34 +127,30 @@ void MainWindow::updateGrid()
 
 void MainWindow::onNewLayerClicked() //Button ++Layer
 {
-    if (!workspaceCreated) {
+    if (!workspace.addLayer()) {
         return;
     }
 
-    layers.push_back(std::vector<std::vector<int>>(gridHeight, std::vector<int>(gridWidth, 0)));
-    currentLayer = layers.size() - 1;
     updateGrid();
     updateLayerControls();
 }
 
 void MainWindow::onPreviousLayerClicked()
 {
-    if (!workspaceCreated || currentLayer == 0) {
+    if (!workspace.goToPreviousLayer()) {
         return;
     }
 
-    --currentLayer;
     updateGrid();
     updateLayerControls();
 }
 
 void MainWindow::onNextLayerClicked()
 {
-    if (!workspaceCreated || currentLayer >= static_cast<int>(layers.size()) - 1) {
+    if (!workspace.goToNextLayer()) {
         return;
     }
 
-    ++currentLayer;
     updateGrid();
     updateLayerControls();
 }
@@ -172,22 +158,14 @@ void MainWindow::onNextLayerClicked()
 //TODO: Moce CellClicked into its own class
 void MainWindow::onCellClicked(int row, int column)
 {
-    if (!workspaceCreated) {
+    if (!workspace.toggleBlockAtCurrentLayer(column, row)) {
         return;
     }
 
-    if (layers[currentLayer][row][column] == 0) {
-        layers[currentLayer][row][column] = {1};
-        ui->tableWidget->item(row, column)->setBackground(Qt::blue);
-    } else {
-        layers[currentLayer][row][column] = {0};
-        ui->tableWidget->item(row, column)->setBackground(Qt::white);
-    }
-
-    qDebug() << "Lag:" << currentLayer
+    qDebug() << "Lag:" << workspace.currentLayer()
              << "Række:" << row
              << "Kolonne:" << column
-             << "Værdi:" << layers[currentLayer][row][column];
+             << "Værdi:" << workspace.hasBlockAtCurrentLayer(column, row);
 
     updateGrid();
     updateLayerControls();
@@ -195,9 +173,9 @@ void MainWindow::onCellClicked(int row, int column)
 
 void MainWindow::updateLayerControls()
 {
-    ui->labelCurrentLayer->setText(QString("Lag: %1").arg(currentLayer));
-    ui->pushButtonPreviousLayer->setEnabled(workspaceCreated && currentLayer > 0);
-    ui->pushButtonNextLayer->setEnabled(workspaceCreated && currentLayer < static_cast<int>(layers.size()) - 1);
+    ui->labelCurrentLayer->setText(QString("Lag: %1").arg(workspace.currentLayer()));
+    ui->pushButtonPreviousLayer->setEnabled(workspace.canGoToPreviousLayer());
+    ui->pushButtonNextLayer->setEnabled(workspace.canGoToNextLayer());
 }
 
 MainWindow::~MainWindow()
