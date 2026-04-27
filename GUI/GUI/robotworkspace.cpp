@@ -6,7 +6,7 @@ void RobotWorkspace::create(int width, int height)
 
     m_width = width;
     m_height = height;
-    m_currentLayer = {0};
+    m_currentLayer = {firstLayer};
     m_created = true;
     m_layers.push_back(std::vector<std::vector<int>>(m_height, std::vector<int>(m_width, 0)));
 }
@@ -15,7 +15,7 @@ void RobotWorkspace::clear()
 {
     m_width = {0};
     m_height = {0};
-    m_currentLayer = {0};
+    m_currentLayer = {firstLayer};
     m_created = false;
     m_layers.clear();
 }
@@ -88,16 +88,16 @@ bool RobotWorkspace::goToNextLayer()
 
 bool RobotWorkspace::hasBlockAtCurrentLayer(int x, int y) const
 {
-    return hasBlock(x, y, m_currentLayer);
+    return hasBlockAtLayer(x, y, m_currentLayer);
 }
 
-bool RobotWorkspace::hasBlock(int x, int y, int z) const
+bool RobotWorkspace::hasBlockAtLayer(int x, int y, int layer) const
 {
-    if (!isValidPosition(x, y, z)) {
+    if (!isValidPosition(x, y, layer)) {
         return false;
     }
 
-    return m_layers[z][y][x] == 1;
+    return m_layers[layer][y][x] == 1;
 }
 
 bool RobotWorkspace::toggleBlockAtCurrentLayer(int x, int y)
@@ -113,7 +113,7 @@ bool RobotWorkspace::toggleBlockAtCurrentLayer(int x, int y)
 bool RobotWorkspace::isValidPosition(int x, int y, int z) const
 {
     return m_created
-           && z >= 0
+           && z >= firstLayer
            && z < layerCount()
            && y >= 0
            && y < m_height
