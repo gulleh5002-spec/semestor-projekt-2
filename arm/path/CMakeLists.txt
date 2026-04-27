@@ -24,7 +24,7 @@ add_executable(RobotArm
 
 target_include_directories(RobotArm PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}
-    ${CMAKE_CURRENT_SOURCE_DIR}/../newgrid
+    ${CMAKE_CURRENT_SOURCE_DIR}/..
     ${EIGEN3_INCLUDE_DIR}
 )
 

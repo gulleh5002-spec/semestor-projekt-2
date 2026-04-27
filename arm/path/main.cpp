@@ -19,7 +19,7 @@ int main()
     //gulle.movetool({ 0.4, 0, 0.5, 3.14, 0.0, 0.0 });
     //gulle.home();
 
-    Grid grid(100, 100);
+    Grid grid(10, 10, 10);
     grid.makeGrid();
     grid.printGrid();
     return 0;

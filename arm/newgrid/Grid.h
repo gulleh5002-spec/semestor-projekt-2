@@ -4,18 +4,23 @@
 #include <vector>
 #include "Block.h"
 
+
 class Grid {
 private:
   int height;
   int width;
+  int length;
   
-  std::vector<std::vector<Block>> grid;
+  
 
 public:
-  Grid(int height, int width);
+  Grid(int height, int width, int length, std::vector<double> grid_to_base);
   void makeGrid();
-  void makeBuldingGrid(int height, int width);
-  void makeTakingGride(int height, int width);
   void printGrid();
+  void placeBlock(std::vector<std::vector<double>> coordinates, int id);
+  std::vector<std::vector<std::vector<Block>>> grid;
+  std::vector<double> findBlock(Block block);
+
   ~Grid();
+  std::vector<double> grid_to_base;
 };

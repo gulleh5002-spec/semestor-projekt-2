@@ -2,7 +2,7 @@
 
 
 
-Block::Block(int id,  std::vector<double> coordnate)    : id(id), coordnate(coordnate)
+Block::Block(int id,  std::vector<double> coordnate, int status, std::vector<int> place): Id(id), coordnate(coordnate), status(status), place(place)
 {
 }
 
@@ -12,10 +12,19 @@ Block::~Block()
 
 int Block::getId()
 {
-    return id;
+    return Id;
 }
 
 std::vector<double> Block::getCoordnate()
 {
-    return coordnate;
+    return ;
+}
+
+int Block::getstatus()
+{
+    return status;
+}
+std::vector<int> Block::getplace()
+{
+    return place;
 }

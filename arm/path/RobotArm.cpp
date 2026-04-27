@@ -20,15 +20,16 @@ void RobotArm::home()
     rtde_c.moveL({ 0.0, 0.5, 0.5, 3.14, 0.0, 0.0 }, 0.5, 0.5);
 }
 
-void RobotArm::movetool(std::vector<double> koordinatWorld , double speed, double acceleration)
+void RobotArm::movetool(std::vector<double> koordinatWorld , double speed, double acceleration, std::vector<double> gridFrame)
 {
     
     std::vector<double> startPose = rtde_r.getActualTCPPose();
     std::vector<double> StartAngle = rtde_r.getActualQ();  
     
     Eigen::Matrix4d T_world_goal = IKcal.AngelPoseToTransform(koordinatWorld);
-    Eigen::Matrix4d T_base_world = repsetory.getT().inverse();
-    Eigen::Matrix4d T_base_goal  = T_base_world * T_world_goal;
+    Eigen::Matrix4d T_base_grid = IKcal.AngelPoseToTransform(gridFrame);
+    Eigen::Matrix4d T_base_grid = T_base_grid.inverse();
+    Eigen::Matrix4d T_base_goal  = T_base_grid * T_world_goal;
 
     std::vector<double> goalBase = IKcal.TransformToPose(T_base_goal);  
     
@@ -77,16 +78,31 @@ void RobotArm::moveblock(std::vector<double> koordinat1, std::vector<double> koo
     std::vector<double> newkoordinat1 = koordinat1;
     double brikoffset = 0.2;
     newkoordinat1[2] = koordinat2[2] + brikoffset;
-    movetool(newkoordinat1);
-    movetool(koordinat1);
-    movetool(newkoordinat1);
+    movetool(newkoordinat1, speed, acceleration, gridFrame);
+    movetool(koordinat1, speed, acceleration, gridFrame);
+    movetool(newkoordinat1, speed, acceleration, gridFrame);
+
     std::vector<double> newkoordinat2 = koordinat2;
     newkoordinat2[2] += brikoffset;
-    movetool(newkoordinat2);
-    movetool(koordinat2);
+    
+    movetool(newkoordinat2, speed, acceleration, gridFrame);
+    movetool(koordinat2, speed, acceleration, gridFrame);
     newkoordinat2[2] += brikoffset;
-    movetool(newkoordinat2);
+    movetool(newkoordinat2, speed, acceleration, gridFrame);
 
+    
+}
+
+void RobotArm::build(Grid& Gridblocks, Grid& Gridplace, std::vector<Block> Blocks)
+{
+    
+    for (int i = 0; i < Blocks.size(); i++)
+    {
+       std::vector<double> coord1 = Gridblocks.findBlock(Blocks[i]);
+       std::vector<double> coord2 = Blocks[i].getCoordnate();
+       Gridblocks.placeBlock(Blocks[i].getCoordnate(), Blocks[i].Id());
+       moveblock(coord1, coord2)
+    }
     
 }
 
