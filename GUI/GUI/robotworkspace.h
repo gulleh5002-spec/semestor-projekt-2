@@ -37,6 +37,8 @@ public:
     bool hasBlockAtLayer(int x, int y, int layer) const;
     bool canPlaceBlockAtCurrentLayer(int x, int y) const;
     bool canPlaceBlockAtLayer(int x, int y, int layer) const;
+    bool canRemoveBlockAtCurrentLayer(int x, int y) const;
+    bool canRemoveBlockAtLayer(int x, int y, int layer) const;
     bool toggleBlockAtCurrentLayer(int x, int y);
 //=================================================================
 

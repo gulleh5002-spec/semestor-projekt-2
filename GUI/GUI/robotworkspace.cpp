@@ -118,6 +118,25 @@ bool RobotWorkspace::canPlaceBlockAtLayer(int x, int y, int layer) const
     return hasBlockAtLayer(x, y, layer - 1);
 }
 
+bool RobotWorkspace::canRemoveBlockAtCurrentLayer(int x, int y) const
+{
+    return canRemoveBlockAtLayer(x, y, m_currentLayer);
+}
+
+bool RobotWorkspace::canRemoveBlockAtLayer(int x, int y, int layer) const
+{
+    if (!isValidPosition(x, y, layer) || !hasBlockAtLayer(x, y, layer)) {
+        return false;
+    }
+
+    const int layerAbove = layer + 1;
+    if (layerAbove >= layerCount()) {
+        return true;
+    }
+
+    return !hasBlockAtLayer(x, y, layerAbove);
+}
+
 bool RobotWorkspace::toggleBlockAtCurrentLayer(int x, int y)
 {
     if (!isValidPosition(x, y, m_currentLayer)) {
@@ -125,6 +144,10 @@ bool RobotWorkspace::toggleBlockAtCurrentLayer(int x, int y)
     }
 
     if (hasBlockAtCurrentLayer(x, y)) {
+        if (!canRemoveBlockAtCurrentLayer(x, y)) {
+            return false;
+        }
+
         m_layers[m_currentLayer][y][x] = 0;
         return true;
     }
