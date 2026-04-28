@@ -16,6 +16,7 @@ set(PROJECT_SOURCES
         main.cpp
         debughelper.cpp
         debughelper.h
+        gridposition.h
         mainwindow.cpp
         mainwindow.h
         mainwindow.ui
