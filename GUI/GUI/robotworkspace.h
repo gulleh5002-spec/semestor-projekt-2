@@ -1,6 +1,8 @@
 #ifndef ROBOTWORKSPACE_H
 #define ROBOTWORKSPACE_H
 
+#include "gridposition.h"
+
 #include <vector>
 
 class RobotWorkspace
@@ -35,10 +37,13 @@ public:
 
     // Validering for at man ikke skriver og læser uden for m_layers
     bool hasBlockAtLayer(int x, int y, int layer) const;
+    bool hasBlockAtPosition(const GridPosition& position) const;
     bool canPlaceBlockAtCurrentLayer(int x, int y) const;
     bool canPlaceBlockAtLayer(int x, int y, int layer) const;
+    bool canPlaceBlockAtPosition(const GridPosition& position) const;
     bool canRemoveBlockAtCurrentLayer(int x, int y) const;
     bool canRemoveBlockAtLayer(int x, int y, int layer) const;
+    bool canRemoveBlockAtPosition(const GridPosition& position) const;
     bool toggleBlockAtCurrentLayer(int x, int y);
 //=================================================================
 
@@ -47,7 +52,9 @@ private:
     static constexpr int firstLayer = {0};
 
     // Validere om gyldig input
-    bool isValidPosition(int x, int y, int z) const;
+    GridPosition currentLayerPosition(int x, int y) const;
+    GridPosition positionAtLayer(int x, int y, int layer) const;
+    bool isValidPosition(const GridPosition& position) const;
 
     int m_width = {0};
     int m_height = {0};
