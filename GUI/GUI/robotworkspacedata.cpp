@@ -78,7 +78,48 @@ bool RobotWorkspaceData::setCellAtPosition(const GridPosition& position, const G
     return true;
 }
 
+std::vector<BlockPlacement> RobotWorkspaceData::placedBlocks() const
+{
+    std::vector<BlockPlacement> blocks;
+
+    for (int layer = firstLayer; layer < layerCount(); ++layer) {
+        collectPlacedBlocksFromLayer(blocks, layer);
+    }
+
+    return blocks;
+}
+
 void RobotWorkspaceData::addEmptyLayer()
 {
     m_layers.push_back(std::vector<std::vector<GridCell>>(m_height, std::vector<GridCell>(m_width)));
+}
+
+void RobotWorkspaceData::collectPlacedBlocksFromLayer(std::vector<BlockPlacement>& blocks, int layer) const
+{
+    for (int y = 0; y < m_height; ++y) {
+        collectPlacedBlocksFromRow(blocks, layer, y);
+    }
+}
+
+void RobotWorkspaceData::collectPlacedBlocksFromRow(std::vector<BlockPlacement>& blocks, int layer, int y) const
+{
+    for (int x = 0; x < m_width; ++x) {
+        collectPlacedBlocksIfOccupied(blocks, {x, y, layer});
+    }
+}
+
+void RobotWorkspaceData::collectPlacedBlocksIfOccupied(std::vector<BlockPlacement>& blocks,
+                                                     const GridPosition& position) const
+{
+    if (!isValidPosition(position)) {
+        return;
+    }
+
+    const GridCell& cell = m_layers[position.z][position.y][position.x];
+
+    if (!cell.hasBlock) {
+        return;
+    }
+
+    blocks.push_back({position, cell.blockType});
 }

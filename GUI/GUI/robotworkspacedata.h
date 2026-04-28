@@ -1,6 +1,7 @@
 #ifndef ROBOTWORKSPACEDATA_H
 #define ROBOTWORKSPACEDATA_H
 
+#include "blockplacement.h"
 #include "gridcell.h"
 #include "gridposition.h"
 
@@ -25,12 +26,17 @@ public:
     bool hasBlockAtPosition(const GridPosition& position) const;
     // Sætter cellens data
     bool setCellAtPosition(const GridPosition& position, const GridCell& cell);
+    std::vector<BlockPlacement> placedBlocks() const;
 
 private:
     static constexpr int firstLayer = {0};
 
     // Tilføjer en tomt lag
     void addEmptyLayer();
+    // Saml lag for placered klodser og indsæt
+    void collectPlacedBlocksFromLayer(std::vector<BlockPlacement>& blocks, int layer) const;
+    void collectPlacedBlocksFromRow(std::vector<BlockPlacement>& blocks, int layer, int y) const;
+    void collectPlacedBlocksIfOccupied(std::vector<BlockPlacement>& blocks, const GridPosition& position) const;
 
     int m_width = {0};
     int m_height = {0};
