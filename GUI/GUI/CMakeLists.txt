@@ -14,8 +14,11 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
 set(PROJECT_SOURCES
         main.cpp
+        blockplacement.h
+        blocktype.h
         debughelper.cpp
         debughelper.h
+        gridcell.h
         gridposition.h
         mainwindow.cpp
         mainwindow.h

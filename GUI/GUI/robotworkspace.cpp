@@ -8,7 +8,7 @@ void RobotWorkspace::create(int width, int height)
     m_height = height;
     m_currentLayer = {firstLayer};
     m_created = true;
-    m_layers.push_back(std::vector<std::vector<int>>(m_height, std::vector<int>(m_width, 0)));
+    m_layers.push_back(std::vector<std::vector<GridCell>>(m_height, std::vector<GridCell>(m_width)));
 }
 
 void RobotWorkspace::clear()
@@ -51,7 +51,7 @@ bool RobotWorkspace::addLayer()
         return false;
     }
 
-    m_layers.push_back(std::vector<std::vector<int>>(m_height, std::vector<int>(m_width, 0)));
+    m_layers.push_back(std::vector<std::vector<GridCell>>(m_height, std::vector<GridCell>(m_width)));
     m_currentLayer = layerCount() - 1;
     return true;
 }
@@ -102,7 +102,7 @@ bool RobotWorkspace::hasBlockAtPosition(const GridPosition& position) const
         return false;
     }
 
-    return m_layers[position.z][position.y][position.x] == 1;
+    return m_layers[position.z][position.y][position.x].hasBlock;
 }
 
 bool RobotWorkspace::canPlaceBlockAtCurrentLayer(int x, int y) const
@@ -165,7 +165,7 @@ bool RobotWorkspace::toggleBlockAtCurrentLayer(int x, int y)
             return false;
         }
 
-        m_layers[position.z][position.y][position.x] = 0;
+        m_layers[position.z][position.y][position.x] = GridCell{};
         return true;
     }
 
@@ -173,7 +173,7 @@ bool RobotWorkspace::toggleBlockAtCurrentLayer(int x, int y)
         return false;
     }
 
-    m_layers[position.z][position.y][position.x] = 1;
+    m_layers[position.z][position.y][position.x] = {true, BlockType::Default};
     return true;
 }
 

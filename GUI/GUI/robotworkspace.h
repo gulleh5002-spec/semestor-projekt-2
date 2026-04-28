@@ -1,6 +1,7 @@
 #ifndef ROBOTWORKSPACE_H
 #define ROBOTWORKSPACE_H
 
+#include "gridcell.h"
 #include "gridposition.h"
 
 #include <vector>
@@ -62,7 +63,7 @@ private:
 
     // Validerings check variabel for addLayer()
     bool m_created = false;
-    std::vector<std::vector<std::vector<int>>> m_layers;
+    std::vector<std::vector<std::vector<GridCell>>> m_layers;
 };
 
 #endif // ROBOTWORKSPACE_H
