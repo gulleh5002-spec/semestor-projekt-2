@@ -20,13 +20,16 @@ public:
     int layerCount() const;
 
     bool addLayer();
+    // Tjekker om en position for en klods er valid
     bool isValidPosition(const GridPosition& position) const;
     bool hasBlockAtPosition(const GridPosition& position) const;
+    // Sætter cellens data
     bool setCellAtPosition(const GridPosition& position, const GridCell& cell);
 
 private:
     static constexpr int firstLayer = {0};
 
+    // Tilføjer en tomt lag
     void addEmptyLayer();
 
     int m_width = {0};
