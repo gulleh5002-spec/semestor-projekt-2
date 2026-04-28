@@ -122,7 +122,9 @@ void MainWindow::updateGrid()
             QTableWidgetItem *item = ui->tableWidget->item(row, col);
             bool hasBlock = workspace.hasBlockAtCurrentLayer(col, row);
 
-            if (hasBlock) {
+            if (hasBlock && !workspace.canRemoveBlockAtCurrentLayer(col, row)) {
+                item->setBackground(Qt::green);
+            } else if (hasBlock) {
                 item->setBackground(Qt::blue);
             } else if (workspace.currentLayer() > 0 && workspace.canPlaceBlockAtCurrentLayer(col, row)) {
                 item->setBackground(Qt::yellow);
