@@ -1,5 +1,5 @@
 #pragma warning(disable: 4996 4267)
-//#include "RobotArm.h"
+#include "RobotArm.h"
 #include <iostream>
 #include <vector>  
 #include "newgrid/Grid.h"
@@ -8,7 +8,7 @@
 
 int main()
 {
-    //RobotArm gulle("192.168.1.100", 1, 1.0);
+    RobotArm gulle("192.168.1.100", 1, 1.0);
     //RobotArm magnum("127.0.0.1", 1.0, 1.0);
     std::vector<double> point1 = { 0.4, 0.4, 0.1, 3.14, 0.0, 0.0 };
     std::vector<double> point2 = { 0.2, 0.2, 0.3, 3.14, 0.0, 0.0 };
@@ -18,9 +18,15 @@ int main()
     //gulle.movetool({ 0, 0.4, 0.5, 3.14, 0.0, 0.0 });
     //gulle.movetool({ 0.4, 0, 0.5, 3.14, 0.0, 0.0 });
     //gulle.home();
-
-    Grid grid(10, 10, 10);
-    grid.makeGrid();
-    grid.printGrid();
+    std::vector<Block> blocks = {
+    Block(1, {1, 1, 0}),
+    Block(1, {1, 0, 0}),
+    Block(1, {0, 1, 0})
+};
+    Grid place(10, 10, 10, {0,0,0 ,0, 0, 3.944});
+    Grid take(10, 10, 10, {10,0,0 ,0, 0, 3.944});
+    take.placeBlock(blocks);
+    
+    gulle.build(take, place, blocks);
     return 0;
 }

@@ -2,8 +2,9 @@
 
 
 
-Block::Block(int id,  std::vector<double> coordnate, int status, std::vector<int> place): Id(id), coordnate(coordnate), status(status), place(place)
+Block::Block(int id, std::vector<int> place): Id(id), place(place)
 {
+    coordnate = {2.5+place[0]*5, 2.5+place[1]*5, 2.5+place[2]*5, 0,0,3.944};
 }
 
 Block::~Block()
@@ -17,13 +18,10 @@ int Block::getId()
 
 std::vector<double> Block::getCoordnate()
 {
-    return ;
+    return coordnate;
 }
 
-int Block::getstatus()
-{
-    return status;
-}
+
 std::vector<int> Block::getplace()
 {
     return place;

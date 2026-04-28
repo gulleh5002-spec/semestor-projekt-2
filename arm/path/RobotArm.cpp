@@ -28,7 +28,7 @@ void RobotArm::movetool(std::vector<double> koordinatWorld , double speed, doubl
     
     Eigen::Matrix4d T_world_goal = IKcal.AngelPoseToTransform(koordinatWorld);
     Eigen::Matrix4d T_base_grid = IKcal.AngelPoseToTransform(gridFrame);
-    Eigen::Matrix4d T_base_grid = T_base_grid.inverse();
+    T_base_grid = T_base_grid.inverse();
     Eigen::Matrix4d T_base_goal  = T_base_grid * T_world_goal;
 
     std::vector<double> goalBase = IKcal.TransformToPose(T_base_goal);  
@@ -72,23 +72,25 @@ void RobotArm::getRTDEinfor()
     printf("Wrist 3:  %.2f deg\n", q[5] * 180.0 / M_PI);
 }
 
-void RobotArm::moveblock(std::vector<double> koordinat1, std::vector<double> koordinat2)
+void RobotArm::moveblock(std::vector<double> koordinat1, std::vector<double> koordinat2, std::vector<double> gridFrame1, std::vector<double> gridFrame2)
 {
+    double speed = 0.5;
+    double acceleration = 0.5;
     // do so the robot move to were the brik is ind the hight of placement koordiante  so i do not colide
     std::vector<double> newkoordinat1 = koordinat1;
     double brikoffset = 0.2;
     newkoordinat1[2] = koordinat2[2] + brikoffset;
-    movetool(newkoordinat1, speed, acceleration, gridFrame);
-    movetool(koordinat1, speed, acceleration, gridFrame);
-    movetool(newkoordinat1, speed, acceleration, gridFrame);
+    movetool(newkoordinat1, speed, acceleration, gridFrame1);
+    movetool(koordinat1, speed, acceleration, gridFrame1);
+    movetool(newkoordinat1, speed, acceleration, gridFrame1);
 
     std::vector<double> newkoordinat2 = koordinat2;
     newkoordinat2[2] += brikoffset;
-    
-    movetool(newkoordinat2, speed, acceleration, gridFrame);
-    movetool(koordinat2, speed, acceleration, gridFrame);
+
+    movetool(newkoordinat2, speed, acceleration, gridFrame2);
+    movetool(koordinat2, speed, acceleration, gridFrame2);
     newkoordinat2[2] += brikoffset;
-    movetool(newkoordinat2, speed, acceleration, gridFrame);
+    movetool(newkoordinat2, speed, acceleration, gridFrame2);
 
     
 }
@@ -100,8 +102,8 @@ void RobotArm::build(Grid& Gridblocks, Grid& Gridplace, std::vector<Block> Block
     {
        std::vector<double> coord1 = Gridblocks.findBlock(Blocks[i]);
        std::vector<double> coord2 = Blocks[i].getCoordnate();
-       Gridblocks.placeBlock(Blocks[i].getCoordnate(), Blocks[i].Id());
-       moveblock(coord1, coord2)
+       Gridplace.placeBlock(Blocks[i]);
+       moveblock(coord1, coord2, Gridblocks.grid_to_base, Gridplace.grid_to_base);
     }
     
 }

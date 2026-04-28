@@ -17,7 +17,7 @@ public:
   Grid(int height, int width, int length, std::vector<double> grid_to_base);
   void makeGrid();
   void printGrid();
-  void placeBlock(std::vector<std::vector<double>> coordinates, int id);
+  void placeBlock(std::vector<Block> Blocks);
   std::vector<std::vector<std::vector<Block>>> grid;
   std::vector<double> findBlock(Block block);
 

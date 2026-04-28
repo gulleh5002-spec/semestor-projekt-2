@@ -1,10 +1,16 @@
 #include "Grid.h"
 
 Grid::Grid(int length, int width, int height, std::vector<double> grid_to_base) : length(length), width(width), height(height), grid_to_base(grid_to_base)
-{}
+{
+    makeGrid();
+}
 
 Grid::~Grid() {}
 
+
+
+// laver et 3d grid ved at lave 3 nested for loops og pushe blocks ind i et 3d vector grid. 
+// her bliver blocke objeterne så dannet med det koordiant der passer i deres frame
 void Grid::makeGrid()
 {
     int laneswidth;
@@ -22,14 +28,14 @@ void Grid::makeGrid()
         {
 
             std::vector<Block> Vector2d;
-            Vector3d.push_back(Vector2d);
+           
             
             for (int j = 0; j < laneswidth; j++)
             {
                 
-                Vector2d.push_back(Block(0, {2.5+i*5, 2.5+j*5, 2.5+s*5, 3.14, 0.0, 0.0}, 0, {i, j}));
+                Vector2d.push_back(Block(0, {s, i, j}));
             }
-            
+             Vector3d.push_back(Vector2d);
         }
         grid.push_back(Vector3d);
     }
@@ -49,14 +55,19 @@ void Grid::printGrid()
         }
     }
 }
-void Grid::placeBlock(std::vector<std::vector<double>> coordinates, int id)
+
+// placere en block i gridet ved at tagede dens index i gridet og sætte id lig det du valgte
+void Grid::placeBlock(std::vector<Block> Blocks)
 {
-     for (int i = 0; i < coordinates.size(); i++)
+     for (int i = 0; i < Blocks.size(); i++)
     {
-        grid[coordinates[i][0]][coordinates[i][1]][coordinates[i][2]].Id = id;
+        grid[Blocks[i].getplace()[0]][Blocks[i].getplace()[1]][Blocks[i].getplace()[2]].Id = Blocks[i].getId();
     }
 }
 
+
+
+// finder en block i i et given grid via at tjekke om de har samme id og returnere koordinaterne for den block og slette den block fra gridet ved at sætte id til 0
 std::vector<double> Grid::findBlock(Block block)
 {
     for (int i = 0; i < grid.size(); i++)
