@@ -88,85 +88,112 @@ bool RobotWorkspace::goToNextLayer()
 
 bool RobotWorkspace::hasBlockAtCurrentLayer(int x, int y) const
 {
-    return hasBlockAtLayer(x, y, m_currentLayer);
+    return hasBlockAtPosition(currentLayerPosition(x, y));
 }
 
 bool RobotWorkspace::hasBlockAtLayer(int x, int y, int layer) const
 {
-    if (!isValidPosition(x, y, layer)) {
+    return hasBlockAtPosition(positionAtLayer(x, y, layer));
+}
+
+bool RobotWorkspace::hasBlockAtPosition(const GridPosition& position) const
+{
+    if (!isValidPosition(position)) {
         return false;
     }
 
-    return m_layers[layer][y][x] == 1;
+    return m_layers[position.z][position.y][position.x] == 1;
 }
 
 bool RobotWorkspace::canPlaceBlockAtCurrentLayer(int x, int y) const
 {
-    return canPlaceBlockAtLayer(x, y, m_currentLayer);
+    return canPlaceBlockAtPosition(currentLayerPosition(x, y));
 }
 
 bool RobotWorkspace::canPlaceBlockAtLayer(int x, int y, int layer) const
 {
-    if (!isValidPosition(x, y, layer) || hasBlockAtLayer(x, y, layer)) {
+    return canPlaceBlockAtPosition(positionAtLayer(x, y, layer));
+}
+
+bool RobotWorkspace::canPlaceBlockAtPosition(const GridPosition& position) const
+{
+    if (!isValidPosition(position) || hasBlockAtPosition(position)) {
         return false;
     }
 
-    if (layer == firstLayer) {
+    if (position.z == firstLayer) {
         return true;
     }
 
-    return hasBlockAtLayer(x, y, layer - 1);
+    return hasBlockAtPosition({position.x, position.y, position.z - 1});
 }
 
 bool RobotWorkspace::canRemoveBlockAtCurrentLayer(int x, int y) const
 {
-    return canRemoveBlockAtLayer(x, y, m_currentLayer);
+    return canRemoveBlockAtPosition(currentLayerPosition(x, y));
 }
 
 bool RobotWorkspace::canRemoveBlockAtLayer(int x, int y, int layer) const
 {
-    if (!isValidPosition(x, y, layer) || !hasBlockAtLayer(x, y, layer)) {
+    return canRemoveBlockAtPosition(positionAtLayer(x, y, layer));
+}
+
+bool RobotWorkspace::canRemoveBlockAtPosition(const GridPosition& position) const
+{
+    if (!isValidPosition(position) || !hasBlockAtPosition(position)) {
         return false;
     }
 
-    const int layerAbove = layer + 1;
+    const int layerAbove = position.z + 1;
     if (layerAbove >= layerCount()) {
         return true;
     }
 
-    return !hasBlockAtLayer(x, y, layerAbove);
+    return !hasBlockAtPosition({position.x, position.y, layerAbove});
 }
 
 bool RobotWorkspace::toggleBlockAtCurrentLayer(int x, int y)
 {
-    if (!isValidPosition(x, y, m_currentLayer)) {
+    const GridPosition position = currentLayerPosition(x, y);
+
+    if (!isValidPosition(position)) {
         return false;
     }
 
-    if (hasBlockAtCurrentLayer(x, y)) {
-        if (!canRemoveBlockAtCurrentLayer(x, y)) {
+    if (hasBlockAtPosition(position)) {
+        if (!canRemoveBlockAtPosition(position)) {
             return false;
         }
 
-        m_layers[m_currentLayer][y][x] = 0;
+        m_layers[position.z][position.y][position.x] = 0;
         return true;
     }
 
-    if (!canPlaceBlockAtCurrentLayer(x, y)) {
+    if (!canPlaceBlockAtPosition(position)) {
         return false;
     }
 
-    m_layers[m_currentLayer][y][x] = 1;
+    m_layers[position.z][position.y][position.x] = 1;
     return true;
 }
 
-bool RobotWorkspace::isValidPosition(int x, int y, int z) const
+GridPosition RobotWorkspace::currentLayerPosition(int x, int y) const
+{
+    return positionAtLayer(x, y, m_currentLayer);
+}
+
+GridPosition RobotWorkspace::positionAtLayer(int x, int y, int layer) const
+{
+    return {x, y, layer};
+}
+
+bool RobotWorkspace::isValidPosition(const GridPosition& position) const
 {
     return m_created
-           && z >= firstLayer
-           && z < layerCount()
-           && y >= 0
-           && y < m_height
-           && x >= 0
-           && x < m_width;
+           && position.z >= firstLayer
+           && position.z < layerCount()
+           && position.y >= 0
+           && position.y < m_height
+           && position.x >= 0
+           && position.x < m_width;
 }
