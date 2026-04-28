@@ -15,6 +15,8 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 set(PROJECT_SOURCES
         main.cpp
         blockplacement.h
+        buildrules.cpp
+        buildrules.h
         blocktype.h
         debughelper.cpp
         debughelper.h

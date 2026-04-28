@@ -1,4 +1,5 @@
 #include "robotworkspace.h"
+#include "buildrules.h"
 
 void RobotWorkspace::create(int width, int height)
 {
@@ -104,15 +105,7 @@ bool RobotWorkspace::canPlaceBlockAtLayer(int x, int y, int layer) const
 
 bool RobotWorkspace::canPlaceBlockAtPosition(const GridPosition& position) const
 {
-    if (!m_data.isValidPosition(position) || hasBlockAtPosition(position)) {
-        return false;
-    }
-
-    if (position.z == firstLayer) {
-        return true;
-    }
-
-    return hasBlockAtPosition({position.x, position.y, position.z - 1});
+    return BuildRules::canPlaceBlockAt(m_data, position);
 }
 
 bool RobotWorkspace::canRemoveBlockAtCurrentLayer(int x, int y) const
@@ -127,16 +120,7 @@ bool RobotWorkspace::canRemoveBlockAtLayer(int x, int y, int layer) const
 
 bool RobotWorkspace::canRemoveBlockAtPosition(const GridPosition& position) const
 {
-    if (!m_data.isValidPosition(position) || !hasBlockAtPosition(position)) {
-        return false;
-    }
-
-    const int layerAbove = position.z + 1;
-    if (layerAbove >= layerCount()) {
-        return true;
-    }
-
-    return !hasBlockAtPosition({position.x, position.y, layerAbove});
+    return BuildRules::canRemoveBlockAt(m_data, position);
 }
 
 bool RobotWorkspace::toggleBlockAtCurrentLayer(int x, int y)
