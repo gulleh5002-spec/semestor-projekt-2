@@ -4,13 +4,13 @@
 void RobotWorkspace::create(int width, int height)
 {
     m_data.create(width, height);
-    m_currentLayer = {firstLayer};
+    m_currentLayer = {WorkspaceConstants::firstLayer};
 }
 
 void RobotWorkspace::clear()
 {
     m_data.clear();
-    m_currentLayer = {firstLayer};
+    m_currentLayer = {WorkspaceConstants::firstLayer};
 }
 
 bool RobotWorkspace::isCreated() const
@@ -50,7 +50,7 @@ bool RobotWorkspace::addLayer()
 
 bool RobotWorkspace::canGoToPreviousLayer() const
 {
-    return m_data.isCreated() && m_currentLayer > firstLayer;
+    return m_data.isCreated() && m_currentLayer > WorkspaceConstants::firstLayer;
 }
 
 bool RobotWorkspace::canGoToNextLayer() const

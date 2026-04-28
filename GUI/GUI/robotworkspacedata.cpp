@@ -1,4 +1,5 @@
 #include "robotworkspacedata.h"
+#include "workspaceconstants.h"
 
 void RobotWorkspaceData::create(int width, int height)
 {
@@ -51,7 +52,7 @@ bool RobotWorkspaceData::addLayer()
 bool RobotWorkspaceData::isValidPosition(const GridPosition& position) const
 {
     return m_created
-           && position.z >= firstLayer
+           && position.z >= WorkspaceConstants::firstLayer
            && position.z < layerCount()
            && position.y >= 0
            && position.y < m_height
@@ -82,7 +83,7 @@ std::vector<BlockPlacement> RobotWorkspaceData::placedBlocks() const
 {
     std::vector<BlockPlacement> blocks;
 
-    for (int layer = firstLayer; layer < layerCount(); ++layer) {
+    for (int layer = WorkspaceConstants::firstLayer; layer < layerCount(); ++layer) {
         collectPlacedBlocksFromLayer(blocks, layer);
     }
 

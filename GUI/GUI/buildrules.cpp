@@ -1,4 +1,5 @@
 #include "buildrules.h"
+#include "workspaceconstants.h"
 
 bool BuildRules::canPlaceBlockAt(const RobotWorkspaceData& data, const GridPosition& position)
 {
@@ -6,7 +7,7 @@ bool BuildRules::canPlaceBlockAt(const RobotWorkspaceData& data, const GridPosit
         return false;
     }
 
-    if (position.z == firstLayer) {
+    if (position.z == WorkspaceConstants::firstLayer) {
         return true;
     }
 

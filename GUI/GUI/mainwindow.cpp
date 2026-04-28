@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
 #include "debughelper.h"
+#include "workspaceconstants.h"
 #include <QString>
 
 
@@ -14,8 +15,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->setupUi(this);
 
-    ui->spinBoxWitdh->setValue(defaultGridWidth);
-    ui->spinBoxHeight->setValue(defaultGridHeight);
+    ui->spinBoxWitdh->setValue(WorkspaceConstants::defaultGridWidth);
+    ui->spinBoxHeight->setValue(WorkspaceConstants::defaultGridHeight);
     ui->statusbar->showMessage("Angiv størrelse på arbejdsområdet og tryk Opret grid");
 
     configureTableWidget();

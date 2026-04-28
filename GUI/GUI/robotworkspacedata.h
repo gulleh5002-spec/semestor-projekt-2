@@ -29,8 +29,6 @@ public:
     std::vector<BlockPlacement> placedBlocks() const;
 
 private:
-    static constexpr int firstLayer = {0};
-
     // Tilføjer en tomt lag
     void addEmptyLayer();
     // Saml lag for placered klodser og indsæt

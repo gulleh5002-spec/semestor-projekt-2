@@ -32,10 +32,6 @@ private:
     Ui::MainWindow *ui;
     RobotWorkspace workspace;
 
-    // Default grid størelse
-    static constexpr int defaultGridHeight = {5};
-    static constexpr int defaultGridWidth = {4};
-
     void configureTableWidget();
     void clearWorkspace();
     void setWorkspaceInputEnabled(bool enabled);

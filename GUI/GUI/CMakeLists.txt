@@ -29,6 +29,7 @@ set(PROJECT_SOURCES
         robotworkspace.h
         robotworkspacedata.cpp
         robotworkspacedata.h
+        workspaceconstants.h
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

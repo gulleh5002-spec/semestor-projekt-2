@@ -3,6 +3,7 @@
 
 #include "gridposition.h"
 #include "robotworkspacedata.h"
+#include "workspaceconstants.h"
 
 class RobotWorkspace
 {
@@ -47,13 +48,10 @@ public:
 //=================================================================
 
 private:
-    // Default lag
-    static constexpr int firstLayer = {0};
-
     // Position helpers
     GridPosition currentLayerPosition(int x, int y) const;
     GridPosition positionAtLayer(int x, int y, int layer) const;
-    int m_currentLayer = {firstLayer};
+    int m_currentLayer = {WorkspaceConstants::firstLayer};
     RobotWorkspaceData m_data;
 };
 
