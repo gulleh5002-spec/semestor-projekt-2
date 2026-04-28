@@ -21,6 +21,8 @@ public:
     static void blockPlacementUpdated(const RobotWorkspace& workspace, int x, int y);
     // Debug af ugyldig placering
     static void blockPlacementRejected(const RobotWorkspace& workspace, int x, int y);
+    // Debug af ugyldig fjernelse
+    static void blockRemovalRejected(const RobotWorkspace& workspace, int x, int y);
 };
 
 #endif

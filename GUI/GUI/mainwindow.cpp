@@ -169,6 +169,13 @@ void MainWindow::onNextLayerClicked()
 //TODO: Moce CellClicked into its own class
 void MainWindow::onCellClicked(int row, int column)
 {
+    if (workspace.hasBlockAtCurrentLayer(column, row)
+        && !workspace.canRemoveBlockAtCurrentLayer(column, row)) {
+        DebugHelper::blockRemovalRejected(workspace, column, row);
+        ui->statusbar->showMessage("Kan ikke fjerne klods: der er en klods ovenpå.");
+        return;
+    }
+
     if (!workspace.toggleBlockAtCurrentLayer(column, row)) {
         DebugHelper::blockPlacementRejected(workspace, column, row);
         ui->statusbar->showMessage("Kan ikke placere klods: der mangler en klods nedenunder.");

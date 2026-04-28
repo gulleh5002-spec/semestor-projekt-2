@@ -39,3 +39,12 @@ void DebugHelper::blockPlacementRejected(const RobotWorkspace& workspace, int x,
              << "Z:" << workspace.currentLayer()
              << "grund: mangler klods nedenunder";
 }
+
+void DebugHelper::blockRemovalRejected(const RobotWorkspace& workspace, int x, int y)
+{
+    qDebug() << "[Klods] Fjernelse afvist"
+             << "X:" << x
+             << "Y:" << y
+             << "Z:" << workspace.currentLayer()
+             << "grund: der staar en klods ovenpaa";
+}
