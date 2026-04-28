@@ -2,37 +2,29 @@
 
 void RobotWorkspace::create(int width, int height)
 {
-    clear();
-
-    m_width = width;
-    m_height = height;
+    m_data.create(width, height);
     m_currentLayer = {firstLayer};
-    m_created = true;
-    m_layers.push_back(std::vector<std::vector<GridCell>>(m_height, std::vector<GridCell>(m_width)));
 }
 
 void RobotWorkspace::clear()
 {
-    m_width = {0};
-    m_height = {0};
+    m_data.clear();
     m_currentLayer = {firstLayer};
-    m_created = false;
-    m_layers.clear();
 }
 
 bool RobotWorkspace::isCreated() const
 {
-    return m_created;
+    return m_data.isCreated();
 }
 
 int RobotWorkspace::width() const
 {
-    return m_width;
+    return m_data.width();
 }
 
 int RobotWorkspace::height() const
 {
-    return m_height;
+    return m_data.height();
 }
 
 int RobotWorkspace::currentLayer() const
@@ -42,28 +34,27 @@ int RobotWorkspace::currentLayer() const
 
 int RobotWorkspace::layerCount() const
 {
-    return static_cast<int>(m_layers.size());
+    return m_data.layerCount();
 }
 
 bool RobotWorkspace::addLayer()
 {
-    if (!m_created) {
+    if (!m_data.addLayer()) {
         return false;
     }
 
-    m_layers.push_back(std::vector<std::vector<GridCell>>(m_height, std::vector<GridCell>(m_width)));
     m_currentLayer = layerCount() - 1;
     return true;
 }
 
 bool RobotWorkspace::canGoToPreviousLayer() const
 {
-    return m_created && m_currentLayer > 0;
+    return m_data.isCreated() && m_currentLayer > firstLayer;
 }
 
 bool RobotWorkspace::canGoToNextLayer() const
 {
-    return m_created && m_currentLayer < layerCount() - 1;
+    return m_data.isCreated() && m_currentLayer < layerCount() - 1;
 }
 
 bool RobotWorkspace::goToPreviousLayer()
@@ -98,11 +89,7 @@ bool RobotWorkspace::hasBlockAtLayer(int x, int y, int layer) const
 
 bool RobotWorkspace::hasBlockAtPosition(const GridPosition& position) const
 {
-    if (!isValidPosition(position)) {
-        return false;
-    }
-
-    return m_layers[position.z][position.y][position.x].hasBlock;
+    return m_data.hasBlockAtPosition(position);
 }
 
 bool RobotWorkspace::canPlaceBlockAtCurrentLayer(int x, int y) const
@@ -117,7 +104,7 @@ bool RobotWorkspace::canPlaceBlockAtLayer(int x, int y, int layer) const
 
 bool RobotWorkspace::canPlaceBlockAtPosition(const GridPosition& position) const
 {
-    if (!isValidPosition(position) || hasBlockAtPosition(position)) {
+    if (!m_data.isValidPosition(position) || hasBlockAtPosition(position)) {
         return false;
     }
 
@@ -140,7 +127,7 @@ bool RobotWorkspace::canRemoveBlockAtLayer(int x, int y, int layer) const
 
 bool RobotWorkspace::canRemoveBlockAtPosition(const GridPosition& position) const
 {
-    if (!isValidPosition(position) || !hasBlockAtPosition(position)) {
+    if (!m_data.isValidPosition(position) || !hasBlockAtPosition(position)) {
         return false;
     }
 
@@ -156,7 +143,7 @@ bool RobotWorkspace::toggleBlockAtCurrentLayer(int x, int y)
 {
     const GridPosition position = currentLayerPosition(x, y);
 
-    if (!isValidPosition(position)) {
+    if (!m_data.isValidPosition(position)) {
         return false;
     }
 
@@ -165,16 +152,14 @@ bool RobotWorkspace::toggleBlockAtCurrentLayer(int x, int y)
             return false;
         }
 
-        m_layers[position.z][position.y][position.x] = GridCell{};
-        return true;
+        return m_data.setCellAtPosition(position, GridCell{});
     }
 
     if (!canPlaceBlockAtPosition(position)) {
         return false;
     }
 
-    m_layers[position.z][position.y][position.x] = {true, BlockType::Default};
-    return true;
+    return m_data.setCellAtPosition(position, {true, BlockType::Default});
 }
 
 GridPosition RobotWorkspace::currentLayerPosition(int x, int y) const
@@ -185,15 +170,4 @@ GridPosition RobotWorkspace::currentLayerPosition(int x, int y) const
 GridPosition RobotWorkspace::positionAtLayer(int x, int y, int layer) const
 {
     return {x, y, layer};
-}
-
-bool RobotWorkspace::isValidPosition(const GridPosition& position) const
-{
-    return m_created
-           && position.z >= firstLayer
-           && position.z < layerCount()
-           && position.y >= 0
-           && position.y < m_height
-           && position.x >= 0
-           && position.x < m_width;
 }

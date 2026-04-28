@@ -1,10 +1,8 @@
 #ifndef ROBOTWORKSPACE_H
 #define ROBOTWORKSPACE_H
 
-#include "gridcell.h"
 #include "gridposition.h"
-
-#include <vector>
+#include "robotworkspacedata.h"
 
 class RobotWorkspace
 {
@@ -36,7 +34,7 @@ public:
     // Klods data på lag
     bool hasBlockAtCurrentLayer(int x, int y) const;
 
-    // Validering for at man ikke skriver og læser uden for m_layers
+    // Validering og regler for klodsdata
     bool hasBlockAtLayer(int x, int y, int layer) const;
     bool hasBlockAtPosition(const GridPosition& position) const;
     bool canPlaceBlockAtCurrentLayer(int x, int y) const;
@@ -52,18 +50,11 @@ private:
     // Default lag
     static constexpr int firstLayer = {0};
 
-    // Validere om gyldig input
+    // Position helpers
     GridPosition currentLayerPosition(int x, int y) const;
     GridPosition positionAtLayer(int x, int y, int layer) const;
-    bool isValidPosition(const GridPosition& position) const;
-
-    int m_width = {0};
-    int m_height = {0};
     int m_currentLayer = {firstLayer};
-
-    // Validerings check variabel for addLayer()
-    bool m_created = false;
-    std::vector<std::vector<std::vector<GridCell>>> m_layers;
+    RobotWorkspaceData m_data;
 };
 
 #endif // ROBOTWORKSPACE_H

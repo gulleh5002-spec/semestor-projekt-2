@@ -25,6 +25,8 @@ set(PROJECT_SOURCES
         mainwindow.ui
         robotworkspace.cpp
         robotworkspace.h
+        robotworkspacedata.cpp
+        robotworkspacedata.h
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
