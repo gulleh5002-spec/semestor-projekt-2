@@ -110,7 +110,7 @@ void RobotWorkspaceData::collectPlacedBlocksFromRow(std::vector<BlockPlacement>&
 }
 
 void RobotWorkspaceData::collectPlacedBlocksIfOccupied(std::vector<BlockPlacement>& blocks,
-                                                     const GridPosition& position) const
+const GridPosition& position) const
 {
     if (!isValidPosition(position)) {
         return;

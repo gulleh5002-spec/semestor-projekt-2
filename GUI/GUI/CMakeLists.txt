@@ -30,6 +30,8 @@ set(PROJECT_SOURCES
         robotworkspacedata.cpp
         robotworkspacedata.h
         workspaceconstants.h
+        workspacedatajsonhandler.cpp
+        workspacedatajsonhandler.h
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

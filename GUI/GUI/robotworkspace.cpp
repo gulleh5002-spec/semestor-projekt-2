@@ -83,6 +83,11 @@ bool RobotWorkspace::hasBlockAtCurrentLayer(int x, int y) const
     return hasBlockAtPosition(currentLayerPosition(x, y));
 }
 
+std::vector<BlockPlacement> RobotWorkspace::placedBlocks() const
+{
+    return m_data.placedBlocks();
+}
+
 bool RobotWorkspace::hasBlockAtLayer(int x, int y, int layer) const
 {
     return hasBlockAtPosition(positionAtLayer(x, y, layer));

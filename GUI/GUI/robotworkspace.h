@@ -1,9 +1,12 @@
 #ifndef ROBOTWORKSPACE_H
 #define ROBOTWORKSPACE_H
 
+#include "blockplacement.h"
 #include "gridposition.h"
 #include "robotworkspacedata.h"
 #include "workspaceconstants.h"
+
+#include <vector>
 
 class RobotWorkspace
 {
@@ -34,6 +37,7 @@ public:
 
     // Klods data på lag
     bool hasBlockAtCurrentLayer(int x, int y) const;
+    std::vector<BlockPlacement> placedBlocks() const;
 
     // Validering og regler for klodsdata
     bool hasBlockAtLayer(int x, int y, int layer) const;
