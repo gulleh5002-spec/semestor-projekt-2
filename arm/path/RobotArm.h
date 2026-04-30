@@ -10,6 +10,7 @@
 #include <ur_rtde/rtde_control_interface.h>
 #include <ur_rtde/rtde_receive_interface.h>
 #include <vector>
+#include "newgrid/Grid.h"
 
 class RobotArm {
 public:
@@ -21,16 +22,19 @@ public:
   void home();
 
   // keep
-  void movetool(std::vector<double> koordinat, double speed = 0.5,
-                double acceleration = 0.5);
+  void movetool(std::vector<double> koordinatWorld , double speed, double acceleration, std::vector<double> gridFrame);
 
   void getTcpInfo(std::vector<double> point);
 
   void getRTDEinfor();
 
   void moveblock(std::vector<double> koordinat1,
-                 std::vector<double> koordinat2);
+                 std::vector<double> koordinat2,
+                 std::vector<double> gridFrame1,
+                 std::vector<double> gridFrame2);
 
+  void build(Grid& Gridblocks, Grid& Gridplace, std::vector<Block> Blocks);
+  void moveToGridPos(Grid grid, Block block);
 private:
   std::string ip;
   double acceleration;

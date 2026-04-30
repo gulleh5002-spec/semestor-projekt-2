@@ -18,10 +18,13 @@ add_executable(RobotArm
     IKcal.cpp
     repsetory.cpp
     ur_kin.cpp
+    ../newgrid/Grid.cpp
+    ../newgrid/Block.cpp
 )
 
 target_include_directories(RobotArm PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}
+    ${CMAKE_CURRENT_SOURCE_DIR}/..
     ${EIGEN3_INCLUDE_DIR}
 )
 

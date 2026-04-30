@@ -1,8 +1,0 @@
-================================================================================
-Linker Errors
-Generated: 2026-04-16T12:18:02.335Z
-Total Errors: 1
-================================================================================
-
-[LNK1104] (MSVC)
-cannot open file 'C:\Users\GusHansen\ur_rtde\build\Debug\rtde.lib' [C:\Users\GusHansen\Desktop\semestorprojekt2\semestor-projekt-2\build\RobotArm.vcxproj]

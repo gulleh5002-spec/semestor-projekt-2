@@ -1,2 +1,0 @@
-C:\Users\GusHansen\Desktop\semestorprojekt2\semestor-projekt-2\build\Release\boost_thread-vc145-mt-x64-1_90.dll
-C:\Users\GusHansen\Desktop\semestorprojekt2\semestor-projekt-2\build\RobotArm.dir\Release\RobotArm.vcxproj.Up2Date
