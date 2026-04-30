@@ -151,3 +151,46 @@ std::vector<double> IKcal::TransformToPose(const Eigen::Matrix4d& T)
     pose[5] = rv.z();
     return pose;
 }
+
+
+Eigen::Matrix4d IKcal::poseToTransform(std::vector<double> pose)
+{
+    double x = pose[0];
+    double y = pose[1];
+    double z = pose[2];
+    double rx = pose[3];
+    double ry = pose[4];
+    double rz = pose[5];
+    
+    double angle = std::sqrt(rx*rx + ry*ry + rz*rz);
+    
+    Eigen::Matrix3d R;
+    
+    if (angle < 1e-10) {
+        // Ingen rotation – brug identitetsmatrix
+        R = Eigen::Matrix3d::Identity();
+    } else {
+        // Enhedsvektor for aksen
+        double kx = rx / angle;
+        double ky = ry / angle;
+        double kz = rz / angle;
+        
+        double c = std::cos(angle);
+        double s = std::sin(angle);
+        double v = 1.0 - c;
+        
+        // Rodrigues' rotationsformel
+        R << kx*kx*v + c,    kx*ky*v - kz*s, kx*kz*v + ky*s,
+             kx*ky*v + kz*s, ky*ky*v + c,    ky*kz*v - kx*s,
+             kx*kz*v - ky*s, ky*kz*v + kx*s, kz*kz*v + c;
+    }
+    
+    // Sæt 4x4 transformationsmatrix sammen
+    Eigen::Matrix4d T = Eigen::Matrix4d::Identity();
+    T.block<3,3>(0,0) = R;
+    T(0,3) = x;
+    T(1,3) = y;
+    T(2,3) = z;
+    
+    return T;
+}

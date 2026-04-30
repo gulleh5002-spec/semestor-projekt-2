@@ -22,17 +22,22 @@ void RobotArm::home()
 
 void RobotArm::movetool(std::vector<double> koordinatWorld , double speed, double acceleration, std::vector<double> gridFrame)
 {
-    
+    // finder start vinklen og start tcp pose
     std::vector<double> startPose = rtde_r.getActualTCPPose();
     std::vector<double> StartAngle = rtde_r.getActualQ();  
     
-    Eigen::Matrix4d T_world_goal = IKcal.AngelPoseToTransform(koordinatWorld);
-    Eigen::Matrix4d T_base_grid = IKcal.AngelPoseToTransform(gridFrame);
-    T_base_grid = T_base_grid.inverse();
-    Eigen::Matrix4d T_base_goal  = T_base_grid * T_world_goal;
+    // laver målet om til en transformaotns matrice 
+    Eigen::Matrix4d T_Grid_goal = IKcal.AngelPoseToTransform(koordinatWorld);
 
-    std::vector<double> goalBase = IKcal.TransformToPose(T_base_goal);  
-    
+    //  transformaotns matrice  som går den er alignet med bordet 2.74
+    Eigen::Matrix4d T_base_world = IKcal.poseToTransform({0 ,0 ,0, 0, 0, 2.74});
+
+    // Transformaons matrice som går den er alignet med gridet
+    Eigen::Matrix4d T_world_grid = IKcal.poseToTransform(gridFrame);
+
+    // ganger matricerne sammen så du for vejen til målet
+    Eigen::Matrix4d T_TCP_goal  = T_base_world * T_world_grid *  T_Grid_goal;
+    std::vector<double> goalBase = IKcal.TransformToPose(T_TCP_goal);  
     std::vector<std::vector<double>> joints = pf.findPath(startPose, goalBase, StartAngle);
 
     std::vector<std::vector<double>> path;
@@ -89,7 +94,6 @@ void RobotArm::moveblock(std::vector<double> koordinat1, std::vector<double> koo
 
     movetool(newkoordinat2, speed, acceleration, gridFrame2);
     movetool(koordinat2, speed, acceleration, gridFrame2);
-    newkoordinat2[2] += brikoffset;
     movetool(newkoordinat2, speed, acceleration, gridFrame2);
 
     
@@ -101,11 +105,21 @@ void RobotArm::build(Grid& Gridblocks, Grid& Gridplace, std::vector<Block> Block
     for (int i = 0; i < Blocks.size(); i++)
     {
        std::vector<double> coord1 = Gridblocks.findBlock(Blocks[i]);
+       for (int j = 0; j < coord1.size(); j++)
+       {
+        std::cout << coord1[j] <<std::endl;
+       }
+       Gridplace.placeBlock({Blocks[i]});
+
        std::vector<double> coord2 = Blocks[i].getCoordnate();
-       Gridplace.placeBlock(Blocks[i]);
        moveblock(coord1, coord2, Gridblocks.grid_to_base, Gridplace.grid_to_base);
     }
     
+}
+
+void RobotArm::moveToGridPos(Grid grid, Block block)
+{
+    movetool(block.getCoordnate(), 0.5, 0.5, grid.grid_to_base);
 }
 
 RobotArm::~RobotArm()

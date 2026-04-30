@@ -20,7 +20,7 @@ void Grid::makeGrid()
     laneslength = length / 5;
     laneswidth = width / 5;
     lanesheight = height / 5;
-    for (int s = 0; s < lanesheight; s++)
+    for (int s = 0; s < laneswidth; s++)
     {
        std::vector<std::vector<Block>> Vector3d;
 
@@ -30,7 +30,7 @@ void Grid::makeGrid()
             std::vector<Block> Vector2d;
            
             
-            for (int j = 0; j < laneswidth; j++)
+            for (int j = 0; j < lanesheight; j++)
             {
                 
                 Vector2d.push_back(Block(0, {s, i, j}));
@@ -59,9 +59,22 @@ void Grid::printGrid()
 // placere en block i gridet ved at tagede dens index i gridet og sætte id lig det du valgte
 void Grid::placeBlock(std::vector<Block> Blocks)
 {
-     for (int i = 0; i < Blocks.size(); i++)
+    for (int i = 0; i < Blocks.size(); i++)
     {
-        grid[Blocks[i].getplace()[0]][Blocks[i].getplace()[1]][Blocks[i].getplace()[2]].Id = Blocks[i].getId();
+        int s = Blocks[i].getplace()[0];
+        int x = Blocks[i].getplace()[1];
+        int y = Blocks[i].getplace()[2];
+        if (s < 0 || s >= (int)grid.size() ||
+            x < 0 || x >= (int)grid[s].size() ||
+            y < 0 || y >= (int)grid[s][x].size())
+        {
+            std::cout << "placeBlock: [" << s << "][" << x << "][" << y
+                      << "] out of bounds (grid size: " << grid.size() << "x"
+                      << (grid.empty() ? 0 : grid[0].size()) << "x"
+                      << (grid.empty() || grid[0].empty() ? 0 : grid[0][0].size()) << ")\n";
+            continue;
+        }
+        grid[s][x][y].Id = Blocks[i].getId();
     }
 }
 
@@ -85,6 +98,6 @@ std::vector<double> Grid::findBlock(Block block)
         }
     }
     return {};
-    
 }
-    
+
+
