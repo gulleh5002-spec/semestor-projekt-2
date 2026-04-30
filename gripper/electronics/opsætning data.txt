@@ -1,0 +1,23 @@
+Offset: 0.708399V
+
+Strøm: 0,023 A
+
+Voltage: 0.732972V
+
+Sensitive = (målt_spænding - offset) / strøm =  (0.732972V - 0.708399V) / 0,023 A = 1,0683913
+
+
+Motor 24 V HG37-300-AB-00 1/300 gear ratio (lavt gearet)
+
+No load: 0 A
+
+Freedrive: 0,040 A
+
+Stall: 
+
+
+
+Noter til debug: 
+
+USB serial print terminal command: 
+screen /dev/tty.usbmodem1101 

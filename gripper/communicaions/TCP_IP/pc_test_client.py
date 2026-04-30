@@ -14,7 +14,7 @@ def main() -> int:
     port = 4242
 
     try:
-        with socket.create_connection((host, port), timeout=5) as sock:
+        with socket.create_connection((host, port), timeout=10) as sock:
             for command in commands:
                 sock.sendall((command.strip().upper() + "\n").encode("utf-8"))
                 response = sock.recv(128).decode("utf-8", errors="replace").strip()
