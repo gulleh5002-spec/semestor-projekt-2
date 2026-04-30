@@ -3,6 +3,8 @@
 #include "debughelper.h"
 #include "workspaceconstants.h"
 #include <QString>
+#include <QDebug>
+#include "workspacedatajsonhandler.h"
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -189,6 +191,7 @@ void MainWindow::onCellClicked(int row, int column)
     updateLayerControls();
     DebugHelper::blockPlacementUpdated(workspace, column, row);
     ui->statusbar->showMessage("Klodsplacering opdateret.");
+    qDebug().noquote() << WorkspaceDataJsonHandler::toJsonString(workspace);
 }
 
 void MainWindow::updateLayerControls()
