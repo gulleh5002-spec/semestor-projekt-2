@@ -11,6 +11,7 @@
 #include <ur_rtde/rtde_receive_interface.h>
 #include <vector>
 #include "newgrid/Grid.h"
+#include "GripperClient.h"
 
 class RobotArm {
 public:
@@ -44,6 +45,7 @@ private:
   PathFinder pf;
   repsetory repsetory;
   IKcal IKcal;
+  GripperClient gripper;
 };
 
 // regn på albuernes postioner og sørgde for der ikke kommer koliktions med

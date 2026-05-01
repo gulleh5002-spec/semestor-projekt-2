@@ -9,6 +9,7 @@ RobotArm::RobotArm(std::string init_ip, double speed, double acceleration)
 acceleration(acceleration),
 rtde_r(init_ip),
 rtde_c(init_ip),
+gripper("172.20.10.8"), 
 pf()
 {   
 //rtde_c.setTcp({0, 0, 0.1, 0, 0, 0});
@@ -86,16 +87,27 @@ void RobotArm::moveblock(std::vector<double> koordinat1, std::vector<double> koo
     double brikoffset = 0.2;
     newkoordinat1[2] = koordinat2[2] + brikoffset;
     movetool(newkoordinat1, speed, acceleration, gridFrame1);
-    movetool(koordinat1, speed, acceleration, gridFrame1);
-    movetool(newkoordinat1, speed, acceleration, gridFrame1);
 
+    std::cout << "ping";
+    gripper.open();
+    movetool(koordinat1, speed, acceleration, gridFrame1);
+
+    // gripper lukker
+    gripper.close();
+    movetool(newkoordinat1, speed, acceleration, gridFrame1);
+    
     std::vector<double> newkoordinat2 = koordinat2;
     newkoordinat2[2] += brikoffset;
 
     movetool(newkoordinat2, speed, acceleration, gridFrame2);
+
+    // gripper åbner
+    gripper.open();
     movetool(koordinat2, speed, acceleration, gridFrame2);
     movetool(newkoordinat2, speed, acceleration, gridFrame2);
 
+    //gripper lukker
+    gripper.close();
     
 }
 

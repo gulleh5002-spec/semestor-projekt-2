@@ -14,6 +14,7 @@ find_package(ur_rtde REQUIRED PATHS "C:/Users/GusHansen/ur_rtde/build/ur_rtde")
 add_executable(RobotArm
     main.cpp
     RobotArm.cpp
+    GripperClient.cpp
     PathFinder.cpp
     IKcal.cpp
     repsetory.cpp
@@ -21,6 +22,7 @@ add_executable(RobotArm
     ../newgrid/Grid.cpp
     ../newgrid/Block.cpp
 )
+
 
 target_include_directories(RobotArm PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}
@@ -30,6 +32,7 @@ target_include_directories(RobotArm PRIVATE
 
 target_link_libraries(RobotArm PRIVATE
     ur_rtde::rtde
+    ws2_32
 )
 
 add_custom_command(TARGET RobotArm POST_BUILD
