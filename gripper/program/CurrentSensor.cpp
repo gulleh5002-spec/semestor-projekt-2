@@ -34,7 +34,7 @@ float CurrentSensor::getCurrent()
   if (current < 0.1f)
     current = 0;
 
-  // printf("Current: %.2f A\n", current);
+  printf("Current: %.2f A\n", current);
   return abs_val(current);
 }
 

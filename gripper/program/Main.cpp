@@ -24,8 +24,8 @@ int main()
         return 1;
     }
 
-    const char *ssid = "Glasdam";
-    const char *password = "GlasdamRocks";
+    const char *ssid = "Gustav - iPhone";
+    const char *password = "gustavhansen";
 
     Network server(ssid, password, gripper);
 

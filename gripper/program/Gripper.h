@@ -9,7 +9,7 @@ class Gripper
 private:
   Motor &motor;
   CurrentSensor &sensor;
-  float treshold = 0.16;
+  float treshold = 0.14;
 
 public:
   Gripper(Motor &m, CurrentSensor &s);
