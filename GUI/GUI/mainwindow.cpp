@@ -24,6 +24,10 @@ MainWindow::MainWindow(QWidget *parent)
     ui->spinBoxHeight->setPrefix("H: ");
     ui->spinBoxWitdh->setToolTip("Bredde i antal gridfelter");
     ui->spinBoxHeight->setToolTip("Højde i antal gridfelter");
+    ui->spinBoxWitdh->setRange(WorkspaceConstants::minimumGridWidth,
+                               WorkspaceConstants::maximumGridWidth);
+    ui->spinBoxHeight->setRange(WorkspaceConstants::minimumGridHeight,
+                                WorkspaceConstants::maximumGridHeight);
     ui->spinBoxWitdh->setValue(WorkspaceConstants::defaultGridWidth);
     ui->spinBoxHeight->setValue(WorkspaceConstants::defaultGridHeight);
 
