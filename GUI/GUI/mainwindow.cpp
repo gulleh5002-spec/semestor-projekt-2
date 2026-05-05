@@ -56,13 +56,12 @@ void MainWindow::onCreateGridClicked()
     const int gridHeight = ui->spinBoxHeight->value();
 
     workspace.create(gridWidth, gridHeight);
-    gridRenderer.setupGrid(ui->tableWidget, workspace);
+    gridRenderer.showWorkspace(ui->tableWidget, workspace);
 
     setWorkspaceInputEnabled(false);
     ui->tableWidget->setEnabled(true);
     ui->pushButtonNewLayer->setEnabled(true);
     ui->pushButtonNewWorkspace->setEnabled(true);
-    gridRenderer.updateGrid(ui->tableWidget, workspace);
     updateLayerControls();
     DebugHelper::workspaceCreated(workspace);
     ui->statusbar->showMessage("Arbejdsområde oprettet. Størrelsen er låst indtil Nyt arbejdsområde.");
@@ -103,7 +102,7 @@ void MainWindow::onNewLayerClicked() //Button ++Layer
         return;
     }
 
-    gridRenderer.updateGrid(ui->tableWidget, workspace);
+    gridRenderer.refreshWorkspace(ui->tableWidget, workspace);
     updateLayerControls();
     DebugHelper::layerChanged(workspace);
 }
@@ -114,7 +113,7 @@ void MainWindow::onPreviousLayerClicked()
         return;
     }
 
-    gridRenderer.updateGrid(ui->tableWidget, workspace);
+    gridRenderer.refreshWorkspace(ui->tableWidget, workspace);
     updateLayerControls();
     DebugHelper::layerChanged(workspace);
 }
@@ -125,7 +124,7 @@ void MainWindow::onNextLayerClicked()
         return;
     }
 
-    gridRenderer.updateGrid(ui->tableWidget, workspace);
+    gridRenderer.refreshWorkspace(ui->tableWidget, workspace);
     updateLayerControls();
     DebugHelper::layerChanged(workspace);
 }
@@ -146,7 +145,7 @@ void MainWindow::onCellClicked(int row, int column)
         return;
     }
 
-    gridRenderer.updateGrid(ui->tableWidget, workspace);
+    gridRenderer.refreshWorkspace(ui->tableWidget, workspace);
     updateLayerControls();
     DebugHelper::blockPlacementUpdated(workspace, column, row);
     ui->statusbar->showMessage("Klodsplacering opdateret.");
@@ -175,7 +174,7 @@ void MainWindow::updateWorkspaceSizePreview()
 void MainWindow::resizeEvent(QResizeEvent *event)
 {
     QMainWindow::resizeEvent(event);
-    gridRenderer.updateCellSizes(ui->tableWidget, workspace);
+    gridRenderer.refreshWorkspace(ui->tableWidget, workspace);
 }
 
 MainWindow::~MainWindow()

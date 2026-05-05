@@ -64,12 +64,28 @@ void WorkspaceGridRenderer::clearTable(QTableWidget *table) const
     table->setColumnCount(0);
 }
 
-void WorkspaceGridRenderer::setupGrid(QTableWidget *table, const RobotWorkspace& workspace) const
+void WorkspaceGridRenderer::showWorkspace(QTableWidget *table, const RobotWorkspace& workspace) const
 {
     table->clear();
     table->setRowCount(workspace.height());
     table->setColumnCount(workspace.width());
 
+    createCells(table, workspace);
+    refreshWorkspace(table, workspace);
+}
+
+void WorkspaceGridRenderer::refreshWorkspace(QTableWidget *table, const RobotWorkspace& workspace) const
+{
+    if (!workspace.isCreated()) {
+        return;
+    }
+
+    updateCellColors(table, workspace);
+    updateCellSizes(table, workspace);
+}
+
+void WorkspaceGridRenderer::createCells(QTableWidget *table, const RobotWorkspace& workspace) const
+{
     for (int row = 0; row < workspace.height(); ++row) {
         for (int column = 0; column < workspace.width(); ++column) {
             QTableWidgetItem *item = new QTableWidgetItem();
@@ -78,16 +94,10 @@ void WorkspaceGridRenderer::setupGrid(QTableWidget *table, const RobotWorkspace&
             table->setItem(row, column, item);
         }
     }
-
-    updateCellSizes(table, workspace);
 }
 
-void WorkspaceGridRenderer::updateGrid(QTableWidget *table, const RobotWorkspace& workspace) const
+void WorkspaceGridRenderer::updateCellColors(QTableWidget *table, const RobotWorkspace& workspace) const
 {
-    if (!workspace.isCreated()) {
-        return;
-    }
-
     for (int row = 0; row < workspace.height(); ++row) {
         for (int column = 0; column < workspace.width(); ++column) {
             QTableWidgetItem *item = table->item(row, column);
@@ -100,8 +110,6 @@ void WorkspaceGridRenderer::updateGrid(QTableWidget *table, const RobotWorkspace
             item->setBackground(cellColorForPosition(workspace, column, row));
         }
     }
-
-    updateCellSizes(table, workspace);
 }
 
 void WorkspaceGridRenderer::updateCellSizes(QTableWidget *table, const RobotWorkspace& workspace) const
