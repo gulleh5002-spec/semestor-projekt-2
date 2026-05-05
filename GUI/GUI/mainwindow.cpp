@@ -2,6 +2,7 @@
 #include "./ui_mainwindow.h"
 #include "debughelper.h"
 #include "workspaceconstants.h"
+#include <QSpinBox>
 #include <QString>
 
  //Test json handler data
@@ -19,12 +20,16 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->setupUi(this);
 
+    ui->spinBoxWitdh->setPrefix("B: ");
+    ui->spinBoxHeight->setPrefix("H: ");
+    ui->spinBoxWitdh->setToolTip("Bredde i antal gridfelter");
+    ui->spinBoxHeight->setToolTip("Højde i antal gridfelter");
     ui->spinBoxWitdh->setValue(WorkspaceConstants::defaultGridWidth);
     ui->spinBoxHeight->setValue(WorkspaceConstants::defaultGridHeight);
-    ui->statusbar->showMessage("Angiv størrelse på arbejdsområdet og tryk Opret grid");
 
     configureTableWidget();
     clearWorkspace();
+    updateWorkspaceSizePreview();
 
     connect(ui->tableWidget, &QTableWidget::cellClicked,
             this, &MainWindow::onCellClicked);
@@ -38,6 +43,10 @@ MainWindow::MainWindow(QWidget *parent)
             this, &MainWindow::onCreateGridClicked);
     connect(ui->pushButtonNewWorkspace, &QPushButton::clicked,
             this, &MainWindow::onNewWorkspaceClicked);
+    connect(ui->spinBoxWitdh, qOverload<int>(&QSpinBox::valueChanged),
+            this, [this]() { updateWorkspaceSizePreview(); });
+    connect(ui->spinBoxHeight, qOverload<int>(&QSpinBox::valueChanged),
+            this, [this]() { updateWorkspaceSizePreview(); });
 }
 //==================================================================================
 void MainWindow::onCreateGridClicked()
@@ -202,6 +211,17 @@ void MainWindow::updateLayerControls()
     ui->labelCurrentLayer->setText(QString("Lag: %1").arg(workspace.currentLayer()));
     ui->pushButtonPreviousLayer->setEnabled(workspace.canGoToPreviousLayer());
     ui->pushButtonNextLayer->setEnabled(workspace.canGoToNextLayer());
+}
+
+void MainWindow::updateWorkspaceSizePreview()
+{
+    if (!ui->pushButtonCreateGrid->isEnabled()) {
+        return;
+    }
+
+    ui->statusbar->showMessage(QString("Valgt arbejdsområde: %1 bredde x %2 højde. Tryk Opret grid.")
+                                   .arg(ui->spinBoxWitdh->value())
+                                   .arg(ui->spinBoxHeight->value()));
 }
 
 MainWindow::~MainWindow()

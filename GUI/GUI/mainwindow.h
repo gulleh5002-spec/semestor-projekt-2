@@ -38,5 +38,6 @@ private:
     void setupTableGrid();
     void updateGrid();
     void updateLayerControls();
+    void updateWorkspaceSizePreview();
 };
 #endif // MAINWINDOW_H
