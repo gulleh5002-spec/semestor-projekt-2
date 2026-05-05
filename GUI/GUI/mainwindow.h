@@ -1,11 +1,12 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
+
 #include <QMainWindow>
-#include "QHeaderView"
-#include <QAbstractItemView>
-#include <QTableWidgetItem>
-#include <QBrush>
+
 #include "robotworkspace.h"
+#include "workspacegridrenderer.h"
+
+class QResizeEvent;
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -28,15 +29,16 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+protected:
+    void resizeEvent(QResizeEvent *event) override;
+
 private:
     Ui::MainWindow *ui;
+    WorkspaceGridRenderer gridRenderer;
     RobotWorkspace workspace;
 
-    void configureTableWidget();
     void clearWorkspace();
     void setWorkspaceInputEnabled(bool enabled);
-    void setupTableGrid();
-    void updateGrid();
     void updateLayerControls();
     void updateWorkspaceSizePreview();
 };

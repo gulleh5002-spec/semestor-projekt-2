@@ -2,6 +2,7 @@
 #include "./ui_mainwindow.h"
 #include "debughelper.h"
 #include "workspaceconstants.h"
+#include <QResizeEvent>
 #include <QSpinBox>
 #include <QString>
 
@@ -27,7 +28,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->spinBoxWitdh->setValue(WorkspaceConstants::defaultGridWidth);
     ui->spinBoxHeight->setValue(WorkspaceConstants::defaultGridHeight);
 
-    configureTableWidget();
+    gridRenderer.configureTable(ui->tableWidget);
     clearWorkspace();
     updateWorkspaceSizePreview();
 
@@ -55,13 +56,13 @@ void MainWindow::onCreateGridClicked()
     const int gridHeight = ui->spinBoxHeight->value();
 
     workspace.create(gridWidth, gridHeight);
-    setupTableGrid();
+    gridRenderer.setupGrid(ui->tableWidget, workspace);
 
     setWorkspaceInputEnabled(false);
     ui->tableWidget->setEnabled(true);
     ui->pushButtonNewLayer->setEnabled(true);
     ui->pushButtonNewWorkspace->setEnabled(true);
-    updateGrid();
+    gridRenderer.updateGrid(ui->tableWidget, workspace);
     updateLayerControls();
     DebugHelper::workspaceCreated(workspace);
     ui->statusbar->showMessage("Arbejdsområde oprettet. Størrelsen er låst indtil Nyt arbejdsområde.");
@@ -74,24 +75,11 @@ void MainWindow::onNewWorkspaceClicked()
     ui->statusbar->showMessage("Nyt arbejdsområde: angiv størrelse og tryk Opret grid");
 }
 
-void MainWindow::configureTableWidget()
-{
-    ui->tableWidget->horizontalHeader()->setVisible(false);
-    ui->tableWidget->verticalHeader()->setVisible(false);
-    ui->tableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
-    ui->tableWidget->verticalHeader()->setSectionResizeMode(QHeaderView::Stretch);
-
-    ui->tableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
-    ui->tableWidget->setSelectionMode(QAbstractItemView::NoSelection);
-}
-
 void MainWindow::clearWorkspace()
 {
     workspace.clear();
 
-    ui->tableWidget->clear();
-    ui->tableWidget->setRowCount(0);
-    ui->tableWidget->setColumnCount(0);
+    gridRenderer.clearTable(ui->tableWidget);
     ui->tableWidget->setEnabled(false);
 
     setWorkspaceInputEnabled(true);
@@ -109,53 +97,13 @@ void MainWindow::setWorkspaceInputEnabled(bool enabled)
     ui->pushButtonCreateGrid->setEnabled(enabled);
 }
 
-void MainWindow::setupTableGrid()
-{
-    ui->tableWidget->clear();
-    ui->tableWidget->setRowCount(workspace.height());
-    ui->tableWidget->setColumnCount(workspace.width());
-
-    for (int row = 0; row < workspace.height(); ++row) {
-        for (int col = 0; col < workspace.width(); ++col) {
-            QTableWidgetItem *item = new QTableWidgetItem();
-            item->setText("");
-            item->setBackground(Qt::white);
-            ui->tableWidget->setItem(row, col, item);
-        }
-    }
-}
-
-void MainWindow::updateGrid()
-{
-    if (!workspace.isCreated()) {
-        return;
-    }
-
-    for (int row = 0; row < workspace.height(); ++row) {
-        for (int col = 0; col < workspace.width(); ++col) {
-            QTableWidgetItem *item = ui->tableWidget->item(row, col);
-            bool hasBlock = workspace.hasBlockAtCurrentLayer(col, row);
-
-            if (hasBlock && !workspace.canRemoveBlockAtCurrentLayer(col, row)) {
-                item->setBackground(Qt::green);
-            } else if (hasBlock) {
-                item->setBackground(Qt::blue);
-            } else if (workspace.currentLayer() > 0 && workspace.canPlaceBlockAtCurrentLayer(col, row)) {
-                item->setBackground(Qt::yellow);
-            } else {
-                item->setBackground(Qt::white);
-            }
-        }
-    }
-}
-
 void MainWindow::onNewLayerClicked() //Button ++Layer
 {
     if (!workspace.addLayer()) {
         return;
     }
 
-    updateGrid();
+    gridRenderer.updateGrid(ui->tableWidget, workspace);
     updateLayerControls();
     DebugHelper::layerChanged(workspace);
 }
@@ -166,7 +114,7 @@ void MainWindow::onPreviousLayerClicked()
         return;
     }
 
-    updateGrid();
+    gridRenderer.updateGrid(ui->tableWidget, workspace);
     updateLayerControls();
     DebugHelper::layerChanged(workspace);
 }
@@ -177,7 +125,7 @@ void MainWindow::onNextLayerClicked()
         return;
     }
 
-    updateGrid();
+    gridRenderer.updateGrid(ui->tableWidget, workspace);
     updateLayerControls();
     DebugHelper::layerChanged(workspace);
 }
@@ -198,7 +146,7 @@ void MainWindow::onCellClicked(int row, int column)
         return;
     }
 
-    updateGrid();
+    gridRenderer.updateGrid(ui->tableWidget, workspace);
     updateLayerControls();
     DebugHelper::blockPlacementUpdated(workspace, column, row);
     ui->statusbar->showMessage("Klodsplacering opdateret.");
@@ -222,6 +170,12 @@ void MainWindow::updateWorkspaceSizePreview()
     ui->statusbar->showMessage(QString("Valgt arbejdsområde: %1 bredde x %2 højde. Tryk Opret grid.")
                                    .arg(ui->spinBoxWitdh->value())
                                    .arg(ui->spinBoxHeight->value()));
+}
+
+void MainWindow::resizeEvent(QResizeEvent *event)
+{
+    QMainWindow::resizeEvent(event);
+    gridRenderer.updateCellSizes(ui->tableWidget, workspace);
 }
 
 MainWindow::~MainWindow()

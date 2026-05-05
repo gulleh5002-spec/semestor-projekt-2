@@ -30,6 +30,8 @@ set(PROJECT_SOURCES
         robotworkspacedata.cpp
         robotworkspacedata.h
         workspaceconstants.h
+        workspacegridrenderer.cpp
+        workspacegridrenderer.h
         workspacedatajsonhandler.cpp
         workspacedatajsonhandler.h
 )
