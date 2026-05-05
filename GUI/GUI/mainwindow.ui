@@ -40,7 +40,7 @@
      <rect>
       <x>0</x>
       <y>520</y>
-      <width>93</width>
+      <width>80</width>
       <height>29</height>
      </rect>
     </property>
@@ -51,9 +51,9 @@
    <widget class="QPushButton" name="pushButtonCreateGrid">
     <property name="geometry">
      <rect>
-      <x>100</x>
+      <x>85</x>
       <y>520</y>
-      <width>93</width>
+      <width>90</width>
       <height>29</height>
      </rect>
     </property>
@@ -64,9 +64,9 @@
    <widget class="QPushButton" name="pushButtonNewWorkspace">
     <property name="geometry">
      <rect>
-      <x>200</x>
+      <x>180</x>
       <y>520</y>
-      <width>93</width>
+      <width>90</width>
       <height>29</height>
      </rect>
     </property>
@@ -77,9 +77,9 @@
    <widget class="QSpinBox" name="spinBoxWitdh">
     <property name="geometry">
      <rect>
-      <x>300</x>
+      <x>360</x>
       <y>520</y>
-      <width>80</width>
+      <width>75</width>
       <height>26</height>
      </rect>
     </property>
@@ -93,9 +93,9 @@
    <widget class="QSpinBox" name="spinBoxHeight">
     <property name="geometry">
      <rect>
-      <x>385</x>
+      <x>440</x>
       <y>520</y>
-      <width>80</width>
+      <width>75</width>
       <height>26</height>
      </rect>
     </property>
@@ -109,9 +109,9 @@
    <widget class="QPushButton" name="pushButtonPreviousLayer">
     <property name="geometry">
      <rect>
-      <x>475</x>
+      <x>520</x>
       <y>520</y>
-      <width>93</width>
+      <width>80</width>
       <height>29</height>
      </rect>
     </property>
@@ -122,9 +122,9 @@
    <widget class="QPushButton" name="pushButtonNextLayer">
     <property name="geometry">
      <rect>
-      <x>575</x>
+      <x>605</x>
       <y>520</y>
-      <width>93</width>
+      <width>80</width>
       <height>29</height>
      </rect>
     </property>
@@ -135,14 +135,27 @@
    <widget class="QLabel" name="labelCurrentLayer">
     <property name="geometry">
      <rect>
-      <x>680</x>
+      <x>690</x>
       <y>520</y>
-      <width>100</width>
+      <width>90</width>
       <height>29</height>
      </rect>
     </property>
     <property name="text">
      <string>Lag: -</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButtonBuild">
+    <property name="geometry">
+     <rect>
+      <x>275</x>
+      <y>520</y>
+      <width>80</width>
+      <height>29</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Byg</string>
     </property>
    </widget>
   </widget>

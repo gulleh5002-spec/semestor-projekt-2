@@ -6,7 +6,6 @@
 #include <QSpinBox>
 #include <QString>
 
- //Test json handler data
 #include <QDebug>
 #include "workspacedatajsonhandler.h"
 
@@ -44,6 +43,8 @@ MainWindow::MainWindow(QWidget *parent)
             this, &MainWindow::onCreateGridClicked);
     connect(ui->pushButtonNewWorkspace, &QPushButton::clicked,
             this, &MainWindow::onNewWorkspaceClicked);
+    connect(ui->pushButtonBuild, &QPushButton::clicked,
+            this, &MainWindow::onBuildClicked);
     connect(ui->spinBoxWitdh, qOverload<int>(&QSpinBox::valueChanged),
             this, [this]() { updateWorkspaceSizePreview(); });
     connect(ui->spinBoxHeight, qOverload<int>(&QSpinBox::valueChanged),
@@ -62,6 +63,7 @@ void MainWindow::onCreateGridClicked()
     ui->tableWidget->setEnabled(true);
     ui->pushButtonNewLayer->setEnabled(true);
     ui->pushButtonNewWorkspace->setEnabled(true);
+    ui->pushButtonBuild->setEnabled(true);
     updateLayerControls();
     DebugHelper::workspaceCreated(workspace);
     ui->statusbar->showMessage("Arbejdsområde oprettet. Størrelsen er låst indtil Nyt arbejdsområde.");
@@ -86,6 +88,7 @@ void MainWindow::clearWorkspace()
     ui->pushButtonPreviousLayer->setEnabled(false);
     ui->pushButtonNextLayer->setEnabled(false);
     ui->pushButtonNewWorkspace->setEnabled(false);
+    ui->pushButtonBuild->setEnabled(false);
     ui->labelCurrentLayer->setText("Lag: -");
 }
 
@@ -149,8 +152,20 @@ void MainWindow::onCellClicked(int row, int column)
     updateLayerControls();
     DebugHelper::blockPlacementUpdated(workspace, column, row);
     ui->statusbar->showMessage("Klodsplacering opdateret.");
-    // Json handler test funktio
+}
+
+void MainWindow::onBuildClicked()
+{
+    if (!workspace.isCreated()) {
+        ui->statusbar->showMessage("Opret et arbejdsområde før der bygges.");
+        return;
+    }
+
     qDebug().noquote() << WorkspaceDataJsonHandler::toJsonString(workspace);
+
+    const int blockCount = static_cast<int>(workspace.placedBlocks().size());
+    ui->statusbar->showMessage(QString("Byggeplan genereret: %1 klodser klar til næste trin.")
+                                   .arg(blockCount));
 }
 
 void MainWindow::updateLayerControls()

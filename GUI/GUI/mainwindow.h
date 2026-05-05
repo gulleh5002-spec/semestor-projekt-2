@@ -13,7 +13,7 @@ namespace Ui {
 class MainWindow;
 }
 QT_END_NAMESPACE
-
+// main klasse for GUI
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -24,6 +24,7 @@ private slots:
     void onNextLayerClicked();
     void onCreateGridClicked();
     void onNewWorkspaceClicked();
+    void onBuildClicked();
 
 public:
     MainWindow(QWidget *parent = nullptr);
