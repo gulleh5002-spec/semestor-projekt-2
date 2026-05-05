@@ -3,6 +3,8 @@
 #include "debughelper.h"
 #include "workspaceconstants.h"
 #include <QString>
+
+ //Test json handler data
 #include <QDebug>
 #include "workspacedatajsonhandler.h"
 
@@ -191,6 +193,7 @@ void MainWindow::onCellClicked(int row, int column)
     updateLayerControls();
     DebugHelper::blockPlacementUpdated(workspace, column, row);
     ui->statusbar->showMessage("Klodsplacering opdateret.");
+    // Json handler test funktio
     qDebug().noquote() << WorkspaceDataJsonHandler::toJsonString(workspace);
 }
 
