@@ -2,6 +2,7 @@
 #include "./ui_mainwindow.h"
 #include "debughelper.h"
 #include "workspaceconstants.h"
+#include <QDir>
 #include <QResizeEvent>
 #include <QSpinBox>
 #include <QString>
@@ -165,11 +166,19 @@ void MainWindow::onBuildClicked()
         return;
     }
 
-    qDebug().noquote() << WorkspaceDataJsonHandler::toJsonString(workspace);
+    const QString filePath = QDir::current().filePath(WorkspaceConstants::buildPlanFileName);
+
+    if (!WorkspaceDataJsonHandler::saveToFile(workspace, filePath)) {
+        ui->statusbar->showMessage("Kunne ikke gemme byggeplanen.");
+        return;
+    }
+
+    qDebug().noquote() << "Byggeplan gemt:" << filePath;
 
     const int blockCount = static_cast<int>(workspace.placedBlocks().size());
-    ui->statusbar->showMessage(QString("Byggeplan genereret: %1 klodser klar til næste trin.")
-                                   .arg(blockCount));
+    ui->statusbar->showMessage(QString("Byggeplan gemt: %1 klodser i %2")
+                                   .arg(blockCount)
+                                   .arg(filePath));
 }
 
 void MainWindow::updateLayerControls()

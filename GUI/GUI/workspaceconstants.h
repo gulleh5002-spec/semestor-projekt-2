@@ -19,6 +19,9 @@ namespace WorkspaceConstants
     // Konstanter for størelse af felter på UI
     inline constexpr int minimumGridCellSize{24};
     inline constexpr int maximumGridCellSize{70};
+
+    // Filnavn for data der sendes videre til robotlogikken
+    inline constexpr const char *buildPlanFileName{"build_plan.json"};
 }
 
 #endif // WORKSPACECONSTANTS_H
