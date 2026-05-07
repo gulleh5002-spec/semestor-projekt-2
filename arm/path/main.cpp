@@ -1,14 +1,91 @@
 #pragma warning(disable: 4996 4267)
+#include "BuildPlanConsolePrinter.h"
+#include "BuildPlanJsonLoader.h"
 #include "RobotArm.h"
+#include <filesystem>
 #include <iostream>
+#include <optional>
+#include <string>
 #include <vector>  
 #include "newgrid/Grid.h"
 #include "newgrid/Block.h"
 #include "GripperClient.h"
 
-
-int main()
+namespace
 {
+bool hasArgument(int argc, char* argv[], const std::string& argument)
+{
+    for (int i = 1; i < argc; ++i) {
+        if (argv[i] != nullptr && argument == argv[i]) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+std::optional<std::filesystem::path> buildPlanPathFromArguments(int argc, char* argv[])
+{
+    for (int i = 1; i < argc; ++i) {
+        if (argv[i] == nullptr) {
+            continue;
+        }
+
+        const std::string argument = argv[i];
+
+        if (argument != "--dry-run" && argument != "--help") {
+            return std::filesystem::path{argument};
+        }
+    }
+
+    return std::nullopt;
+}
+
+void printUsage(const char* executableName)
+{
+    std::cout << "Usage:\n"
+              << "  " << executableName << " <build_plan.json> --dry-run\n"
+              << "  " << executableName << '\n';
+}
+
+int runBuildPlanDryRun(int argc, char* argv[])
+{
+    const std::optional<std::filesystem::path> filePath = buildPlanPathFromArguments(argc, argv);
+
+    if (!filePath.has_value()) {
+        printUsage(argv[0]);
+        return 1;
+    }
+
+    std::string errorMessage;
+    const auto buildPlan = BuildPlanJsonLoader::loadFromFile(filePath.value(), &errorMessage);
+
+    if (!buildPlan.has_value()) {
+        std::cerr << "Build plan dry-run failed: " << errorMessage << '\n';
+        return 1;
+    }
+
+    BuildPlanConsolePrinter::print(buildPlan.value(), std::cout);
+    return 0;
+}
+}
+
+int main(int argc, char* argv[])
+{
+    if (hasArgument(argc, argv, "--help")) {
+        printUsage(argv[0]);
+        return 0;
+    }
+
+    if (hasArgument(argc, argv, "--dry-run")) {
+        return runBuildPlanDryRun(argc, argv);
+    }
+
+    if (argc > 1) {
+        printUsage(argv[0]);
+        return 1;
+    }
+
     //RobotArm gulle("192.168.1.100", 1, 1.0);
     RobotArm magnum("127.0.0.1", 1.0, 1.0);
     std::vector<double> point1 = { 0.4, 0.4, 0.1, 3.14, 0.0, 0.0 };
