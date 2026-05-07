@@ -75,6 +75,7 @@ void Grid::placeBlock(std::vector<Block> Blocks)
             continue;
         }
         grid[s][x][y].Id = Blocks[i].getId();
+        grid[s][x][y].coordnate[6] = Blocks[i].coordnate[6];
     }
 }
 
@@ -99,5 +100,6 @@ std::vector<double> Grid::findBlock(Block block)
     }
     return {};
 }
+
 
 

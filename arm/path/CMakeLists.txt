@@ -21,6 +21,7 @@ add_executable(RobotArm
     ur_kin.cpp
     ../newgrid/Grid.cpp
     ../newgrid/Block.cpp
+    ../newgrid/compiler.cpp
 )
 
 

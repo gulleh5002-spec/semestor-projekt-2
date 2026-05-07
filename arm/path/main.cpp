@@ -5,41 +5,76 @@
 #include "newgrid/Grid.h"
 #include "newgrid/Block.h"
 #include "GripperClient.h"
+#include "newgrid/Compiler.h"
+
+
+
 
 
 int main()
 {
-    //RobotArm gulle("192.168.1.100", 1, 1.0);
-    RobotArm magnum("127.0.0.1", 1.0, 1.0);
-    std::vector<double> point1 = { 0.4, 0.4, 0.1, 3.14, 0.0, 0.0 };
-    std::vector<double> point2 = { 0.2, 0.2, 0.3, 3.14, 0.0, 0.0 };
+
+
+    RobotArm gulle("192.168.1.100", 1, 1.0);
+    //RobotArm magnum("127.0.0.1", 1.0, 1.0);
+    std::vector<double> point1 = { 0.4, 0.4, 0.2, 3.14, 0.0, 0.0 };
+    std::vector<double> point2 = { 0.2, 0.2, 0.2, 3.14, 0.0, 0.0 };
     //gulle.moveblock(point1, point2);
     //gulle.moveblock(point1, point2);
-    //magnum.movetool(point1);
+    
     //gulle.movetool({ 0.4, 0.4, 0.15, 3.14, 0.0, 0.0 }, 0.5, 0.5, {-0.2 ,-0.2 ,0, 0, 0, 2.3732 });
     //gulle>.movetool({ 0.4, 0, 0.5, 3.14, 0.0, 0.0 });
     //gulle.home();
-    std::vector<Block> blocks = 
+    std::vector<Block> takeblocks = 
     {
-    Block(1, {0, 0, 1}),
-    //Block(1, {1, 2, 1}),
-    //Block(1, {4, 2, 1}),
-    //Block(1, {0, 2, 1}),
+    Block(1, {1, 2, 0}),
+    Block(1, {2, 2, 0}),
+    Block(1, {2, 1, 0}),
+    //Block(1, {2, 2, 0}),
+    //Block(1, {2, 3, 0}),
     //Block(1, {0, 2, 2})
     };
+
+    std::vector<Block> placeblocks = 
+    {
+    Block(1, {2, 3, 0}),
+    Block(1, {3, 3, 0}),
+    Block(1, {5, 5, 0}),
+    //Block(1, {0, 2, 2})
+    };
+   
+
+
     Grid place(40, 40, 100, {0.2 ,0.2 ,0, 0, 0, 0});
     Grid take(40, 40, 100, {0.6 ,0.2, 0, 0, 0, 0});
-    
-    take.placeBlock(blocks);
-    
-    magnum.build(take, place, blocks);
-    //magnum.moveToGridPos(place, blocks[1]);
+    take.placeBlock(takeblocks);
+    //structur.placeBlock(placeblocks);
+    //gulle.drop();
+    gulle.build(take, place, placeblocks, takeblocks);
+
+     
+    //gulle.movetool(point2, 0.5, 0.5, place.grid_to_base);
+    //gulle.moveToGridPos(place, takeblocks[1]);
 
     // take skal ganges på place evt lav en frame med kun rotaton og igne translation der efter gange identits matrice med translation eller trai på den
     // evt lav en test for at tjekke siguleretet
-    //gulle.moveToGridPos(take, blocks[0]);
+
+    //magnum.moveToGridPos(place, blocks[0]);
+    //magnum.take();
+    
+
+    //gulle.moveToGridPos(place, blocks[1]);
     //gulle.moveToGridPos(place, blocks[0]);
+    //gulle.take();
+    //gulle.moveToGridPos(place, blocks[1]);
+    //gulle.moveToGridPos(place, blocks[2]);
+    //gulle.moveToGridPos(place, blocks[3]);
+    //gulle.drop();
+    
+
     return 0;
+
+    
 }
 
 

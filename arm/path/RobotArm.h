@@ -12,6 +12,7 @@
 #include <vector>
 #include "newgrid/Grid.h"
 #include "GripperClient.h"
+#include "newgrid/compiler.h"
 
 class RobotArm {
 public:
@@ -34,8 +35,12 @@ public:
                  std::vector<double> gridFrame1,
                  std::vector<double> gridFrame2);
 
-  void build(Grid& Gridblocks, Grid& Gridplace, std::vector<Block> Blocks);
+  void build(Grid& Gridblocks, Grid& Gridplace, std::vector<Block> buildBlocks, std::vector<Block> takeBlocks);
   void moveToGridPos(Grid grid, Block block);
+
+
+  void take();
+  void drop();
 private:
   std::string ip;
   double acceleration;
@@ -46,6 +51,7 @@ private:
   repsetory repsetory;
   IKcal IKcal;
   GripperClient gripper;
+  compiler compile;
 };
 
 // regn på albuernes postioner og sørgde for der ikke kommer koliktions med

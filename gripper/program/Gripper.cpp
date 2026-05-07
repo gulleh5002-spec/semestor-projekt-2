@@ -1,6 +1,7 @@
 #include "Gripper.h"
 
 #include <stdio.h>
+#include "pico/stdlib.h"
 
 Gripper::Gripper(Motor &m, CurrentSensor &s) : motor(m), sensor(s) {}
 
@@ -23,27 +24,15 @@ bool Gripper::init()
 bool Gripper::open()
 {
   motor.forward();
-  while (true)
-  {
-    float current = sensor.getCurrent();
-    if (current > treshold)
-    {
-      motor.stop();
-      return true;
-    }
-  }
+  sleep_ms(2000);
+  motor.stop();
+  return true;
 }
 
 bool Gripper::close()
 {
   motor.backward();
-  while (true)
-  {
-    float current = sensor.getCurrent();
-    if (current > treshold)
-    {
-      motor.stop();
-      return true;
-    }
-  }
+  sleep_ms(2000);
+  motor.stop();
+  return true;
 }
