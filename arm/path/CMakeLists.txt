@@ -10,9 +10,13 @@ set(EIGEN3_INCLUDE_DIR "C:/Users/GusHansen/Desktop/c++/Robotarm/Robotarm")
 
 # ur_rtde
 find_package(ur_rtde REQUIRED PATHS "C:/Users/GusHansen/ur_rtde/build/ur_rtde")
+find_package(nlohmann_json CONFIG REQUIRED)
 
 add_executable(RobotArm
     main.cpp
+    BuildPlan.h
+    BuildPlanJsonLoader.cpp
+    BuildPlanJsonLoader.h
     RobotArm.cpp
     GripperClient.cpp
     PathFinder.cpp
@@ -32,6 +36,7 @@ target_include_directories(RobotArm PRIVATE
 
 target_link_libraries(RobotArm PRIVATE
     ur_rtde::rtde
+    nlohmann_json::nlohmann_json
     ws2_32
 )
 
