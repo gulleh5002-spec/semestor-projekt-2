@@ -37,7 +37,7 @@ void RobotArm::movetool(std::vector<double> koordinatWorld , double speed, doubl
     Eigen::Matrix4d T_Grid_goal = IKcal.AngelPoseToTransform(std::vector<double>(koordinatWorld.begin(), koordinatWorld.begin() + 6));
 
     //  transformaotns matrice  som går den er alignet med bordet 2.74
-    Eigen::Matrix4d T_base_world = IKcal.poseToTransform({0 ,0 ,0, 0, 0, 2.74});
+    Eigen::Matrix4d T_base_world = IKcal.poseToTransform({0 ,0 ,0, 0, 0, 0});
 
     // Transformaons matrice som går den er alignet med gridet
     Eigen::Matrix4d T_world_grid = IKcal.poseToTransform(gridFrame);
@@ -49,6 +49,17 @@ void RobotArm::movetool(std::vector<double> koordinatWorld , double speed, doubl
 
     std::vector<std::vector<double>> path;
     
+    double blend = 0.05;
+    double decay;
+    if (joints.size() > 5)
+    {
+       
+        decay = blend/5;
+    }
+    else
+    {
+        decay = blend/joints.size();
+    }
     
     for (size_t i = 0; i < joints.size(); i++)
     {
@@ -57,13 +68,20 @@ void RobotArm::movetool(std::vector<double> koordinatWorld , double speed, doubl
             joints[i][5] += koordinatWorld[6];
         }
         
+        
         std::vector<double> entry = joints[i];
        
         entry.push_back(speed);
         entry.push_back(acceleration);
-        if (i < joints.size() - 5)
+        
+        if (i < joints.size() - 1)
         {
-            entry.push_back(0.05);
+            if (joints.size() - i < 5)
+            {
+                blend -= decay;
+            }
+            
+            entry.push_back(blend);
         }
         else
         {

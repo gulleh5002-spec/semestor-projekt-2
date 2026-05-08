@@ -18,17 +18,24 @@ std::vector<Block> compiler::compileplace(std::vector<Block> Blocks)
 {
     for (int i = 0; i < Blocks.size(); i++)
     {
+        bool sameY;
+        bool sameZ;
+        bool adjacentX;
+        bool adjacentY;
+
         for (int j = i + 1; j < Blocks.size(); j++)
         {
-            bool SameZ = Blocks[i].getplace()[2] == Blocks[j].getplace()[2];
-            bool sameY = Blocks[i].getplace()[1] == Blocks[j].getplace()[1];
+            sameZ = Blocks[i].getplace()[2] == Blocks[j].getplace()[2];
+            sameY = Blocks[i].getplace()[1] == Blocks[j].getplace()[1];
             bool adjacentX = abs(Blocks[i].getplace()[0] - Blocks[j].getplace()[0]) == 1;
 
-            if (sameY && adjacentX && SameZ)
+            if (sameY && adjacentX && sameZ)
             {
                 Blocks[j].coordnate[6] = -3.14/2;
             }
+            
         }
+        
     }
 
     return Blocks;
