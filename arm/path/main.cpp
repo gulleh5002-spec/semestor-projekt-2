@@ -41,10 +41,14 @@ std::optional<std::filesystem::path> buildPlanPathFromArguments(int argc, char* 
         }
 
         const std::string argument = argv[i];
-
+/*
+        For manuel test med hardcoding uden json
+        kør .\arm\path\build\Debug\RobotArm.exe --manual-test
+        i powershell Terminal
+*/
         if (argument != "--dry-run"
             && argument != "--execute"
-            && argument != "--manual-test"
+            && argument != "--manual-test" 
             && argument != "--help") {
             return std::filesystem::path{argument};
         }
