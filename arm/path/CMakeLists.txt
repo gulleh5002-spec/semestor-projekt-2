@@ -11,19 +11,20 @@ set(EIGEN3_INCLUDE_DIR "C:/Users/GusHansen/Desktop/c++/Robotarm/Robotarm")
 find_package(nlohmann_json CONFIG REQUIRED)
 
 add_library(BuildPlanSupport STATIC
-    BuildPlan.h
-    BuildPlanConsolePrinter.cpp
-    BuildPlanConsolePrinter.h
-    BuildPlanJsonLoader.cpp
-    BuildPlanJsonLoader.h
-    BuildPlanRobotMapper.cpp
-    BuildPlanRobotMapper.h
-    BuildPlanTakeLayout.cpp
-    BuildPlanTakeLayout.h
+    h/BuildPlan.h
+    cpp/BuildPlanConsolePrinter.cpp
+    h/BuildPlanConsolePrinter.h
+    cpp/BuildPlanJsonLoader.cpp
+    h/BuildPlanJsonLoader.h
+    cpp/BuildPlanRobotMapper.cpp
+    h/BuildPlanRobotMapper.h
+    cpp/BuildPlanTakeLayout.cpp
+    h/BuildPlanTakeLayout.h
 )
 
 target_include_directories(BuildPlanSupport PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}
+    ${CMAKE_CURRENT_SOURCE_DIR}/h
     ${CMAKE_CURRENT_SOURCE_DIR}/..
 )
 
@@ -32,7 +33,7 @@ target_link_libraries(BuildPlanSupport PUBLIC
 )
 
 add_executable(BuildPlanDryRun
-    BuildPlanDryRun.cpp
+    cpp/BuildPlanDryRun.cpp
 )
 
 target_link_libraries(BuildPlanDryRun PRIVATE
