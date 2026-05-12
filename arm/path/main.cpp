@@ -16,10 +16,10 @@
 
 namespace
 {
-inline constexpr int robotGridUnit = {5};
-inline constexpr int takeLayerCount = {1};
-inline constexpr const char* defaultRobotIp = "192.168.1.100";
-inline constexpr const char* defaultBuildPlanFileName = "build_plan.json";
+constexpr int robotGridUnit = {5};
+constexpr int takeLayerCount = {1};
+constexpr const char* defaultRobotIp = "192.168.1.100";
+constexpr const char* defaultBuildPlanFileName = "build_plan.json";
 
 bool hasArgument(int argc, char* argv[], const std::string& argument)
 {
