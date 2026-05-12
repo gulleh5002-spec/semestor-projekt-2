@@ -2,8 +2,8 @@
 
 namespace
 {
-inline constexpr int blocksPerTakeRow = 8;
-inline constexpr int fixedTakeLayer = 0;
+inline constexpr int blocksPerTakeRow = {8};
+inline constexpr int fixedTakeLayer = {0};
 
 std::vector<int> takePositionForIndex(int blockIndex)
 {
