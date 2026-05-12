@@ -166,7 +166,7 @@ void RobotArm::moveblock(std::vector<double> koordinat1, std::vector<double> koo
 
         movetool(upsidekoordinat2, speed, acceleration, gridFrame2);
         movetool(sidekoordinat2, speed, acceleration, gridFrame2);
-        movetool(koordinat2, speed, acceleration, gridFrame2);
+        movetool(koordinat2, 0.2, 0.05, gridFrame2);
         gripper.open();
 
         movetool(opkoordinat2, speed, acceleration, gridFrame2);
