@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 
+// Beskriver arbejdsområdet fra GUI
 struct WorkspaceSize
 {
     int width = {0};
@@ -12,6 +13,7 @@ struct WorkspaceSize
     bool isCreated = false;
 };
 
+// Beskriver en klods fra json fil
 struct BuildPlanBlock
 {
     int id = {0};
@@ -20,6 +22,7 @@ struct BuildPlanBlock
     int z = {0};
     std::string type;
 };
+
 
 struct BuildPlan
 {

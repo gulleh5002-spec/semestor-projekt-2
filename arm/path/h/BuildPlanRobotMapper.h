@@ -6,6 +6,7 @@
 
 #include <vector>
 
+// Omsætter klodser fra BuildPlan til eksisterende Block Klasse
 class BuildPlanRobotMapper
 {
 public:

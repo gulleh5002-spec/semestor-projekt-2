@@ -6,6 +6,8 @@
 
 #include <vector>
 
+// Laver klodser robotten skal hente fra take-området
+//TODO: Skal bruges til TRAY
 class BuildPlanTakeLayout
 {
 public:

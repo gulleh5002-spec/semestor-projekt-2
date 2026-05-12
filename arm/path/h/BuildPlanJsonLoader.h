@@ -6,6 +6,7 @@
 #include <filesystem>
 #include <optional>
 #include <string>
+// læser GUI'ens build_plan.json og laver den om til en BuildPlan
 
 class BuildPlanJsonLoader
 {
