@@ -20,6 +20,7 @@ inline constexpr int robotGridUnit = 5;
 inline constexpr int takeBlocksPerRow = 8;
 inline constexpr int takeLayerCount = 1;
 inline constexpr const char* defaultRobotIp = "192.168.1.100";
+inline constexpr const char* defaultBuildPlanFileName = "build_plan.json";
 
 bool hasArgument(int argc, char* argv[], const std::string& argument)
 {
@@ -49,25 +50,42 @@ std::optional<std::filesystem::path> buildPlanPathFromArguments(int argc, char* 
     return std::nullopt;
 }
 
+std::filesystem::path defaultBuildPlanPath(const char* executableName)
+{
+    const std::filesystem::path executablePath = executableName != nullptr
+                                                    ? std::filesystem::path{executableName}
+                                                    : std::filesystem::path{};
+
+    if (executablePath.has_parent_path()) {
+        return executablePath.parent_path() / defaultBuildPlanFileName;
+    }
+
+    return std::filesystem::current_path() / defaultBuildPlanFileName;
+}
+
 void printUsage(const char* executableName)
 {
     std::cout << "Usage:\n"
-              << "  " << executableName << " <build_plan.json> --dry-run\n"
-              << "  " << executableName << " <build_plan.json> --execute\n"
-              << "  " << executableName << '\n';
+              << "  " << executableName << " [build_plan.json] --dry-run\n"
+              << "  " << executableName << " [build_plan.json] --execute\n"
+              << "\nIf no JSON path is given, build_plan.json is read next to RobotArm.exe.\n";
 }
 
 std::optional<BuildPlan> loadBuildPlanFromArguments(int argc, char* argv[])
 {
-    const std::optional<std::filesystem::path> filePath = buildPlanPathFromArguments(argc, argv);
+    std::filesystem::path filePath;
+    const std::optional<std::filesystem::path> argumentFilePath = buildPlanPathFromArguments(argc, argv);
 
-    if (!filePath.has_value()) {
-        printUsage(argv[0]);
-        return std::nullopt;
+    if (argumentFilePath.has_value()) {
+        filePath = argumentFilePath.value();
+    } else {
+        filePath = defaultBuildPlanPath(argv[0]);
     }
 
+    std::cout << "Using build plan: " << filePath.string() << '\n';
+
     std::string errorMessage;
-    const auto buildPlan = BuildPlanJsonLoader::loadFromFile(filePath.value(), &errorMessage);
+    const auto buildPlan = BuildPlanJsonLoader::loadFromFile(filePath, &errorMessage);
 
     if (!buildPlan.has_value()) {
         std::cerr << "Build plan load failed: " << errorMessage << '\n';
