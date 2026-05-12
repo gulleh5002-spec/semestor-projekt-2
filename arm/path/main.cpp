@@ -18,7 +18,7 @@ namespace
 {
 inline constexpr int robotGridUnit = 5;
 inline constexpr int takeBlocksPerRow = 8;
-inline constexpr int takeLayerCount = 2;
+inline constexpr int takeLayerCount = 1;
 inline constexpr const char* defaultRobotIp = "192.168.1.100";
 
 bool hasArgument(int argc, char* argv[], const std::string& argument)
