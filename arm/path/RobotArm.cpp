@@ -27,9 +27,26 @@ void RobotArm::movetool(std::vector<double> koordinatWorld , double speed, doubl
     std::vector<double> startPose = rtde_r.getActualTCPPose();
     std::vector<double> StartAngle = rtde_r.getActualQ();  
     
-    // laver målet om til en transformaotns matrice 
+    // laver målet om til en transformaotns matrice -0.008
+    double wrist_angle = 0;
+    double xOffset = 0;
 
-    Eigen::Matrix4d T_tcp_flang = IKcal.poseToTransform({0 ,0 ,0.2, 0, 0, 0});
+    if (koordinatWorld[6] == -1.57)
+    {
+       wrist_angle = koordinatWorld[6];
+       xOffset = -0.006;
+       std::cout << "trun" << std::endl;
+    }
+    else
+    {
+      
+        std::cout << "not turn" << std::endl;
+        wrist_angle = 0;
+        xOffset = 0.001;
+        
+    }
+    std::cout << xOffset << std::endl;
+    Eigen::Matrix4d T_tcp_flang = IKcal.poseToTransform({xOffset, -0.009, 0.2, 0, 0, -wrist_angle});
 
     Eigen::Matrix4d T_tcp_flangInvser = T_tcp_flang.inverse();
 
@@ -37,7 +54,7 @@ void RobotArm::movetool(std::vector<double> koordinatWorld , double speed, doubl
     Eigen::Matrix4d T_Grid_goal = IKcal.AngelPoseToTransform(std::vector<double>(koordinatWorld.begin(), koordinatWorld.begin() + 6));
 
     //  transformaotns matrice  som går den er alignet med bordet 2.74
-    Eigen::Matrix4d T_base_world = IKcal.poseToTransform({0 ,0 ,0, 0, 0, 0});
+    Eigen::Matrix4d T_base_world = IKcal.poseToTransform({0 ,0 ,0, 0, 0, 2.74});
 
     // Transformaons matrice som går den er alignet med gridet
     Eigen::Matrix4d T_world_grid = IKcal.poseToTransform(gridFrame);
@@ -63,18 +80,12 @@ void RobotArm::movetool(std::vector<double> koordinatWorld , double speed, doubl
     
     for (size_t i = 0; i < joints.size(); i++)
     {
-        if (koordinatWorld.size() != 6)
-        {
-            joints[i][5] += koordinatWorld[6];
-        }
-        
-        
         std::vector<double> entry = joints[i];
        
         entry.push_back(speed);
         entry.push_back(acceleration);
         
-        if (i < joints.size() - 1)
+        if (i < joints.size() - 2)
         {
             if (joints.size() - i < 5)
             {
@@ -108,8 +119,8 @@ void RobotArm::getRTDEinfor()
 
 void RobotArm::moveblock(std::vector<double> koordinat1, std::vector<double> koordinat2, std::vector<double> gridFrame1, std::vector<double> gridFrame2)
 {
-    double speed = 0.5;
-    double acceleration = 0.5;
+    double speed = 1;
+    double acceleration = 1;
     // do so the robot move to were the brik is ind the hight of placement koordiante  so i do not colide
     std::vector<double> newkoordinat1 = koordinat1;
     double brikoffset = 0.2;

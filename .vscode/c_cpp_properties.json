@@ -5,7 +5,8 @@
             "includePath": [
                 "${workspaceFolder}/**",
                 "C:/Users/GusHansen/Desktop/c++/Robotarm/Robotarm",
-                "C:/Users/GusHansen/ur_rtde/include"
+                "C:/Users/GusHansen/ur_rtde/include",
+                "C:/Users/GusHansen/Downloads/opencv-4.12.0-windows/opencv/build/include"
             ],
             "defines": [
                 "_DEBUG",

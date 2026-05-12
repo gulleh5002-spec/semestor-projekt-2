@@ -15,8 +15,8 @@ int main()
 {
 
 
-    //RobotArm gulle("192.168.1.100", 1, 1.0);
-    RobotArm magnum("127.0.0.1", 1.0, 1.0);
+    RobotArm gulle("192.168.1.100", 1, 1.0);
+    //RobotArm magnum("127.0.0.1", 1.0, 1.0);
     std::vector<double> point1 = { 0.4, 0.4, 0.2, 3.14, 0.0, 0.0 };
     std::vector<double> point2 = { 0.2, 0.2, 0.2, 3.14, 0.0, 0.0 };
     //gulle.moveblock(point1, point2);
@@ -29,7 +29,7 @@ int main()
     {
     Block(1, {1, 2, 0}),
     Block(1, {2, 2, 0}),
-    Block(1, {3, 1, 0}),
+    Block(1, {3, 3, 0}),
     //Block(1, {2, 2, 0}),
     //Block(1, {2, 3, 0}),
     //Block(1, {0, 2, 2})
@@ -37,9 +37,9 @@ int main()
 
     std::vector<Block> placeblocks = 
     {
-    Block(1, {3, 3, 0}),
-    Block(1, {3, 3, 1}),
-    Block(1, {3, 3, 2}),
+    Block(1, {0, 3, 0}),
+    //Block(1, {1, 3, 0}),
+    //Block(1, {2, 3, 0}),
     //Block(1, {0, 2, 2})
     };
    
@@ -50,27 +50,18 @@ int main()
     
     //structur.placeBlock(placeblocks);
     //gulle.drop();
-    //gulle.build(take, place, placeblocks, takeblocks);
+    gulle.build(take, place, placeblocks, takeblocks);
 
      
-    magnum.movetool(point2, 0.5, 0.5, place.grid_to_base);
+    //gulle.drop();
     //gulle.moveToGridPos(place, takeblocks[1]);
 
     // take skal ganges på place evt lav en frame med kun rotaton og igne translation der efter gange identits matrice med translation eller trai på den
     // evt lav en test for at tjekke siguleretet
 
-    //magnum.moveToGridPos(place, blocks[0]);
-    //magnum.take();
-    
-
-   // magnum.moveToGridPos(place, blocks[1]);
-    //gulle.moveToGridPos(place, blocks[0]);
+   
+    //gulle.moveToGridPos(take, placeblocks[0]);
     //gulle.take();
-    //gulle.moveToGridPos(place, blocks[1]);
-    //gulle.moveToGridPos(place, blocks[2]);
-    //gulle.moveToGridPos(place, blocks[3]);
-    //gulle.drop();
-    
 
     return 0;
 
