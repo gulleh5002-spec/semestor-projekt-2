@@ -42,7 +42,7 @@ void RobotArm::movetool(std::vector<double> koordinatWorld , double speed, doubl
       
         std::cout << "not turn" << std::endl;
         wrist_angle = 0;
-        xOffset = 0.001;
+        xOffset = 0.0015;
         
     }
     std::cout << xOffset << std::endl;
@@ -117,7 +117,7 @@ void RobotArm::getRTDEinfor()
     printf("Wrist 3:  %.2f deg\n", q[5] * 180.0 / M_PI);
 }
 
-void RobotArm::moveblock(std::vector<double> koordinat1, std::vector<double> koordinat2, std::vector<double> gridFrame1, std::vector<double> gridFrame2)
+void RobotArm::moveblock(std::vector<double> koordinat1, std::vector<double> koordinat2, std::vector<double> gridFrame1, std::vector<double> gridFrame2, int method)
 {
     double speed = 1;
     double acceleration = 1;
@@ -126,8 +126,6 @@ void RobotArm::moveblock(std::vector<double> koordinat1, std::vector<double> koo
     double brikoffset = 0.2;
     newkoordinat1[2] += brikoffset;
     movetool(newkoordinat1, speed, acceleration, gridFrame1);
-
-    std::cout << "ping";
     
     movetool(koordinat1, speed, acceleration, gridFrame1);
 
@@ -135,19 +133,47 @@ void RobotArm::moveblock(std::vector<double> koordinat1, std::vector<double> koo
     gripper.close();
     movetool(newkoordinat1, speed, acceleration, gridFrame1);
     
-    std::vector<double> newkoordinat2 = koordinat2;
-    newkoordinat2[2] += brikoffset;
 
-    movetool(newkoordinat2, speed, acceleration, gridFrame2);
 
-    // gripper åbner
+    // placere
+
+    if (method == 0)
+    {
+        std::vector<double> newkoordinat2 = koordinat2;
+        newkoordinat2[2] += brikoffset;
+
+        movetool(newkoordinat2, speed, acceleration, gridFrame2);
+
+        // gripper åbner
+        
+        movetool(koordinat2, speed, acceleration, gridFrame2);
+        //gripper lukker
+        
+        gripper.open();
+        movetool(newkoordinat2, speed, acceleration, gridFrame2);
+    }
+    if (method == 1)
+    {
+        std::vector<double> opkoordinat2 = koordinat2;
+        opkoordinat2[2] += brikoffset;
+
+        std::vector<double> upsidekoordinat2 = koordinat2;
+        upsidekoordinat2[0] += 0.05;
+        upsidekoordinat2[2] += brikoffset;
+
+        std::vector<double> sidekoordinat2 = koordinat2;
+        sidekoordinat2[0] += 0.05;
+
+        movetool(upsidekoordinat2, speed, acceleration, gridFrame2);
+        movetool(sidekoordinat2, speed, acceleration, gridFrame2);
+        movetool(koordinat2, speed, acceleration, gridFrame2);
+        gripper.open();
+
+        movetool(opkoordinat2, speed, acceleration, gridFrame2);
+    }
     
-    movetool(koordinat2, speed, acceleration, gridFrame2);
-    //gripper lukker
     
-    gripper.open();
-    movetool(newkoordinat2, speed, acceleration, gridFrame2);
-
+    
     
     
 }
@@ -169,7 +195,7 @@ void RobotArm::build(Grid& Gridblocks, Grid& Gridplace, std::vector<Block> build
        Gridplace.placeBlock({buildBlocks[i]});
 
        std::vector<double> coord2 = buildBlocks[i].getCoordnate();
-       moveblock(coord1, coord2, Gridblocks.grid_to_base, Gridplace.grid_to_base);
+       moveblock(coord1, coord2, Gridblocks.grid_to_base, Gridplace.grid_to_base, buildBlocks[i].moveMethod);
     }
     
 }

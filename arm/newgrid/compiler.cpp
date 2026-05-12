@@ -20,6 +20,7 @@ std::vector<Block> compiler::compileplace(std::vector<Block> Blocks)
     {
         bool sameY;
         bool sameZ;
+        bool sameX;
         bool adjacentX;
         bool adjacentY;
 
@@ -27,11 +28,20 @@ std::vector<Block> compiler::compileplace(std::vector<Block> Blocks)
         {
             sameZ = Blocks[i].getplace()[2] == Blocks[j].getplace()[2];
             sameY = Blocks[i].getplace()[1] == Blocks[j].getplace()[1];
+            sameX = Blocks[i].getplace()[0] == Blocks[j].getplace()[0];
             bool adjacentX = abs(Blocks[i].getplace()[0] - Blocks[j].getplace()[0]) == 1;
-
+            bool adjacentY = abs(Blocks[i].getplace()[1] - Blocks[j].getplace()[1]) == 1;
             if (sameY && adjacentX && sameZ)
             {
                 Blocks[j].coordnate[6] = -3.14/2;
+                Blocks[j].moveMethod = 1;
+
+            }
+             if (sameX && adjacentY && sameZ)
+            {
+                Blocks[j].coordnate[6] = -3.14/2;
+                Blocks[j].moveMethod = 2;
+
             }
             
         }
