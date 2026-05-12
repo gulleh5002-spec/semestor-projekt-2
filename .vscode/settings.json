@@ -1,3 +1,6 @@
 {
-    "cmake.sourceDirectory": "C:/Users/GusHansen/Desktop/semestorprojekt2/semestor-projekt-2/arm/path"
+    "cmake.sourceDirectory": "${workspaceFolder}/arm/path",
+    "cmake.configureSettings": {
+        "CMAKE_TOOLCHAIN_FILE": "C:/vcpkg/scripts/buildsystems/vcpkg.cmake"
+    }
 }

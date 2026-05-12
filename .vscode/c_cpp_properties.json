@@ -4,6 +4,7 @@
             "name": "Win32",
             "includePath": [
                 "${workspaceFolder}/**",
+                "C:/vcpkg/installed/x64-windows/include",
                 "C:/Users/GusHansen/Desktop/c++/Robotarm/Robotarm",
                 "C:/Users/GusHansen/ur_rtde/include"
             ],

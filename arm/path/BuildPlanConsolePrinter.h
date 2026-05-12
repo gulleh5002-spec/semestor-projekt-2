@@ -6,5 +6,5 @@
 
 namespace BuildPlanConsolePrinter
 {
-void print(const BuildPlan& buildPlan, std::ostream& output);
+    void print(const BuildPlan& buildPlan, std::ostream& output);
 }
