@@ -93,7 +93,10 @@ std::optional<std::filesystem::path> buildPlanPathFromArguments(int argc, char* 
 
         const std::string argument = argv[i];
 
-        if (argument != "--dry-run" && argument != "--execute" && argument != "--help") {
+        if (argument != "--dry-run"
+            && argument != "--execute"
+            && argument != "--manual-test"
+            && argument != "--help") {
             return std::filesystem::path{argument};
         }
     }
@@ -119,6 +122,7 @@ void printUsage(const char* executableName)
     std::cout << "Usage:\n"
               << "  " << executableName << " [build_plan.json] --dry-run\n"
               << "  " << executableName << " [build_plan.json] --execute\n"
+              << "  " << executableName << " --manual-test\n"
               << "\nIf no JSON path is given, build_plan.json is read next to RobotArm.exe.\n";
 }
 
@@ -215,6 +219,27 @@ int runBuildPlanExecute(int argc, char* argv[])
     return 0;
 }
 
+int runManualRobotTest()
+{
+    RobotArm robot(defaultRobotIp, 1.0, 1.0);
+
+    std::vector<Block> takeBlocks = {
+        Block(1, {1, 2, 0}),
+        Block(1, {2, 2, 0}),
+        Block(1, {3, 3, 0}),
+    };
+
+    std::vector<Block> placeBlocks = {
+        Block(1, {0, 3, 0}),
+    };
+
+    Grid place(40, 40, 100, {0.2, 0.2, 0, 0, 0, 0});
+    Grid take(40, 40, 100, {0.6, 0.2, 0, 0, 0, 0});
+
+    robot.build(take, place, placeBlocks, takeBlocks);
+    return 0;
+}
+
 }
 
 int main(int argc, char* argv[])
@@ -230,6 +255,10 @@ int main(int argc, char* argv[])
 
     if (hasArgument(argc, argv, "--execute")) {
         return runBuildPlanExecute(argc, argv);
+    }
+
+    if (hasArgument(argc, argv, "--manual-test")) {
+        return runManualRobotTest();
     }
 
     if (argc > 1) {
