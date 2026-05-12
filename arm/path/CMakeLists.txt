@@ -16,10 +16,13 @@ add_library(BuildPlanSupport STATIC
     BuildPlanConsolePrinter.h
     BuildPlanJsonLoader.cpp
     BuildPlanJsonLoader.h
+    BuildPlanRobotMapper.cpp
+    BuildPlanRobotMapper.h
 )
 
 target_include_directories(BuildPlanSupport PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}
+    ${CMAKE_CURRENT_SOURCE_DIR}/..
 )
 
 target_link_libraries(BuildPlanSupport PUBLIC
