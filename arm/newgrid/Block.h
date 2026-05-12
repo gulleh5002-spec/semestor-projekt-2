@@ -20,4 +20,5 @@ public:
     std::vector<int> getplace();
     int Id;
     std::vector<double> coordnate;
+    int moveMethod = 0;
 };

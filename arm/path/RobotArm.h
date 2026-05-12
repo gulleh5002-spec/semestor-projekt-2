@@ -33,7 +33,7 @@ public:
   void moveblock(std::vector<double> koordinat1,
                  std::vector<double> koordinat2,
                  std::vector<double> gridFrame1,
-                 std::vector<double> gridFrame2);
+                 std::vector<double> gridFrame2, int method);
 
   void build(Grid& Gridblocks, Grid& Gridplace, std::vector<Block> buildBlocks, std::vector<Block> takeBlocks);
   void moveToGridPos(Grid grid, Block block);

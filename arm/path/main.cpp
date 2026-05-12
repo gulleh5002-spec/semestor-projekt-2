@@ -38,8 +38,8 @@ int main()
     std::vector<Block> placeblocks = 
     {
     Block(1, {0, 3, 0}),
-    //Block(1, {1, 3, 0}),
-    //Block(1, {2, 3, 0}),
+    Block(1, {1, 3, 0}),
+    Block(1, {2, 3, 0}),
     //Block(1, {0, 2, 2})
     };
    
