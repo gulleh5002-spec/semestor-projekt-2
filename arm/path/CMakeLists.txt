@@ -18,6 +18,8 @@ add_library(BuildPlanSupport STATIC
     BuildPlanJsonLoader.h
     BuildPlanRobotMapper.cpp
     BuildPlanRobotMapper.h
+    BuildPlanTakeLayout.cpp
+    BuildPlanTakeLayout.h
 )
 
 target_include_directories(BuildPlanSupport PUBLIC
