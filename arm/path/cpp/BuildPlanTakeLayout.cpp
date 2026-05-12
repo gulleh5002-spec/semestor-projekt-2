@@ -2,36 +2,23 @@
 
 namespace
 {
-inline constexpr int blocksPerTakeRow = {8};
+inline constexpr int blocksPerTakeColumn = {8};
 inline constexpr int fixedTakeLayer = {0};
+
+int validBlockCount(int blockCount)
+{
+    if (blockCount < 1) {
+        return 1;
+    }
+
+    return blockCount;
+}
 
 std::vector<int> takePositionForIndex(int blockIndex)
 {
-    const std::vector<std::vector<int>> hardcodedTakePositions = {
-        {0, 0, fixedTakeLayer},
-        {1, 0, fixedTakeLayer},
-        {2, 0, fixedTakeLayer},
-        {3, 0, fixedTakeLayer},
-        {4, 0, fixedTakeLayer},
-        {5, 0, fixedTakeLayer},
-        {6, 0, fixedTakeLayer},
-        {7, 0, fixedTakeLayer},
-        {0, 1, fixedTakeLayer},
-        {1, 1, fixedTakeLayer},
-        {2, 1, fixedTakeLayer},
-        {3, 1, fixedTakeLayer},
-        {4, 1, fixedTakeLayer},
-        {5, 1, fixedTakeLayer},
-        {6, 1, fixedTakeLayer},
-        {7, 1, fixedTakeLayer},
-    };
-
-    if (blockIndex < static_cast<int>(hardcodedTakePositions.size())) {
-        return hardcodedTakePositions[blockIndex];
-    }
-
-    const int x = blockIndex % blocksPerTakeRow;
-    const int y = blockIndex / blocksPerTakeRow;
+    // Fylder Y-aksen foer X, saa take-layoutet er roteret 90 grader.
+    const int x = blockIndex / blocksPerTakeColumn;
+    const int y = blockIndex % blocksPerTakeColumn;
 
     return {x, y, fixedTakeLayer};
 }
@@ -48,4 +35,22 @@ std::vector<Block> BuildPlanTakeLayout::createTakeBlocks(const BuildPlan& buildP
     }
 
     return takeBlocks;
+}
+
+int BuildPlanTakeLayout::takeGridLengthCells(int blockCount)
+{
+    const int count = validBlockCount(blockCount);
+
+    if (count < blocksPerTakeColumn) {
+        return count;
+    }
+
+    return blocksPerTakeColumn;
+}
+
+int BuildPlanTakeLayout::takeGridWidthCells(int blockCount)
+{
+    const int count = validBlockCount(blockCount);
+
+    return (count + blocksPerTakeColumn - 1) / blocksPerTakeColumn;
 }

@@ -7,11 +7,13 @@
 #include <vector>
 
 // Laver klodser robotten skal hente fra take-området
-//TODO: Skal bruges til TRAY
+//TODO: Skal bruges til TRAY og ikke hardcodes
 class BuildPlanTakeLayout
 {
 public:
     static std::vector<Block> createTakeBlocks(const BuildPlan& buildPlan);
+    static int takeGridLengthCells(int blockCount);
+    static int takeGridWidthCells(int blockCount);
 };
 
 #endif // BUILDPLANTAKELAYOUT_H

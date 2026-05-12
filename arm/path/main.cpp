@@ -17,7 +17,6 @@
 namespace
 {
 inline constexpr int robotGridUnit = 5;
-inline constexpr int takeBlocksPerRow = 8;
 inline constexpr int takeLayerCount = 1;
 inline constexpr const char* defaultRobotIp = "192.168.1.100";
 inline constexpr const char* defaultBuildPlanFileName = "build_plan.json";
@@ -166,15 +165,6 @@ int gridSizeFromCells(int cellCount)
     return cellCount * robotGridUnit;
 }
 
-int takeRowCount(int blockCount)
-{
-    if (blockCount < 1) {
-        return 1;
-    }
-
-    return (blockCount + takeBlocksPerRow - 1) / takeBlocksPerRow;
-}
-
 Grid createPlaceGrid(const WorkspaceSize& workspace)
 {
     return Grid(gridSizeFromCells(workspace.height),
@@ -185,8 +175,8 @@ Grid createPlaceGrid(const WorkspaceSize& workspace)
 
 Grid createTakeGrid(int blockCount)
 {
-    return Grid(gridSizeFromCells(takeRowCount(blockCount)),
-                gridSizeFromCells(takeBlocksPerRow),
+    return Grid(gridSizeFromCells(BuildPlanTakeLayout::takeGridLengthCells(blockCount)),
+                gridSizeFromCells(BuildPlanTakeLayout::takeGridWidthCells(blockCount)),
                 gridSizeFromCells(takeLayerCount),
                 {0.6, 0.2, 0, 0, 0, 0});
 }
