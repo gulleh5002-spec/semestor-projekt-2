@@ -53,6 +53,7 @@ if(ur_rtde_FOUND)
         ur_kin.cpp
         ../newgrid/Grid.cpp
         ../newgrid/Block.cpp
+        ../newgrid/compiler.cpp
     )
 
     target_include_directories(RobotArm PRIVATE

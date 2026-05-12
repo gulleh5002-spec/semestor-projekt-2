@@ -1,23 +1,25 @@
 #pragma warning(disable: 4996 4267)
+
 #include "BuildPlanConsolePrinter.h"
 #include "BuildPlanJsonLoader.h"
 #include "BuildPlanRobotMapper.h"
 #include "BuildPlanTakeLayout.h"
 #include "RobotArm.h"
+#include "newgrid/Block.h"
+#include "newgrid/Grid.h"
+
 #include <filesystem>
 #include <iostream>
 #include <optional>
 #include <string>
-#include <vector>  
-#include "newgrid/Grid.h"
-#include "newgrid/Block.h"
-#include "GripperClient.h"
+#include <vector>
 
 namespace
 {
-inline constexpr int gridCellSize = 5;
+inline constexpr int robotGridUnit = 5;
 inline constexpr int takeBlocksPerRow = 8;
 inline constexpr int takeLayerCount = 2;
+inline constexpr const char* defaultRobotIp = "192.168.1.100";
 
 bool hasArgument(int argc, char* argv[], const std::string& argument)
 {
@@ -78,10 +80,10 @@ std::optional<BuildPlan> loadBuildPlanFromArguments(int argc, char* argv[])
 int gridSizeFromCells(int cellCount)
 {
     if (cellCount < 1) {
-        return gridCellSize;
+        return robotGridUnit;
     }
 
-    return cellCount * gridCellSize;
+    return cellCount * robotGridUnit;
 }
 
 int takeRowCount(int blockCount)
@@ -138,11 +140,30 @@ int runBuildPlanExecute(int argc, char* argv[])
     Grid place = createPlaceGrid(buildPlan->workspace);
     Grid take = createTakeGrid(static_cast<int>(takeBlocks.size()));
 
-    take.placeBlock(takeBlocks);
+    RobotArm robot(defaultRobotIp, 1.0, 1.0);
+    robot.build(take, place, targetBlocks, takeBlocks);
 
-    RobotArm magnum("127.0.0.1", 1.0, 1.0);
-    magnum.build(take, place, targetBlocks);
+    return 0;
+}
 
+int runManualRobotTest()
+{
+    RobotArm robot(defaultRobotIp, 1.0, 1.0);
+
+    std::vector<Block> takeBlocks = {
+        Block(1, {1, 2, 0}),
+        Block(1, {2, 2, 0}),
+        Block(1, {3, 3, 0}),
+    };
+
+    std::vector<Block> placeBlocks = {
+        Block(1, {0, 3, 0}),
+    };
+
+    Grid place(40, 40, 100, {0.2, 0.2, 0, 0, 0, 0});
+    Grid take(40, 40, 100, {0.6, 0.2, 0, 0, 0, 0});
+
+    robot.build(take, place, placeBlocks, takeBlocks);
     return 0;
 }
 }
@@ -167,47 +188,5 @@ int main(int argc, char* argv[])
         return 1;
     }
 
-    //RobotArm gulle("192.168.1.100", 1, 1.0);
-    RobotArm magnum("127.0.0.1", 1.0, 1.0);
-    std::vector<double> point1 = { 0.4, 0.4, 0.1, 3.14, 0.0, 0.0 };
-    std::vector<double> point2 = { 0.2, 0.2, 0.3, 3.14, 0.0, 0.0 };
-    //gulle.moveblock(point1, point2);
-    //gulle.moveblock(point1, point2);
-    //magnum.movetool(point1);
-    //gulle.movetool({ 0.4, 0.4, 0.15, 3.14, 0.0, 0.0 }, 0.5, 0.5, {-0.2 ,-0.2 ,0, 0, 0, 2.3732 });
-    //gulle>.movetool({ 0.4, 0, 0.5, 3.14, 0.0, 0.0 });
-    //gulle.home();
-    std::vector<Block> blocks = 
-    {
-    Block(1, {0, 0, 1}),
-    //Block(1, {1, 2, 1}),
-    //Block(1, {4, 2, 1}),
-    //Block(1, {0, 2, 1}),
-    //Block(1, {0, 2, 2})
-    };
-    Grid place(40, 40, 100, {0.2 ,0.2 ,0, 0, 0, 0});
-    Grid take(40, 40, 100, {0.6 ,0.2, 0, 0, 0, 0});
-    
-    take.placeBlock(blocks);
-    
-    magnum.build(take, place, blocks);
-    //magnum.moveToGridPos(place, blocks[1]);
-
-    // take skal ganges på place evt lav en frame med kun rotaton og igne translation der efter gange identits matrice med translation eller trai på den
-    // evt lav en test for at tjekke siguleretet
-    //gulle.moveToGridPos(take, blocks[0]);
-    //gulle.moveToGridPos(place, blocks[0]);
-    return 0;
+    return runManualRobotTest();
 }
-
-
-
-//to doo
-// fix matrix multiplaction så de passer evt med nogle funktioner
-// går grid location letter 
-// tcp offset og forbindelse
-// lav en en funktion som kan placere blokke i midten
-// mere smooth bevæglse
-
-
-

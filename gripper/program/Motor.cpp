@@ -32,7 +32,7 @@ void Motor::forward()
 void Motor::backward()
 {
   gpio_put(E1, 1);
-  gpio_put(M1, 1);
+  gpio_put(M1, 0);
   sleep_ms(500);
 }
 

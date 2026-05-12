@@ -7,7 +7,7 @@ class Block
 {
 private:
     
-    std::vector<double> coordnate;
+    
     std::vector<int> place;
     
 
@@ -19,4 +19,5 @@ public:
     std::vector<double> getCoordnate();
     std::vector<int> getplace();
     int Id;
+    std::vector<double> coordnate;
 };
