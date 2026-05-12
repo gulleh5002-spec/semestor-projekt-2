@@ -146,26 +146,6 @@ int runBuildPlanExecute(int argc, char* argv[])
     return 0;
 }
 
-int runManualRobotTest()
-{
-    RobotArm robot(defaultRobotIp, 1.0, 1.0);
-
-    std::vector<Block> takeBlocks = {
-        Block(1, {1, 2, 0}),
-        Block(1, {2, 2, 0}),
-        Block(1, {3, 3, 0}),
-    };
-
-    std::vector<Block> placeBlocks = {
-        Block(1, {0, 3, 0}),
-    };
-
-    Grid place(40, 40, 100, {0.2, 0.2, 0, 0, 0, 0});
-    Grid take(40, 40, 100, {0.6, 0.2, 0, 0, 0, 0});
-
-    robot.build(take, place, placeBlocks, takeBlocks);
-    return 0;
-}
 }
 
 int main(int argc, char* argv[])
@@ -188,5 +168,6 @@ int main(int argc, char* argv[])
         return 1;
     }
 
-    return runManualRobotTest();
+    printUsage(argv[0]);
+    return 1;
 }
