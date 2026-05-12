@@ -1,4 +1,5 @@
-#pragma once
+#ifndef BUILDPLANCONSOLEPRINTER_H
+#define BUILDPLANCONSOLEPRINTER_H
 
 #include "BuildPlan.h"
 
@@ -8,3 +9,5 @@ namespace BuildPlanConsolePrinter
 {
     void print(const BuildPlan& buildPlan, std::ostream& output);
 }
+
+#endif // BUILDPLANCONSOLEPRINTER_H

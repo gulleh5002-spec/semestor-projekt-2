@@ -1,4 +1,5 @@
-#pragma once
+#ifndef BUILDPLAN_H
+#define BUILDPLAN_H
 
 #include <string>
 #include <vector>
@@ -25,3 +26,5 @@ struct BuildPlan
     WorkspaceSize workspace;
     std::vector<BuildPlanBlock> blocks;
 };
+
+#endif // BUILDPLAN_H
