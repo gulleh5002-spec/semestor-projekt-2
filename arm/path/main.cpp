@@ -1,6 +1,8 @@
 #pragma warning(disable: 4996 4267)
 #include "BuildPlanConsolePrinter.h"
 #include "BuildPlanJsonLoader.h"
+#include "BuildPlanRobotMapper.h"
+#include "BuildPlanTakeLayout.h"
 #include "RobotArm.h"
 #include <filesystem>
 #include <iostream>
@@ -13,6 +15,10 @@
 
 namespace
 {
+inline constexpr int gridCellSize = 5;
+inline constexpr int takeBlocksPerRow = 8;
+inline constexpr int takeLayerCount = 2;
+
 bool hasArgument(int argc, char* argv[], const std::string& argument)
 {
     for (int i = 1; i < argc; ++i) {
@@ -33,7 +39,7 @@ std::optional<std::filesystem::path> buildPlanPathFromArguments(int argc, char* 
 
         const std::string argument = argv[i];
 
-        if (argument != "--dry-run" && argument != "--help") {
+        if (argument != "--dry-run" && argument != "--execute" && argument != "--help") {
             return std::filesystem::path{argument};
         }
     }
@@ -45,27 +51,98 @@ void printUsage(const char* executableName)
 {
     std::cout << "Usage:\n"
               << "  " << executableName << " <build_plan.json> --dry-run\n"
+              << "  " << executableName << " <build_plan.json> --execute\n"
               << "  " << executableName << '\n';
 }
 
-int runBuildPlanDryRun(int argc, char* argv[])
+std::optional<BuildPlan> loadBuildPlanFromArguments(int argc, char* argv[])
 {
     const std::optional<std::filesystem::path> filePath = buildPlanPathFromArguments(argc, argv);
 
     if (!filePath.has_value()) {
         printUsage(argv[0]);
-        return 1;
+        return std::nullopt;
     }
 
     std::string errorMessage;
     const auto buildPlan = BuildPlanJsonLoader::loadFromFile(filePath.value(), &errorMessage);
 
     if (!buildPlan.has_value()) {
-        std::cerr << "Build plan dry-run failed: " << errorMessage << '\n';
+        std::cerr << "Build plan load failed: " << errorMessage << '\n';
+        return std::nullopt;
+    }
+
+    return buildPlan;
+}
+
+int gridSizeFromCells(int cellCount)
+{
+    if (cellCount < 1) {
+        return gridCellSize;
+    }
+
+    return cellCount * gridCellSize;
+}
+
+int takeRowCount(int blockCount)
+{
+    if (blockCount < 1) {
+        return 1;
+    }
+
+    return (blockCount + takeBlocksPerRow - 1) / takeBlocksPerRow;
+}
+
+Grid createPlaceGrid(const WorkspaceSize& workspace)
+{
+    return Grid(gridSizeFromCells(workspace.height),
+                gridSizeFromCells(workspace.width),
+                gridSizeFromCells(workspace.layerCount),
+                {0.2, 0.2, 0, 0, 0, 0});
+}
+
+Grid createTakeGrid(int blockCount)
+{
+    return Grid(gridSizeFromCells(takeRowCount(blockCount)),
+                gridSizeFromCells(takeBlocksPerRow),
+                gridSizeFromCells(takeLayerCount),
+                {0.6, 0.2, 0, 0, 0, 0});
+}
+
+int runBuildPlanDryRun(int argc, char* argv[])
+{
+    const std::optional<BuildPlan> buildPlan = loadBuildPlanFromArguments(argc, argv);
+
+    if (!buildPlan.has_value()) {
         return 1;
     }
 
     BuildPlanConsolePrinter::print(buildPlan.value(), std::cout);
+    return 0;
+}
+
+int runBuildPlanExecute(int argc, char* argv[])
+{
+    const std::optional<BuildPlan> buildPlan = loadBuildPlanFromArguments(argc, argv);
+
+    if (!buildPlan.has_value()) {
+        return 1;
+    }
+
+    BuildPlanConsolePrinter::print(buildPlan.value(), std::cout);
+    std::cout << "Executing build plan with robot...\n";
+
+    std::vector<Block> targetBlocks = BuildPlanRobotMapper::toRobotBlocks(buildPlan.value());
+    std::vector<Block> takeBlocks = BuildPlanTakeLayout::createTakeBlocks(buildPlan.value());
+
+    Grid place = createPlaceGrid(buildPlan->workspace);
+    Grid take = createTakeGrid(static_cast<int>(takeBlocks.size()));
+
+    take.placeBlock(takeBlocks);
+
+    RobotArm magnum("127.0.0.1", 1.0, 1.0);
+    magnum.build(take, place, targetBlocks);
+
     return 0;
 }
 }
@@ -79,6 +156,10 @@ int main(int argc, char* argv[])
 
     if (hasArgument(argc, argv, "--dry-run")) {
         return runBuildPlanDryRun(argc, argv);
+    }
+
+    if (hasArgument(argc, argv, "--execute")) {
+        return runBuildPlanExecute(argc, argv);
     }
 
     if (argc > 1) {
