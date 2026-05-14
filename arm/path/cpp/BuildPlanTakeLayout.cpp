@@ -16,12 +16,12 @@ int validBlockCount(int blockCount)
 
 std::vector<int> takePositionForIndex(int blockIndex)
 {
-        // Fylder Y-aksen foer X, saa take-layoutet er roteret 90 grader.
-        const int x = blockIndex / blocksPerTakeColumn;
-        const int y = blockIndex % blocksPerTakeColumn;
+    // Fylder Y-aksen foer X, saa take-layoutet er roteret 90 grader.
+    const int x = blockIndex / blocksPerTakeColumn;
+    const int y = blockIndex % blocksPerTakeColumn;
 
-        return {x, y, fixedTakeLayer};
-    }
+    return {x, y, fixedTakeLayer};
+}
 }
 
 std::vector<Block> BuildPlanTakeLayout::createTakeBlocks(const BuildPlan& buildPlan)
