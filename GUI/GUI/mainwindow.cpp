@@ -2,6 +2,7 @@
 #include "./ui_mainwindow.h"
 #include "debughelper.h"
 #include "workspaceconstants.h"
+#include <QCoreApplication>
 #include <QDir>
 #include <QResizeEvent>
 #include <QSpinBox>
@@ -166,7 +167,9 @@ void MainWindow::onBuildClicked()
         return;
     }
 
-    const QString filePath = QDir::current().filePath(WorkspaceConstants::buildPlanFileName);
+    // Release-mappen skal indeholde både GUI.exe og RobotArm.exe.
+    const QDir applicationDirectory{QCoreApplication::applicationDirPath()};
+    const QString filePath = applicationDirectory.filePath(WorkspaceConstants::buildPlanFileName);
 
     if (!WorkspaceDataJsonHandler::saveToFile(workspace, filePath)) {
         ui->statusbar->showMessage("Kunne ikke gemme byggeplanen.");

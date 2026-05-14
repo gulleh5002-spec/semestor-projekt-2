@@ -2,7 +2,8 @@ param(
     [string]$Configuration = "Release",
     [string]$QtRoot = "C:\Qt\6.10.2\mingw_64",
     [string]$BuildDir = "",
-    [string]$DeployDir = ""
+    [string]$DeployDir = "",
+    [string]$RobotArmDir = ""
 )
 
 $ErrorActionPreference = "Stop"
@@ -18,12 +19,40 @@ if ([string]::IsNullOrWhiteSpace($BuildDir)) {
 }
 
 if ([string]::IsNullOrWhiteSpace($DeployDir)) {
-    $DeployDir = Join-Path $ProjectDir "deploy\GUI-$Configuration"
+    if ([string]::IsNullOrWhiteSpace($RobotArmDir)) {
+        $DeployDir = Join-Path $ProjectDir "deploy\GUI-$Configuration"
+    } else {
+        $DeployDir = Join-Path $ProjectDir "deploy\RobotBuild-$Configuration"
+    }
 }
 
 foreach ($RequiredPath in @($CMake, $Ninja, $MingwBin, $QtRoot, $WinDeployQt)) {
     if (-not (Test-Path $RequiredPath)) {
         throw "Required path was not found: $RequiredPath"
+    }
+}
+
+$RobotArmExecutable = ""
+
+if (-not [string]::IsNullOrWhiteSpace($RobotArmDir)) {
+    if (-not (Test-Path $RobotArmDir)) {
+        throw "RobotArm directory was not found: $RobotArmDir"
+    }
+
+    $RobotArmExecutable = Join-Path $RobotArmDir "RobotArm.exe"
+
+    if (-not (Test-Path $RobotArmExecutable)) {
+        throw "RobotArm.exe was not found in: $RobotArmDir"
+    }
+}
+
+$DeployDir = [System.IO.Path]::GetFullPath($DeployDir)
+
+if (-not [string]::IsNullOrWhiteSpace($RobotArmDir)) {
+    $RobotArmDir = [System.IO.Path]::GetFullPath($RobotArmDir)
+
+    if ($DeployDir.TrimEnd('\') -ieq $RobotArmDir.TrimEnd('\')) {
+        throw "DeployDir must not be the same as RobotArmDir."
     }
 }
 
@@ -52,6 +81,11 @@ if (Test-Path $DeployDir) {
 }
 
 New-Item -ItemType Directory -Path $DeployDir | Out-Null
+
+if (-not [string]::IsNullOrWhiteSpace($RobotArmDir)) {
+    Get-ChildItem -LiteralPath $RobotArmDir | Copy-Item -Destination $DeployDir -Recurse -Force
+}
+
 Copy-Item -LiteralPath $ExecutablePath -Destination $DeployDir
 
 $DeployedExecutable = Join-Path $DeployDir "GUI.exe"
@@ -61,3 +95,7 @@ $DeployMode = if ($Configuration -eq "Debug") { "--debug" } else { "--release" }
 
 Write-Host "GUI package created:"
 Write-Host $DeployDir
+
+if (-not [string]::IsNullOrWhiteSpace($RobotArmDir)) {
+    Write-Host "RobotArm.exe copied into package. GUI will save build_plan.json next to RobotArm.exe."
+}
