@@ -99,12 +99,12 @@ bool readBlocks(const json& rootObject,
             return false;
         }
 
-        blocks.push_back(block);
-        ++nextBlockId;
-    }
+            blocks.push_back(block);
+            ++nextBlockId;
+        }
 
-    return true;
-}
+        return true;
+    }
 }
 
 std::optional<BuildPlan> BuildPlanJsonLoader::loadFromFile(const std::filesystem::path& filePath,
