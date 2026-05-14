@@ -105,6 +105,7 @@ bool readBlocks(const json& rootObject,
 
     return true;
 }
+}
 
 std::optional<BuildPlan> BuildPlanJsonLoader::loadFromFile(const std::filesystem::path& filePath,
                                                            std::string* errorMessage)

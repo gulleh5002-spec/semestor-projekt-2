@@ -5,6 +5,7 @@
 #include "BuildPlanRobotMapper.h"
 #include "BuildPlanTakeLayout.h"
 #include "RobotArm.h"
+#include "RobotBuildConstants.h"
 #include "newgrid/Block.h"
 #include "newgrid/Grid.h"
 
@@ -16,10 +17,7 @@
 
 namespace
 {
-constexpr int robotGridUnit = {5};
-constexpr int takeLayerCount = {1};
 constexpr const char* defaultRobotIp = "192.168.1.100";
-constexpr const char* defaultBuildPlanFileName = "build_plan.json";
 
 bool hasArgument(int argc, char* argv[], const std::string& argument)
 {
@@ -59,10 +57,10 @@ std::filesystem::path defaultBuildPlanPath(const char* executableName)
                                                     : std::filesystem::path{};
 
     if (executablePath.has_parent_path()) {
-        return executablePath.parent_path() / defaultBuildPlanFileName;
+        return executablePath.parent_path() / RobotBuildConstants::defaultBuildPlanFileName;
     }
 
-    return std::filesystem::current_path() / defaultBuildPlanFileName;
+    return std::filesystem::current_path() / RobotBuildConstants::defaultBuildPlanFileName;
 }
 
 void printUsage(const char* executableName)
@@ -101,10 +99,10 @@ std::optional<BuildPlan> loadBuildPlanFromArguments(int argc, char* argv[])
 int gridSizeFromCells(int cellCount)
 {
     if (cellCount < 1) {
-        return robotGridUnit;
+        return RobotBuildConstants::robotGridUnit;
     }
 
-    return cellCount * robotGridUnit;
+    return cellCount * RobotBuildConstants::robotGridUnit;
 }
 
 Grid createPlaceGrid(const WorkspaceSize& workspace)
@@ -119,7 +117,7 @@ Grid createTakeGrid(int blockCount)
 {
     return Grid(gridSizeFromCells(BuildPlanTakeLayout::takeGridLengthCells(blockCount)),
                 gridSizeFromCells(BuildPlanTakeLayout::takeGridWidthCells(blockCount)),
-                gridSizeFromCells(takeLayerCount),
+                gridSizeFromCells(RobotBuildConstants::takeLayerCount),
                 {0.6, 0.2, 0, 0, 0, 0});
 }
 
