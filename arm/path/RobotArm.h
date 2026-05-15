@@ -13,7 +13,7 @@
 #include "newgrid/Grid.h"
 #include "GripperClient.h"
 #include "newgrid/compiler.h"
-
+#include "ArUcoDetector.h"
 class RobotArm {
 public:
   RobotArm();
@@ -24,10 +24,13 @@ public:
   void home();
 
   // keep
-  void movetool(std::vector<double> koordinatWorld , double speed, double acceleration, std::vector<double> gridFrame);
+  void movetool(std::vector<double> koordinatWorld , double speed, double acceleration, std::vector<double> gridFrame, int flange = 0);
+
+  void moveBlockKinamatik();
 
   void getTcpInfo(std::vector<double> point);
 
+  std::vector<double> getTCPPose();
   void getRTDEinfor();
 
   void moveblock(std::vector<double> koordinat1,
@@ -41,6 +44,12 @@ public:
 
   void take();
   void drop();
+  std::vector<double> approsemate();
+  std::vector<double> getTrayFrame(bool oncamara);
+  void findTrayGrid();
+
+
+
 private:
   std::string ip;
   double acceleration;
@@ -52,6 +61,8 @@ private:
   IKcal IKcal;
   GripperClient gripper;
   compiler compile;
+  ArUcoDetector camera;
+    
 };
 
 // regn på albuernes postioner og sørgde for der ikke kommer koliktions med

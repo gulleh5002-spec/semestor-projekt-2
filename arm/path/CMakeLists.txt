@@ -10,6 +10,9 @@ set(EIGEN3_INCLUDE_DIR "C:/Users/GusHansen/Desktop/c++/Robotarm/Robotarm")
 
 find_package(nlohmann_json CONFIG REQUIRED)
 
+set(OpenCV_DIR "C:/Users/GusHansen/Downloads/opencv-4.12.0-windows/opencv/build")
+find_package(OpenCV REQUIRED)
+
 add_library(BuildPlanSupport STATIC
     h/BuildPlan.h
     cpp/BuildPlanConsolePrinter.cpp
@@ -55,17 +58,21 @@ if(ur_rtde_FOUND)
         ../newgrid/Grid.cpp
         ../newgrid/Block.cpp
         ../newgrid/compiler.cpp
+        ../../camera/cv.cpp
     )
 
     target_include_directories(RobotArm PRIVATE
         ${CMAKE_CURRENT_SOURCE_DIR}
         ${CMAKE_CURRENT_SOURCE_DIR}/..
         ${EIGEN3_INCLUDE_DIR}
+        ${OpenCV_INCLUDE_DIRS}
+        ${CMAKE_CURRENT_SOURCE_DIR}/../../camera
     )
 
     target_link_libraries(RobotArm PRIVATE
         BuildPlanSupport
         ur_rtde::rtde
+        ${OpenCV_LIBS}
     )
 
     if(WIN32)

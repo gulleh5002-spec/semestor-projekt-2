@@ -21,32 +21,44 @@ void RobotArm::home()
     rtde_c.moveL({ 0.0, 0.5, 0.5, 3.14, 0.0, 0.0 }, 0.5, 0.5);
 }
 
-void RobotArm::movetool(std::vector<double> koordinatWorld , double speed, double acceleration, std::vector<double> gridFrame)
+void RobotArm::movetool(std::vector<double> koordinatWorld , double speed, double acceleration, std::vector<double> gridFrame, int flange)
 {
     // finder start vinklen og start tcp pose
     std::vector<double> startPose = rtde_r.getActualTCPPose();
     std::vector<double> StartAngle = rtde_r.getActualQ();  
+    Eigen::Matrix4d T_tcp_flang;
     
-    // laver målet om til en transformaotns matrice -0.008
-    double wrist_angle = 0;
-    double xOffset = 0;
+    // laver målet om til en transformaotns matrice -0.008 y -0.009
+    if (flange == 0)
+    {
+        double wrist_angle = 0;
+        double xOffset = 0;
 
-    if (koordinatWorld[6] == -1.57)
-    {
-       wrist_angle = koordinatWorld[6];
-       xOffset = -0.006;
-       std::cout << "trun" << std::endl;
-    }
-    else
-    {
-      
-        std::cout << "not turn" << std::endl;
-        wrist_angle = 0;
-        xOffset = 0.0015;
+        if (koordinatWorld.size() > 6 && koordinatWorld[6] == -1.57)
+        {
+        wrist_angle = koordinatWorld[6];
+        xOffset = -0.006;
+        std::cout << "trun" << std::endl;
+        }
+        else
+        {
         
+            std::cout << "not turn" << std::endl;
+            wrist_angle = 0;
+            xOffset = 0.0015;
+            
+        }
+        std::cout << xOffset << std::endl;
+        T_tcp_flang = IKcal.poseToTransform({xOffset, 0.00, 0.2, 0, 0, -wrist_angle});
     }
-    std::cout << xOffset << std::endl;
-    Eigen::Matrix4d T_tcp_flang = IKcal.poseToTransform({xOffset, -0.009, 0.2, 0, 0, -wrist_angle});
+    if (flange == 1)
+    {
+         T_tcp_flang = IKcal.poseToTransform({0.005, -0.030, 0.2, 0, 0, 0});
+    }
+    if (flange == 2)
+    {
+        T_tcp_flang = IKcal.poseToTransform({0, 0, 0.2, 0, 0, 0});
+    }
 
     Eigen::Matrix4d T_tcp_flangInvser = T_tcp_flang.inverse();
 
@@ -104,6 +116,17 @@ void RobotArm::movetool(std::vector<double> koordinatWorld , double speed, doubl
 
     rtde_c.moveJ(path);
     std::cout << "new path" << std::endl;
+}
+
+
+
+
+std::vector<double> RobotArm::getTCPPose()
+{
+    std::vector<double> tcp = rtde_r.getActualTCPPose();
+    std::cout << "TCP: X=" << tcp[0] << " Y=" << tcp[1] << " Z=" << tcp[2]
+              << " Rx=" << tcp[3] << " Ry=" << tcp[4] << " Rz=" << tcp[5] << "\n";
+    return tcp;
 }
 
 void RobotArm::getRTDEinfor()
@@ -220,5 +243,92 @@ void RobotArm::drop()
     
     gripper.open();
 }
+
+void RobotArm::findTrayGrid()
+{
+   
+    movetool({0.2, 0.2, 0.5, 3.14, 0, 0}, 0.5, 0.5, {0.2, 0.2, 0, 0, 0, 0}, 2);
+    
+}
+std::vector<double> RobotArm::approsemate()
+{
+    bool valid = true;
+    findTrayGrid();
+    std::vector<double> poses = getTrayFrame(true);
+    std::vector<double> oldposes = {0,0,0,0,0,0,0};
+    while(true)
+    {
+        valid = true;
+        poses[2] = 0.15;
+        poses[3] = 3.14;
+        poses[4] = 0;
+        poses[5] = 0;
+        poses.push_back(0);
+        movetool(poses, 0.5, 0.5, {0,0,0,0,0,0}, 2);
+
+        std::vector<ArUcoDetector::ArucoPose> camPoses = camera.detectOnce(1);
+        if (camPoses.empty())
+        {
+            poses = getTrayFrame(true);
+            continue;
+        }
+
+        std::cout << "Camera X=" << camPoses[0].x << "mm Y=" << camPoses[0].y << "mm\n";
+
+        if (abs(camPoses[0].x) > 5.0f || abs(camPoses[0].y) > 5.0f)
+        {
+            valid = false;
+        }
+
+        poses = getTrayFrame(true);
+
+        if (valid)
+        {
+            poses = getTrayFrame(true);
+            break;
+        }
+        
+
+
+    }
+    return poses;
+}
+std::vector<double> RobotArm::getTrayFrame(bool onCamara)
+{
+    // -0.0265
+    Eigen::Matrix4d T_flange_camera;
+    if (onCamara)
+    {
+        T_flange_camera = IKcal.poseToTransform({0, 0, 0.158, 0, 0, 0});
+    }
+    else
+    {
+        T_flange_camera = IKcal.poseToTransform({-0.0265, 0, 0.158, 0, 0, 0});
+    }
+    Eigen::Matrix4d T_world_base = IKcal.poseToTransform({0, 0, 0, 0, 0, -2.74});
+    Eigen::Matrix4d T_base_flange = IKcal.poseToTransform(rtde_r.getActualTCPPose());
+    
+    std::vector<ArUcoDetector::ArucoPose> poses = camera.detectOnce(1);
+    if (poses.empty())
+    {
+        std::cout << "getTrayFrame: ingen markør fundet!\n";
+        return {};
+    }
+    std::cout << "Camera: X=" << poses[0].x << " Y=" << poses[0].y << " Z=" << poses[0].z << "mm"
+              << " rvecX=" << poses[0].rvecX << " rvecY=" << poses[0].rvecY << " rvecZ=" << poses[0].rvecZ << "\n";
+    Eigen::Matrix4d T_camera_object = IKcal.poseToTransform({
+        poses[0].x / 1000.0,
+        poses[0].y / 1000.0,
+        poses[0].z / 1000.0,
+        poses[0].rvecX,
+        poses[0].rvecY,
+        poses[0].rvecZ
+    });
+    Eigen::Matrix4d T_world_object = T_world_base * T_base_flange * T_flange_camera * T_camera_object;
+
+    std::vector<double> endpose = IKcal.TransformToPose(T_world_object);
+    return endpose;
+}
+
 
 

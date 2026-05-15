@@ -15,12 +15,30 @@ GripperClient::GripperClient(const std::string &pico_ip, uint16_t port)
         inet_pton(AF_INET, pico_ip.c_str(), &addr.sin_addr);
 
         sock = socket(AF_INET, SOCK_STREAM, 0);
-        if (connect(sock, reinterpret_cast<sockaddr *>(&addr), sizeof(addr)) != 0)
+
+        // sæt non-blocking så connect ikke hænger
+        u_long mode = 1;
+        ioctlsocket(sock, FIONBIO, &mode);
+
+        connect(sock, reinterpret_cast<sockaddr *>(&addr), sizeof(addr));
+
+        fd_set writefds;
+        FD_ZERO(&writefds);
+        FD_SET(sock, &writefds);
+        timeval timeout = {1, 0}; // 1 sekund timeout
+        int result = select(0, nullptr, &writefds, nullptr, &timeout);
+
+        if (result <= 0)
         {
-            printf("Gripper connection FAILED to %s:%u, error: %d\n", pico_ip.c_str(), port, WSAGetLastError());
+            printf("Gripper connection FAILED to %s:%u\n", pico_ip.c_str(), port);
+            closesocket(sock);
             sock = INVALID_SOCKET;
             return;
         }
+
+        // sæt tilbage til blocking
+        mode = 0;
+        ioctlsocket(sock, FIONBIO, &mode);
         printf("Gripper connected to %s:%u\n", pico_ip.c_str(), port);
 }
 
@@ -36,6 +54,9 @@ GripperClient::~GripperClient()
 
 std::string GripperClient::send_command(const std::string &command)
 {
+    if (sock == INVALID_SOCKET)
+        return "";
+
     std::string msg = command + "\n";
     send(sock, msg.c_str(), static_cast<int>(msg.size()), 0);
 

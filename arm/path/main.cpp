@@ -7,6 +7,7 @@
 #include "RobotArm.h"
 #include "newgrid/Block.h"
 #include "newgrid/Grid.h"
+#include "ArUcoDetector.h"
 
 #include <filesystem>
 #include <iostream>
@@ -18,7 +19,7 @@ namespace
 {
 constexpr int robotGridUnit = {5};
 constexpr int takeLayerCount = {1};
-constexpr const char* defaultRobotIp = "192.168.1.100";
+constexpr const char* defaultRobotIp = "192.168.1.11";
 constexpr const char* defaultBuildPlanFileName = "build_plan.json";
 
 bool hasArgument(int argc, char* argv[], const std::string& argument)
@@ -160,13 +161,27 @@ int runBuildPlanExecute(int argc, char* argv[])
 
 /*
     For manuel test med hardcoding uden json
-    kør .\arm\path\build\Debug\RobotArm.exe --manual-test
+    kør .\build\Release\RobotArm.exe --manual-test
     i powershell Terminal
 */
 int runManualRobotTest()
 {
+    
     RobotArm robot(defaultRobotIp, 1.0, 1.0);
+    /*
+    std::vector<double> pose = robot.approsemate();
+    std::cout << "Tray pose: X=" << pose[0] << " Y=" << pose[1] << " Z=" << pose[2]
+              << " Rx=" << pose[3] << " Ry=" << pose[4] << " Rz=" << pose[5] << "\n";
 
+    //ArUcoDetector camera;
+    //camera.run();
+    pose[2] = 0.1;
+   pose[3] = 0;
+    pose[4] = 0;
+    Grid place(40, 40, 100, pose);
+    */
+   
+    
     std::vector<Block> takeBlocks = {
         Block(1, {1, 2, 0}),
         Block(1, {2, 2, 0}),
@@ -177,7 +192,7 @@ int runManualRobotTest()
     };
 
     std::vector<Block> placeBlocks = {
-        Block(1, {0, 3, 0}),
+        Block(1, {0, 0, 0}),
         Block(1, {1, 3, 0}),
         Block(1, {2, 3, 0}),
         Block(1, {0, 3, 1}),
@@ -185,10 +200,12 @@ int runManualRobotTest()
         Block(1, {2, 3, 1}),
     };
 
-    Grid place(40, 40, 100, {0.2, 0.2, 0, 0, 0, 0});
-    Grid take(40, 40, 100, {0.6, 0.2, 0, 0, 0, 0});
+    
+    
+    //robot.build(tray, place, placeBlocks, takeBlocks);
+    robot.movetool({0, 0, 0, 3.14, 0, 0}, 0.5, 0.5, {0.516185, 0.388234, 0.05, 0, 0, -1.25982}, 1);
 
-    robot.build(take, place, placeBlocks, takeBlocks);
+    robot.getTCPPose();
     return 0;
 }
 

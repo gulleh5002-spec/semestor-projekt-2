@@ -34,11 +34,15 @@ public:
         float rotX;    // tilt in degrees
         float rotY;     // tilt in degrees
         float rotZ; // tilt in degrees
+        double rvecX = 0; // axis-angle rotation vector in radians (from solvePnP)
+        double rvecY = 0;
+        double rvecZ = 0;
     };
 
     ArUcoDetector();
     bool loadCalibration(const std::string& path);
     void run();
+    std::vector<ArucoPose> detectOnce(int cameraIndex = 1);
     std::vector<ArucoPose> detectAruco(cv::Mat& img);
     void drawPose(cv::Mat& img, ObjectPose pose, cv::Scalar color, std::string label);
     void drawArucoPose(cv::Mat& img, ArucoPose pose);

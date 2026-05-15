@@ -119,6 +119,11 @@ std::vector<ArUcoDetector::ArucoPose> ArUcoDetector::detectAruco(cv::Mat& img) /
         pose.y = (float)(tvecs[i][1] * 1000.0);
         pose.z = (float)(tvecs[i][2] * 1000.0);
 
+        // raw axis-angle rotation vector in radians (direct from solvePnP)
+        pose.rvecX = rvecs[i][0];
+        pose.rvecY = rvecs[i][1];
+        pose.rvecZ = rvecs[i][2];
+
         // rotation to rot matrix from rot vectors using Rodrigues
         cv::Mat rotMat; // empty container
         cv::Mat rvecMat(rvecs[i]); // takes each rotational vector and turns into a 3x3 matrix
@@ -197,6 +202,29 @@ void ArUcoDetector::drawArucoPose(cv::Mat& img, ArucoPose pose)
         cv::FONT_HERSHEY_SIMPLEX, 0.45, cv::Scalar(0, 255, 255), 2);
 }
 
+std::vector<ArUcoDetector::ArucoPose> ArUcoDetector::detectOnce(int cameraIndex)
+{
+    if (!loadCalibration("calibration.yml"))
+    {
+        std::cout << "Cannot find calibration.yml — run calibration first!" << std::endl;
+        return {};
+    }
+
+    cv::VideoCapture cap(cameraIndex);
+    cv::Mat img;
+    for (int i = 0; i < 10; i++)
+        cap.read(img);
+    cap.release();
+
+    if (img.empty())
+    {
+        std::cout << "Failed to capture frame from camera " << cameraIndex << std::endl;
+        return {};
+    }
+
+    return detectAruco(img);
+}
+
 void ArUcoDetector::run()
 {
     // load calibration for the ArUco Marker (done from a seperate file)
@@ -207,7 +235,8 @@ void ArUcoDetector::run()
     }
     std::cout << "Calibration loaded." << std::endl;
 
-    cv::VideoCapture cap(0); // connects cam (sometimes 1 works, sometimes 0)
+    cv::VideoCapture cap(1); // connects cam (sometimes 1 works, sometimes 0)
+    std::cout << "1" ;
     cv::Mat img; // empty variable that holds each frame for the camera
 
     cv::namedWindow("Camera");
