@@ -50,6 +50,7 @@ public:
 private:
     cv::Mat imgHSV; // stores hsv (hue saturation value)
     cv::Mat cameraMatrix, distCoeffs; // loaded from the calibration file (lens math)
+    cv::VideoCapture cap;
 
     float realWidthCm; // width of cubes
     float focalLength; // default focal length

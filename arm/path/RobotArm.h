@@ -47,6 +47,7 @@ public:
   std::vector<double> approsemate();
   std::vector<double> getTrayFrame(bool oncamara);
   void findTrayGrid();
+  void moveWithCameraAsPivot(std::vector<double> targetRotation, double speed, double acceleration);
 
 
 

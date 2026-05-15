@@ -4,6 +4,13 @@
 ArUcoDetector::ArUcoDetector()
     : realWidthCm(5.0f), focalLength(600.0f), hFOV(65.0f)
 {
+    loadCalibration("calibration.yml");
+    cap.open(1);
+    for (int i = 0; i < 10; i++)
+    {
+        cv::Mat dummy;
+        cap.read(dummy);
+    }
 }
 
 bool ArUcoDetector::loadCalibration(const std::string& path)
@@ -204,17 +211,20 @@ void ArUcoDetector::drawArucoPose(cv::Mat& img, ArucoPose pose)
 
 std::vector<ArUcoDetector::ArucoPose> ArUcoDetector::detectOnce(int cameraIndex)
 {
-    if (!loadCalibration("calibration.yml"))
+    if (cameraMatrix.empty())
     {
         std::cout << "Cannot find calibration.yml — run calibration first!" << std::endl;
         return {};
     }
 
-    cv::VideoCapture cap(cameraIndex);
+    if (!cap.isOpened())
+    {
+        std::cout << "Failed to capture frame from camera " << cameraIndex << std::endl;
+        return {};
+    }
+
     cv::Mat img;
-    for (int i = 0; i < 10; i++)
-        cap.read(img);
-    cap.release();
+    cap.read(img);
 
     if (img.empty())
     {

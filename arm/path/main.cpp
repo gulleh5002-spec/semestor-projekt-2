@@ -167,20 +167,19 @@ int runBuildPlanExecute(int argc, char* argv[])
 */
 int runManualRobotTest()
 {
-    
+   
     RobotArm robot(defaultRobotIp, 1.0, 1.0);
-    /*
+    
     std::vector<double> pose = robot.approsemate();
     std::cout << "Tray pose: X=" << pose[0] << " Y=" << pose[1] << " Z=" << pose[2]
               << " Rx=" << pose[3] << " Ry=" << pose[4] << " Rz=" << pose[5] << "\n";
 
-    //ArUcoDetector camera;
-    //camera.run();
-    pose[2] = 0.1;
-   pose[3] = 0;
+   
+    pose[2] = 0.01;
+    pose[3] = 0;
     pose[4] = 0;
     Grid place(40, 40, 100, pose);
-    */
+    Grid placeplace(40, 40, 100, {0.2, 0.2, 0 ,0 ,0 ,0});
    
     
     std::vector<Block> takeBlocks = {
@@ -193,7 +192,7 @@ int runManualRobotTest()
     };
 
     std::vector<Block> placeBlocks = {
-        Block(1, {0, 0, 0}),
+        Block(1, {1, 1, 0}),
         Block(1, {1, 3, 0}),
         Block(1, {2, 3, 0}),
         Block(1, {0, 3, 1}),
@@ -204,8 +203,10 @@ int runManualRobotTest()
     
     
     //robot.build(tray, place, placeBlocks, takeBlocks);
-    robot.movetool({0, 0, 0, 3.14, 0, 0}, 0.5, 0.5, {0.516185, 0.388234, 0.05, 0, 0, -1.25982}, 1);
-
+    //robot.movetool({0, 0, 0, 3.14, 0, 0}, 0.5, 0.5, pose, 1);
+    robot.moveToGridPos(place, placeBlocks[0]);
+    robot.take();
+    robot.moveToGridPos(placeBlocks, )
     robot.getTCPPose();
     return 0;
 }

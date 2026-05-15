@@ -1,5 +1,0 @@
-C:/Users/GusHansen/Desktop/semestorprojekt2/semestor-projekt-2/arm/path/build/CMakeFiles/BuildPlanSupport.dir
-C:/Users/GusHansen/Desktop/semestorprojekt2/semestor-projekt-2/arm/path/build/CMakeFiles/BuildPlanDryRun.dir
-C:/Users/GusHansen/Desktop/semestorprojekt2/semestor-projekt-2/arm/path/build/CMakeFiles/RobotArm.dir
-C:/Users/GusHansen/Desktop/semestorprojekt2/semestor-projekt-2/arm/path/build/CMakeFiles/ALL_BUILD.dir
-C:/Users/GusHansen/Desktop/semestorprojekt2/semestor-projekt-2/arm/path/build/CMakeFiles/ZERO_CHECK.dir

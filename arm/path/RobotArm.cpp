@@ -53,11 +53,15 @@ void RobotArm::movetool(std::vector<double> koordinatWorld , double speed, doubl
     }
     if (flange == 1)
     {
-         T_tcp_flang = IKcal.poseToTransform({0.005, -0.030, 0.2, 0, 0, 0});
+         T_tcp_flang = IKcal.poseToTransform({0.00, -0.004, 0.2, 0, 0, 0});
     }
     if (flange == 2)
     {
         T_tcp_flang = IKcal.poseToTransform({0, 0, 0.2, 0, 0, 0});
+    }
+    if (flange == 3)
+    {
+        T_tcp_flang = IKcal.poseToTransform({0, 0.007, 0.2, 0, 0, 0});
     }
 
     Eigen::Matrix4d T_tcp_flangInvser = T_tcp_flang.inverse();
@@ -225,7 +229,7 @@ void RobotArm::build(Grid& Gridblocks, Grid& Gridplace, std::vector<Block> build
 
 void RobotArm::moveToGridPos(Grid grid, Block block)
 {
-    movetool(block.getCoordnate(), 0.5, 0.5, grid.grid_to_base);
+    movetool(block.getCoordnate(), 0.5, 0.5, grid.grid_to_base, 1);
 }
 
 RobotArm::~RobotArm()
@@ -259,12 +263,12 @@ std::vector<double> RobotArm::approsemate()
     while(true)
     {
         valid = true;
-        poses[2] = 0.15;
-        poses[3] = 3.14;
+        poses[2] = 0.2;
+        poses[3] = 0;
         poses[4] = 0;
-        poses[5] = 0;
+        
         poses.push_back(0);
-        movetool(poses, 0.5, 0.5, {0,0,0,0,0,0}, 2);
+        movetool({0, 0, 0, 3.14, 0, 0}, 0.5, 0.5, {poses}, 2);
 
         std::vector<ArUcoDetector::ArucoPose> camPoses = camera.detectOnce(1);
         if (camPoses.empty())
@@ -284,7 +288,9 @@ std::vector<double> RobotArm::approsemate()
 
         if (valid)
         {
-            poses = getTrayFrame(true);
+            poses = getTrayFrame(false);
+            //ArUcoDetector camera;
+            //camera.run();
             break;
         }
         
@@ -303,7 +309,7 @@ std::vector<double> RobotArm::getTrayFrame(bool onCamara)
     }
     else
     {
-        T_flange_camera = IKcal.poseToTransform({-0.0265, 0, 0.158, 0, 0, 0});
+        T_flange_camera = IKcal.poseToTransform({0, 0, 0.158, 0, 0, 0});
     }
     Eigen::Matrix4d T_world_base = IKcal.poseToTransform({0, 0, 0, 0, 0, -2.74});
     Eigen::Matrix4d T_base_flange = IKcal.poseToTransform(rtde_r.getActualTCPPose());
@@ -326,8 +332,9 @@ std::vector<double> RobotArm::getTrayFrame(bool onCamara)
     });
     Eigen::Matrix4d T_world_object = T_world_base * T_base_flange * T_flange_camera * T_camera_object;
 
-    std::vector<double> endpose = IKcal.TransformToPose(T_world_object);
-    return endpose;
+   
+
+    return IKcal.TransformToPose(T_world_object);
 }
 
 
