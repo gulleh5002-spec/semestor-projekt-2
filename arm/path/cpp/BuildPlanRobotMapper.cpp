@@ -2,10 +2,10 @@
 
 namespace
 {
-std::vector<int> robotBlockPosition(const BuildPlanBlock& block)
-{
-    return {block.x, block.y, block.z};
-}
+    std::vector<int> robotBlockPosition(const BuildPlanBlock& block)
+    {
+        return {block.x, block.y, block.z};
+    }
 }
 
 std::vector<Block> BuildPlanRobotMapper::toRobotBlocks(const BuildPlan& buildPlan)

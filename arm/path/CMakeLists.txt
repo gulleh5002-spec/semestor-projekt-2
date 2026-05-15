@@ -23,6 +23,7 @@ add_library(BuildPlanSupport STATIC
     h/BuildPlanRobotMapper.h
     cpp/BuildPlanTakeLayout.cpp
     h/BuildPlanTakeLayout.h
+    h/RobotBuildConstants.h
 )
 
 target_include_directories(BuildPlanSupport PUBLIC

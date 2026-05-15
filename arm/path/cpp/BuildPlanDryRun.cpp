@@ -7,10 +7,10 @@
 
 namespace
 {
-void printUsage(const char* executableName)
-{
-    std::cout << "Usage: " << executableName << " <build_plan.json>\n";
-}
+    void printUsage(const char* executableName)
+    {
+        std::cout << "Usage: " << executableName << " <build_plan.json>\n";
+    }
 }
 
 int main(int argc, char* argv[])

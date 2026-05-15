@@ -2,8 +2,8 @@
 
 namespace
 {
-inline constexpr int blocksPerTakeColumn = {8};
-inline constexpr int fixedTakeLayer = {0};
+constexpr int blocksPerTakeColumn = {8};
+constexpr int fixedTakeLayer = {0};
 
 int validBlockCount(int blockCount)
 {
