@@ -24,14 +24,19 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->spinBoxWitdh->setPrefix("B: ");
     ui->spinBoxHeight->setPrefix("H: ");
+    ui->spinBoxAvailableBlocks->setPrefix("K: ");
     ui->spinBoxWitdh->setToolTip("Bredde i antal gridfelter");
     ui->spinBoxHeight->setToolTip("Højde i antal gridfelter");
+    ui->spinBoxAvailableBlocks->setToolTip("Antal klodser til rådighed");
     ui->spinBoxWitdh->setRange(WorkspaceConstants::minimumGridWidth,
                                WorkspaceConstants::maximumGridWidth);
     ui->spinBoxHeight->setRange(WorkspaceConstants::minimumGridHeight,
                                 WorkspaceConstants::maximumGridHeight);
+    ui->spinBoxAvailableBlocks->setRange(WorkspaceConstants::minimumAvailableBlockCount,
+                                         WorkspaceConstants::maximumAvailableBlockCount);
     ui->spinBoxWitdh->setValue(WorkspaceConstants::defaultGridWidth);
     ui->spinBoxHeight->setValue(WorkspaceConstants::defaultGridHeight);
+    ui->spinBoxAvailableBlocks->setValue(WorkspaceConstants::defaultAvailableBlockCount);
 
     gridRenderer.configureTable(ui->tableWidget);
     clearWorkspace();
@@ -55,14 +60,17 @@ MainWindow::MainWindow(QWidget *parent)
             this, [this]() { updateWorkspaceSizePreview(); });
     connect(ui->spinBoxHeight, qOverload<int>(&QSpinBox::valueChanged),
             this, [this]() { updateWorkspaceSizePreview(); });
+    connect(ui->spinBoxAvailableBlocks, qOverload<int>(&QSpinBox::valueChanged),
+            this, [this]() { updateWorkspaceSizePreview(); });
 }
 //==================================================================================
 void MainWindow::onCreateGridClicked()
 {
     const int gridWidth = ui->spinBoxWitdh->value();
     const int gridHeight = ui->spinBoxHeight->value();
+    const int availableBlockCount = ui->spinBoxAvailableBlocks->value();
 
-    workspace.create(gridWidth, gridHeight);
+    workspace.create(gridWidth, gridHeight, availableBlockCount);
     gridRenderer.showWorkspace(ui->tableWidget, workspace);
 
     setWorkspaceInputEnabled(false);
@@ -70,6 +78,7 @@ void MainWindow::onCreateGridClicked()
     ui->pushButtonNewLayer->setEnabled(true);
     ui->pushButtonNewWorkspace->setEnabled(true);
     ui->pushButtonBuild->setEnabled(true);
+    updateBlockCountControls();
     updateLayerControls();
     DebugHelper::workspaceCreated(workspace);
     ui->statusbar->showMessage("Arbejdsområde oprettet. Størrelsen er låst indtil Nyt arbejdsområde.");
@@ -96,12 +105,14 @@ void MainWindow::clearWorkspace()
     ui->pushButtonNewWorkspace->setEnabled(false);
     ui->pushButtonBuild->setEnabled(false);
     ui->labelCurrentLayer->setText("Lag: -");
+    updateBlockCountControls();
 }
 
 void MainWindow::setWorkspaceInputEnabled(bool enabled)
 {
     ui->spinBoxWitdh->setEnabled(enabled);
     ui->spinBoxHeight->setEnabled(enabled);
+    ui->spinBoxAvailableBlocks->setEnabled(enabled);
     ui->pushButtonCreateGrid->setEnabled(enabled);
 }
 
@@ -148,13 +159,26 @@ void MainWindow::onCellClicked(int row, int column)
         return;
     }
 
-    if (!workspace.toggleBlockAtCurrentLayer(column, row)) {
+    const bool placingNewBlock = !workspace.hasBlockAtCurrentLayer(column, row);
+
+    if (placingNewBlock && !workspace.canPlaceBlockAtCurrentLayer(column, row)) {
         DebugHelper::blockPlacementRejected(workspace, column, row);
         ui->statusbar->showMessage("Kan ikke placere klods: der mangler en klods nedenunder.");
         return;
     }
 
+    if (placingNewBlock && !workspace.canPlaceMoreBlocks()) {
+        ui->statusbar->showMessage("Kan ikke placere klods: der er ikke flere klodser til rådighed.");
+        return;
+    }
+
+    if (!workspace.toggleBlockAtCurrentLayer(column, row)) {
+        ui->statusbar->showMessage("Klodsplacering kunne ikke opdateres.");
+        return;
+    }
+
     gridRenderer.refreshWorkspace(ui->tableWidget, workspace);
+    updateBlockCountControls();
     updateLayerControls();
     DebugHelper::blockPlacementUpdated(workspace, column, row);
     ui->statusbar->showMessage("Klodsplacering opdateret.");
@@ -191,15 +215,28 @@ void MainWindow::updateLayerControls()
     ui->pushButtonNextLayer->setEnabled(workspace.canGoToNextLayer());
 }
 
+void MainWindow::updateBlockCountControls()
+{
+    if (!workspace.isCreated()) {
+        ui->labelBlockCount->setText(QString("Klodser: 0/%1").arg(ui->spinBoxAvailableBlocks->value()));
+        return;
+    }
+
+    ui->labelBlockCount->setText(QString("Klodser: %1/%2")
+                                     .arg(workspace.placedBlockCount())
+                                     .arg(workspace.availableBlockCount()));
+}
+
 void MainWindow::updateWorkspaceSizePreview()
 {
     if (!ui->pushButtonCreateGrid->isEnabled()) {
         return;
     }
 
-    ui->statusbar->showMessage(QString("Valgt arbejdsområde: %1 bredde x %2 højde. Tryk Opret grid.")
+    ui->statusbar->showMessage(QString("Valgt arbejdsområde: %1 bredde x %2 højde, %3 klodser. Tryk Opret grid.")
                                    .arg(ui->spinBoxWitdh->value())
-                                   .arg(ui->spinBoxHeight->value()));
+                                   .arg(ui->spinBoxHeight->value())
+                                   .arg(ui->spinBoxAvailableBlocks->value()));
 }
 
 void MainWindow::resizeEvent(QResizeEvent *event)

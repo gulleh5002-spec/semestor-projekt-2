@@ -1,12 +1,13 @@
 #include "robotworkspacedata.h"
 #include "workspaceconstants.h"
 
-void RobotWorkspaceData::create(int width, int height)
+void RobotWorkspaceData::create(int width, int height, int availableBlockCount)
 {
     clear();
 
     m_width = width;
     m_height = height;
+    m_availableBlockCount = availableBlockCount;
     m_created = true;
     addEmptyLayer();
 }
@@ -15,6 +16,7 @@ void RobotWorkspaceData::clear()
 {
     m_width = {0};
     m_height = {0};
+    m_availableBlockCount = {0};
     m_created = false;
     m_layers.clear();
 }
@@ -37,6 +39,11 @@ int RobotWorkspaceData::height() const
 int RobotWorkspaceData::layerCount() const
 {
     return static_cast<int>(m_layers.size());
+}
+
+int RobotWorkspaceData::availableBlockCount() const
+{
+    return m_availableBlockCount;
 }
 
 bool RobotWorkspaceData::addLayer()

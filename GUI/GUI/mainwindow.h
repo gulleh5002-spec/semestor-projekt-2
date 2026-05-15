@@ -40,6 +40,7 @@ private:
 
     void clearWorkspace();
     void setWorkspaceInputEnabled(bool enabled);
+    void updateBlockCountControls();
     void updateLayerControls();
     void updateWorkspaceSizePreview();
 };

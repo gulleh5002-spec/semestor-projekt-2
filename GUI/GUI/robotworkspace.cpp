@@ -1,9 +1,9 @@
 #include "robotworkspace.h"
 #include "buildrules.h"
 
-void RobotWorkspace::create(int width, int height)
+void RobotWorkspace::create(int width, int height, int availableBlockCount)
 {
-    m_data.create(width, height);
+    m_data.create(width, height, availableBlockCount);
     m_currentLayer = {WorkspaceConstants::firstLayer};
 }
 
@@ -26,6 +26,16 @@ int RobotWorkspace::width() const
 int RobotWorkspace::height() const
 {
     return m_data.height();
+}
+
+int RobotWorkspace::availableBlockCount() const
+{
+    return m_data.availableBlockCount();
+}
+
+int RobotWorkspace::placedBlockCount() const
+{
+    return static_cast<int>(placedBlocks().size());
 }
 
 int RobotWorkspace::currentLayer() const
@@ -113,6 +123,11 @@ bool RobotWorkspace::canPlaceBlockAtPosition(const GridPosition& position) const
     return BuildRules::canPlaceBlockAt(m_data, position);
 }
 
+bool RobotWorkspace::canPlaceMoreBlocks() const
+{
+    return placedBlockCount() < availableBlockCount();
+}
+
 bool RobotWorkspace::canRemoveBlockAtCurrentLayer(int x, int y) const
 {
     return canRemoveBlockAtPosition(currentLayerPosition(x, y));
@@ -144,7 +159,7 @@ bool RobotWorkspace::toggleBlockAtCurrentLayer(int x, int y)
         return m_data.setCellAtPosition(position, GridCell{});
     }
 
-    if (!canPlaceBlockAtPosition(position)) {
+    if (!canPlaceMoreBlocks() || !canPlaceBlockAtPosition(position)) {
         return false;
     }
 

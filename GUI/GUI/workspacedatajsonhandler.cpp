@@ -55,6 +55,7 @@ QJsonObject WorkspaceDataJsonHandler::toJson(const RobotWorkspace& workspace)
     workspaceObject["width"] = workspace.width();
     workspaceObject["height"] = workspace.height();
     workspaceObject["layerCount"] = workspace.layerCount();
+    workspaceObject["availableBlockCount"] = workspace.availableBlockCount();
 
     QJsonObject rootObject;
     rootObject["workspace"] = workspaceObject;

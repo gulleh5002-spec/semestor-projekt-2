@@ -12,7 +12,7 @@ class RobotWorkspace
 {
 public:
     // Initialisering samt livscyklus af grid
-    void create(int width, int height);
+    void create(int width, int height, int availableBlockCount);
     void clear();
     // Tjek om grid er skapt
     bool isCreated() const;
@@ -20,6 +20,8 @@ public:
     // Dimensioner af grid
     int width() const;
     int height() const;
+    int availableBlockCount() const;
+    int placedBlockCount() const;
 //=================================================================
 
     // Forward initialisering af lag funktioner
@@ -45,6 +47,7 @@ public:
     bool canPlaceBlockAtCurrentLayer(int x, int y) const;
     bool canPlaceBlockAtLayer(int x, int y, int layer) const;
     bool canPlaceBlockAtPosition(const GridPosition& position) const;
+    bool canPlaceMoreBlocks() const;
     bool canRemoveBlockAtCurrentLayer(int x, int y) const;
     bool canRemoveBlockAtLayer(int x, int y, int layer) const;
     bool canRemoveBlockAtPosition(const GridPosition& position) const;

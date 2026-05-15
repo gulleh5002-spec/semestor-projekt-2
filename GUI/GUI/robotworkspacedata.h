@@ -10,7 +10,7 @@
 class RobotWorkspaceData
 {
 public:
-    void create(int width, int height);
+    void create(int width, int height, int availableBlockCount);
     // Clear funktion for grid
     void clear();
 
@@ -19,6 +19,7 @@ public:
     int width() const;
     int height() const;
     int layerCount() const;
+    int availableBlockCount() const;
 
     bool addLayer();
     // Tjekker om en position for en klods er valid
@@ -38,6 +39,7 @@ private:
 
     int m_width = {0};
     int m_height = {0};
+    int m_availableBlockCount = {0};
     bool m_created = false;
 
     // m_layers gemmer indholder [z][y][x] som en vektor
