@@ -23,40 +23,52 @@ void RobotArm::home()
 
 void RobotArm::movetool(std::vector<double> koordinatWorld , double speed, double acceleration, std::vector<double> gridFrame, int flange)
 {
+    double rot = 2.368;
     // finder start vinklen og start tcp pose
     std::vector<double> startPose = rtde_r.getActualTCPPose();
-    std::vector<double> StartAngle = rtde_r.getActualQ();  
+    std::vector<double> StartAngle = rtde_r.getActualQ();
+    std::cout << "Grid/Block mål: X=" << koordinatWorld[0] << " Y=" << koordinatWorld[1] << " Z=" << koordinatWorld[2]
+              << " Rx=" << koordinatWorld[3] << " Ry=" << koordinatWorld[4] << " Rz=" << koordinatWorld[5] << "\n";  
     Eigen::Matrix4d T_tcp_flang;
-    
+    Eigen::Matrix4d T_tcp_flangrot;
+    Eigen::Matrix4d T_tcp_flangtrans;
     // laver målet om til en transformaotns matrice -0.008 y -0.009
     if (flange == 0)
     {
-        double wrist_angle = 2.328;
+        double wrist_angle = -rot;
         double xOffset = 0;
-
+        double yOffset = 0;
         if (koordinatWorld.size() > 6 && koordinatWorld[6] == -1.57)
         {
-        wrist_angle =  koordinatWorld[6] - wrist_angle;
+        wrist_angle =  koordinatWorld[6] - rot;
         xOffset = -0.006;
+        yOffset = 0;
         std::cout << "trun" << std::endl;
         }
         else
         {
         
             std::cout << "not turn" << std::endl;
-            xOffset = 0.0015;
+            xOffset = 0.002;
+            yOffset = -0.006;
             
         }
         std::cout << xOffset << std::endl;
-        T_tcp_flang = IKcal.poseToTransform({xOffset, 0.00, 0.2, 0, 0, -wrist_angle});
+        T_tcp_flangrot   = IKcal.poseToTransform({0, 0, 0, 0, 0, -wrist_angle});
+        T_tcp_flangtrans = IKcal.poseToTransform({xOffset, yOffset , 0.2, 0, 0, 0});
+        T_tcp_flang = T_tcp_flangrot * T_tcp_flangtrans;
     }
     if (flange == 1)
     {
-         T_tcp_flang = IKcal.poseToTransform({0.101, -0.03, 0.202, 0, 0, 2.328});
-    }// + y ind mod mig -x hen mod bordet
+         T_tcp_flangrot   = IKcal.poseToTransform({0, 0, 0, 0, 0, rot});
+        T_tcp_flangtrans = IKcal.poseToTransform({0.10, -0.03, 0.205, 0, 0, 0});
+        T_tcp_flang = T_tcp_flangrot * T_tcp_flangtrans;
+       //T_tcp_flang = IKcal.poseToTransform({0.001, -0.0, 0.202, 0, 0, rot});
+    }
+    // + y ind mod mig -x hen mod bordet
     if (flange == 2)
     {
-        T_tcp_flang = IKcal.poseToTransform({0, 0, 0.2, 0, 0, 2.328});
+        T_tcp_flang = IKcal.poseToTransform({0, 0, 0.2, 0, 0, rot});
     }
 
     Eigen::Matrix4d T_tcp_flangInvser = T_tcp_flang.inverse();
@@ -71,8 +83,11 @@ void RobotArm::movetool(std::vector<double> koordinatWorld , double speed, doubl
     Eigen::Matrix4d T_world_grid = IKcal.poseToTransform(gridFrame);
 
     // ganger matricerne sammen så du for vejen til målet
-    Eigen::Matrix4d T_TCP_goal  =  T_base_world * T_world_grid *  T_Grid_goal * T_tcp_flangInvser;
-    std::vector<double> goalBase = IKcal.TransformToPose(T_TCP_goal);  
+    Eigen::Matrix4d T_TCP_world = T_base_world * T_world_grid * T_Grid_goal;
+    std::vector<double> tcpWorldGoal = IKcal.TransformToPose(T_TCP_world);
+    std::cout << "TCP mål (base): X=" << tcpWorldGoal[0] << " Y=" << tcpWorldGoal[1] << " Z=" << tcpWorldGoal[2] << "\n";
+    Eigen::Matrix4d T_TCP_goal  =  T_TCP_world * T_tcp_flangInvser;
+    std::vector<double> goalBase = IKcal.TransformToPose(T_TCP_goal);
     std::vector<std::vector<double>> joints = pf.findPath(startPose, goalBase, StartAngle);
 
     std::vector<std::vector<double>> path;
@@ -114,7 +129,9 @@ void RobotArm::movetool(std::vector<double> koordinatWorld , double speed, doubl
     }
 
     rtde_c.moveJ(path);
-    std::cout << "new path" << std::endl;
+    std::vector<double> actualTCP = rtde_r.getActualTCPPose();
+    std::cout << "TCP endelig: X=" << actualTCP[0] << " Y=" << actualTCP[1] << " Z=" << actualTCP[2]
+              << " Rx=" << actualTCP[3] << " Ry=" << actualTCP[4] << " Rz=" << actualTCP[5] << "\n";
 }
 
 
@@ -313,11 +330,11 @@ std::vector<double> RobotArm::getTrayFrame(bool onCamara)
     Eigen::Matrix4d T_flange_camera;
     if (onCamara)
     {
-        T_flange_camera = IKcal.poseToTransform({0, 0, 0.158, 0, 0, 0});
+        T_flange_camera = IKcal.poseToTransform({0, 0, 0.158, 0, 0, 2.368});
     }
     else
     {
-        T_flange_camera = IKcal.poseToTransform({0, 0, 0.158, 0, 0, 0});
+        T_flange_camera = IKcal.poseToTransform({0, 0, 0.158, 0, 0, 2.368});
     }
     Eigen::Matrix4d T_world_base = IKcal.poseToTransform({0, 0, 0, 0, 0, -2.74});
     Eigen::Matrix4d T_base_flange = IKcal.poseToTransform(rtde_r.getActualTCPPose());
