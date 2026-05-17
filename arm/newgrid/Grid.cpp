@@ -1,6 +1,6 @@
 #include "Grid.h"
 
-Grid::Grid(int length, int width, int height, std::vector<double> grid_to_base) : length(length), width(width), height(height), grid_to_base(grid_to_base)
+Grid::Grid(int length, int width, int height, std::vector<double> grid_to_base, int tcp) : length(length), width(width), height(height), grid_to_base(grid_to_base), TCP(tcp)
 {
     makeGrid();
 }

@@ -22,9 +22,10 @@ private:
 
   double blockSize; // fx i mm
   double baseZ;     // fast højde
+  
 
 public:
-  Grid(int l, int h, double size, double z);
+  Grid(int l, int h, double size, double z, int tcp = 0);
 
   bool setBlock(unique_ptr<Block> block, int x, int y);
   void deleteBlock(int x, int y);
@@ -33,6 +34,7 @@ public:
 
   Coord getWorldCoord(int x, int y);
   Coord getBlockCoord(int x, int y);
+  int TCP;
 };
 
 #endif

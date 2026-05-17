@@ -14,7 +14,7 @@ private:
   
 
 public:
-  Grid(int height, int width, int length, std::vector<double> grid_to_base);
+  Grid(int height, int width, int length, std::vector<double> grid_to_base, int tcp = 0);
   void makeGrid();
   void printGrid();
   void placeBlock(std::vector<Block> Blocks);
@@ -23,4 +23,5 @@ public:
 
   ~Grid();
   std::vector<double> grid_to_base;
+  int TCP;
 };

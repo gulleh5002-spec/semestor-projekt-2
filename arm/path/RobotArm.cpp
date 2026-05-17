@@ -59,10 +59,6 @@ void RobotArm::movetool(std::vector<double> koordinatWorld , double speed, doubl
     {
         T_tcp_flang = IKcal.poseToTransform({0, 0, 0.2, 0, 0, 0});
     }
-    if (flange == 3)
-    {
-        T_tcp_flang = IKcal.poseToTransform({0, 0.007, 0.2, 0, 0, 0});
-    }
 
     Eigen::Matrix4d T_tcp_flangInvser = T_tcp_flang.inverse();
 
@@ -144,21 +140,25 @@ void RobotArm::getRTDEinfor()
     printf("Wrist 3:  %.2f deg\n", q[5] * 180.0 / M_PI);
 }
 
-void RobotArm::moveblock(std::vector<double> koordinat1, std::vector<double> koordinat2, std::vector<double> gridFrame1, std::vector<double> gridFrame2, int method)
+void RobotArm::moveblock(std::vector<double> koordinat1, std::vector<double> koordinat2, Grid& GridFrame1, Grid& GridFrame2, int method)
 {
+    int Flang1 = GridFrame1.TCP;
+    int Flang2 = GridFrame2.TCP;
+    std::vector<double> gridFrame1 = GridFrame1.grid_to_base;
+    std::vector<double> gridFrame2 = GridFrame2.grid_to_base;
     double speed = 1;
     double acceleration = 1;
     // do so the robot move to were the brik is ind the hight of placement koordiante  so i do not colide
     std::vector<double> newkoordinat1 = koordinat1;
     double brikoffset = 0.2;
     newkoordinat1[2] += brikoffset;
-    movetool(newkoordinat1, speed, acceleration, gridFrame1);
+    movetool(newkoordinat1, speed, acceleration, gridFrame1, Flang1);
     
-    movetool(koordinat1, speed, acceleration, gridFrame1);
+    movetool(koordinat1, speed, acceleration, gridFrame1, Flang1);
 
     // gripper lukker
     gripper.close();
-    movetool(newkoordinat1, speed, acceleration, gridFrame1);
+    movetool(newkoordinat1, speed, acceleration, gridFrame1, Flang1);
     
 
 
@@ -169,15 +169,15 @@ void RobotArm::moveblock(std::vector<double> koordinat1, std::vector<double> koo
         std::vector<double> newkoordinat2 = koordinat2;
         newkoordinat2[2] += brikoffset;
 
-        movetool(newkoordinat2, speed, acceleration, gridFrame2);
+        movetool(newkoordinat2, speed, acceleration, gridFrame2, Flang2);
 
         // gripper åbner
         
-        movetool(koordinat2, speed, acceleration, gridFrame2);
+        movetool(koordinat2, speed, acceleration, gridFrame2, Flang2);
         //gripper lukker
         
         gripper.open();
-        movetool(newkoordinat2, speed, acceleration, gridFrame2);
+        movetool(newkoordinat2, speed, acceleration, gridFrame2, Flang2);
     }
     if (method == 1)
     {
@@ -191,12 +191,12 @@ void RobotArm::moveblock(std::vector<double> koordinat1, std::vector<double> koo
         std::vector<double> sidekoordinat2 = koordinat2;
         sidekoordinat2[0] += 0.05;
 
-        movetool(upsidekoordinat2, speed, acceleration, gridFrame2);
-        movetool(sidekoordinat2, speed, acceleration, gridFrame2);
-        movetool(koordinat2, 0.2, 0.05, gridFrame2);
+        movetool(upsidekoordinat2, speed, acceleration, gridFrame2, Flang2);
+        movetool(sidekoordinat2, speed, acceleration, gridFrame2, Flang2);
+        movetool(koordinat2, 0.2, 0.05, gridFrame2, Flang2);
         gripper.open();
 
-        movetool(opkoordinat2, speed, acceleration, gridFrame2);
+        movetool(opkoordinat2, speed, acceleration, gridFrame2, Flang2);
     }
     
     
@@ -222,14 +222,23 @@ void RobotArm::build(Grid& Gridblocks, Grid& Gridplace, std::vector<Block> build
        Gridplace.placeBlock({buildBlocks[i]});
 
        std::vector<double> coord2 = buildBlocks[i].getCoordnate();
-       moveblock(coord1, coord2, Gridblocks.grid_to_base, Gridplace.grid_to_base, buildBlocks[i].moveMethod);
+       moveblock(coord1, coord2, Gridblocks, Gridplace, buildBlocks[i].moveMethod);
     }
     
 }
 
-void RobotArm::moveToGridPos(Grid grid, Block block)
+void RobotArm::moveToGridPos(Grid grid, Block block, bool m)
 {
-    movetool(block.getCoordnate(), 0.5, 0.5, grid.grid_to_base, 1);
+    if (m)
+    {
+        movetool(block.getCoordnate(), 0.5, 0.5, grid.grid_to_base, 1);
+    }
+    else
+    {
+        movetool(block.getCoordnate(), 0.5, 0.5, grid.grid_to_base, 0);
+    }
+    
+    
 }
 
 RobotArm::~RobotArm()

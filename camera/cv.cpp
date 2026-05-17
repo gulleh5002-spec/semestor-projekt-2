@@ -6,7 +6,8 @@ ArUcoDetector::ArUcoDetector()
 {
     loadCalibration("calibration.yml");
     cap.open(1);
-    for (int i = 0; i < 10; i++)
+    cap.set(cv::CAP_PROP_BUFFERSIZE, 1);
+    for (int i = 0; i < 30; i++)
     {
         cv::Mat dummy;
         cap.read(dummy);

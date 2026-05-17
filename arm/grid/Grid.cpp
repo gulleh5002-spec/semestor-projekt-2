@@ -3,8 +3,9 @@
 using namespace std;
 
 // Constructor
-Grid::Grid(int l, int h, double size, double z)
+Grid::Grid(int l, int h, double size, double z, int tcp)
 {
+  TCP = tcp;
   length = l;
   height = h;
   blockSize = size;
