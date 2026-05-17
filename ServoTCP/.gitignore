@@ -1,0 +1,14 @@
+# Ignore visual studio / MSVC build outputs
+*.obj
+*.exe
+*.pdb
+*.ilk
+
+# Ignore VS Code local workspace settings
+.vscode/
+
+# Ignore CMake build directories
+/build/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
