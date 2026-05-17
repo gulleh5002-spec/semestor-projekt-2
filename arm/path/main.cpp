@@ -169,52 +169,51 @@ int runManualRobotTest()
 {
    
     RobotArm robot(defaultRobotIp, 1.0, 1.0);
-    
+    /*
     std::vector<double> pose = robot.approsemate();
     std::cout << "Tray pose: X=" << pose[0] << " Y=" << pose[1] << " Z=" << pose[2]
               << " Rx=" << pose[3] << " Ry=" << pose[4] << " Rz=" << pose[5] << "\n";
-
    
-    pose[2] = 0.01;
+    pose[2] = 0.005;
     pose[3] = 0;
     pose[4] = 0;
-    Grid place(40, 40, 100, pose, 1);
-    Grid placeP(40, 40, 100, {0.2 ,0.2 ,0, 0, 0, 0});
-   
-    
+    Grid tray(40, 40, 100, pose, 1);
+    */
+    Grid place(40, 40, 100, {0.2 ,0.2 ,0, 0, 0, 0}, 0);
+    Grid take(40, 40, 100, {0.6 ,0.2 ,0, 0, 0, 0}, 0);
+    //Block(1, {1, 1, 0}), lille 2
+     // Block(1, {1, 0, 0}), lille 1
+     //Block(1, {3, 0, 0}), stor 2
+     //Block(1, {3, 1, 0}), stor 3
     std::vector<Block> takeBlocks = {
-        Block(1, {3, 1, 3}),
-        Block(1, {3, 1, 0}),
-        Block(1, {3, 2, 0}),
-        Block(1, {1, 0, 0}),
-        Block(1, {2, 0, 0}),
-        Block(1, {3, 0, 0}),
+    Block(1, {0, 1, 0}),
+    Block(1, {1, 1, 0}),
+    Block(1, {2, 1, 0}),
+    Block(1, {0, 0, 0}),
     };
 
     std::vector<Block> placeBlocks = {
+        Block(1, {0, 1, 0}),
         Block(1, {1, 1, 0}),
-        Block(1, {1, 1, 3}),
-        Block(1, {1, 3, 3}),
-        Block(1, {0, 3, 1}),
-        Block(1, {1, 3, 1}),
-        Block(1, {2, 3, 1}),
+        Block(1, {2, 1, 0}),
+        Block(1, {3, 1, 0}),
     };
 
     
-    
-    //robot.build(tray, place, placeBlocks, takeBlocks);
+    //robot.moveToGridPos(take, placeBlocks[0], false);
+    robot.build(take, place, placeBlocks, takeBlocks);
     //robot.movetool({0, 0, 0, 3.14, 0, 0}, 0.5, 0.5, pose, 1);
 
     //test der virker
-    robot.drop();
-    robot.moveToGridPos(place, placeBlocks[0], true);
-    robot.take();
-    robot.moveToGridPos(place, placeBlocks[1], true);
+    //robot.drop();
+    //robot.moveToGridPos(place, placeBlocks[0], true);
+    //robot.take();
+    //robot.moveToGridPos(place, placeBlocks[1], true);
     
-    robot.moveToGridPos(placeP, takeBlocks[0], false);
-    robot.moveToGridPos(placeP, takeBlocks[1], false);
-    robot.drop();
-    robot.getTCPPose();
+    //robot.moveToGridPos(placeP, takeBlocks[0], false);
+    //robot.moveToGridPos(placeP, takeBlocks[1], false);
+    //robot.drop();
+    //robot.getTCPPose();
     return 0;
 }
 

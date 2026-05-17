@@ -89,6 +89,9 @@ if(ur_rtde_FOUND)
         COMMAND ${CMAKE_COMMAND} -E copy_directory
             "C:/vcpkg/installed/x64-windows/bin"
             $<TARGET_FILE_DIR:RobotArm>
+        COMMAND ${CMAKE_COMMAND} -E copy
+            "${CMAKE_CURRENT_SOURCE_DIR}/../../calibration.yml"
+            $<TARGET_FILE_DIR:RobotArm>
     )
 else()
     message(WARNING "ur_rtde was not found. RobotArm target will not be built, but BuildPlanDryRun is available.")

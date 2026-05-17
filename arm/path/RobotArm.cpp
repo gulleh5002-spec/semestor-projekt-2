@@ -31,12 +31,12 @@ void RobotArm::movetool(std::vector<double> koordinatWorld , double speed, doubl
     // laver målet om til en transformaotns matrice -0.008 y -0.009
     if (flange == 0)
     {
-        double wrist_angle = 0;
+        double wrist_angle = 2.328;
         double xOffset = 0;
 
         if (koordinatWorld.size() > 6 && koordinatWorld[6] == -1.57)
         {
-        wrist_angle = koordinatWorld[6];
+        wrist_angle =  koordinatWorld[6] - wrist_angle;
         xOffset = -0.006;
         std::cout << "trun" << std::endl;
         }
@@ -44,7 +44,6 @@ void RobotArm::movetool(std::vector<double> koordinatWorld , double speed, doubl
         {
         
             std::cout << "not turn" << std::endl;
-            wrist_angle = 0;
             xOffset = 0.0015;
             
         }
@@ -53,11 +52,11 @@ void RobotArm::movetool(std::vector<double> koordinatWorld , double speed, doubl
     }
     if (flange == 1)
     {
-         T_tcp_flang = IKcal.poseToTransform({0.00, -0.004, 0.2, 0, 0, 0});
-    }
+         T_tcp_flang = IKcal.poseToTransform({0.101, -0.03, 0.202, 0, 0, 2.328});
+    }// + y ind mod mig -x hen mod bordet
     if (flange == 2)
     {
-        T_tcp_flang = IKcal.poseToTransform({0, 0, 0.2, 0, 0, 0});
+        T_tcp_flang = IKcal.poseToTransform({0, 0, 0.2, 0, 0, 2.328});
     }
 
     Eigen::Matrix4d T_tcp_flangInvser = T_tcp_flang.inverse();
