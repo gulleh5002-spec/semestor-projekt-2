@@ -61,7 +61,7 @@ void RobotArm::movetool(std::vector<double> koordinatWorld , double speed, doubl
     if (flange == 1)
     {
          T_tcp_flangrot   = IKcal.poseToTransform({0, 0, 0, 0, 0, rot});
-        T_tcp_flangtrans = IKcal.poseToTransform({0.10, -0.03, 0.205, 0, 0, 0});
+        T_tcp_flangtrans = IKcal.poseToTransform({0.10, -0.034, 0.205, 0, 0, 0});
         T_tcp_flang = T_tcp_flangrot * T_tcp_flangtrans;
        //T_tcp_flang = IKcal.poseToTransform({0.001, -0.0, 0.202, 0, 0, rot});
     }
