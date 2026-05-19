@@ -1,0 +1,65 @@
+{
+    "blocks": [
+        {
+            "type": "Default",
+            "x": 1,
+            "y": 2,
+            "z": 0
+        },
+        {
+            "type": "Default",
+            "x": 2,
+            "y": 2,
+            "z": 0
+        },
+        {
+            "type": "Default",
+            "x": 3,
+            "y": 2,
+            "z": 0
+        },
+        {
+            "type": "Default",
+            "x": 4,
+            "y": 2,
+            "z": 0
+        },
+        {
+            "type": "Default",
+            "x": 5,
+            "y": 2,
+            "z": 0
+        },
+        {
+            "type": "Default",
+            "x": 2,
+            "y": 2,
+            "z": 1
+        },
+        {
+            "type": "Default",
+            "x": 3,
+            "y": 2,
+            "z": 1
+        },
+        {
+            "type": "Default",
+            "x": 4,
+            "y": 2,
+            "z": 1
+        },
+        {
+            "type": "Default",
+            "x": 3,
+            "y": 2,
+            "z": 2
+        }
+    ],
+    "workspace": {
+        "availableBlockCount": 10,
+        "height": 5,
+        "isCreated": true,
+        "layerCount": 3,
+        "width": 10
+    }
+}

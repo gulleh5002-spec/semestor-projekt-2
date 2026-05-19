@@ -32,6 +32,7 @@ void RobotArm::movetool(std::vector<double> koordinatWorld , double speed, doubl
     Eigen::Matrix4d T_tcp_flang;
     Eigen::Matrix4d T_tcp_flangrot;
     Eigen::Matrix4d T_tcp_flangtrans;
+    Eigen::Matrix4d T_tcp_flangtransrot;
     // laver målet om til en transformaotns matrice -0.008 y -0.009
     if (flange == 0)
     {
@@ -57,6 +58,7 @@ void RobotArm::movetool(std::vector<double> koordinatWorld , double speed, doubl
         T_tcp_flangrot   = IKcal.poseToTransform({0, 0, 0, 0, 0, -wrist_angle});
         T_tcp_flangtrans = IKcal.poseToTransform({xOffset, yOffset , 0.2, 0, 0, 0});
         T_tcp_flang = T_tcp_flangrot * T_tcp_flangtrans;
+        std::cout << "2";
     }
     if (flange == 1)
     {
@@ -69,6 +71,14 @@ void RobotArm::movetool(std::vector<double> koordinatWorld , double speed, doubl
     if (flange == 2)
     {
         T_tcp_flang = IKcal.poseToTransform({0, 0, 0.2, 0, 0, rot});
+    }
+    if (flange == 3)
+    {
+        T_tcp_flangrot   = IKcal.poseToTransform({0, 0, 0, 0, 0, rot});
+        T_tcp_flangtrans = IKcal.poseToTransform({-0.0015, -0.008 , 0.2, 0, 0, 0});
+        T_tcp_flangtransrot = IKcal.poseToTransform({0, 0, 0, 0, 0, koordinatWorld[6]});
+        T_tcp_flang = T_tcp_flangrot * T_tcp_flangtrans*T_tcp_flangtransrot;
+        std::cout << "3";
     }
 
     Eigen::Matrix4d T_tcp_flangInvser = T_tcp_flang.inverse();
@@ -111,7 +121,7 @@ void RobotArm::movetool(std::vector<double> koordinatWorld , double speed, doubl
         entry.push_back(speed);
         entry.push_back(acceleration);
         
-        if (i < joints.size() - 2)
+        if (i < joints.size() - 1)
         {
             if (joints.size() - i < 5)
             {
@@ -158,6 +168,7 @@ void RobotArm::getRTDEinfor()
 
 void RobotArm::moveblock(std::vector<double> koordinat1, std::vector<double> koordinat2, Grid& GridFrame1, Grid& GridFrame2, int method)
 {
+     std::vector<double> newkoordinat2 = koordinat2;
     int Flang1 = GridFrame1.TCP;
     int Flang2 = GridFrame2.TCP;
     std::vector<double> gridFrame1 = GridFrame1.grid_to_base;
@@ -166,8 +177,10 @@ void RobotArm::moveblock(std::vector<double> koordinat1, std::vector<double> koo
     double acceleration = 1;
     // do so the robot move to were the brik is ind the hight of placement koordiante  so i do not colide
     std::vector<double> newkoordinat1 = koordinat1;
-    double brikoffset = 0.2;
-    newkoordinat1[2] += brikoffset;
+    double brikoffset = 0.05;
+    double brikoffset1 = 0.05 + koordinat2[2];
+    
+    newkoordinat1[2] += brikoffset1;
     movetool(newkoordinat1, speed, acceleration, gridFrame1, Flang1);
     
     movetool(koordinat1, speed, acceleration, gridFrame1, Flang1);
@@ -182,7 +195,7 @@ void RobotArm::moveblock(std::vector<double> koordinat1, std::vector<double> koo
 
     if (method == 0)
     {
-        std::vector<double> newkoordinat2 = koordinat2;
+       
         newkoordinat2[2] += brikoffset;
 
         movetool(newkoordinat2, speed, acceleration, gridFrame2, Flang2);
@@ -205,8 +218,8 @@ void RobotArm::moveblock(std::vector<double> koordinat1, std::vector<double> koo
         upsidekoordinat2[2] += brikoffset;
 
         std::vector<double> sidekoordinat2 = koordinat2;
-        sidekoordinat2[0] += 0.05;
-
+        sidekoordinat2[0] += 0.045;
+        
         movetool(upsidekoordinat2, speed, acceleration, gridFrame2, Flang2);
         movetool(sidekoordinat2, speed, acceleration, gridFrame2, Flang2);
         movetool(koordinat2, 0.2, 0.05, gridFrame2, Flang2);
@@ -288,7 +301,7 @@ std::vector<double> RobotArm::approsemate()
     while(true)
     {
         valid = true;
-        poses[2] = 0.2;
+        poses[2] = 0.05;
         poses[3] = 0;
         poses[4] = 0;
         
