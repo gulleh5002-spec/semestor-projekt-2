@@ -1,0 +1,7 @@
+\subsubsection{Graphical user interface}
+
+The graphical user interface was developed as a planning and validation tool between the user and the robot system. Instead of requiring the user to define robot coordinates directly, the interface allows a structure to be designed using a grid-based representation. The user defines the size of the workspace, the available amount of blocks, and the desired block placements across multiple layers.
+
+Each position in the workspace is represented by an $x$ and $y$ coordinate, while the selected layer represents the $z$ coordinate. This allows the structure to be described in a format that is easier for the user to understand, while still containing the coordinate information needed by the robot program. When the build command is used, the GUI exports the designed structure as a JSON build plan. This build plan functions as the data connection between the GUI and the robot logic.
+
+The GUI is therefore not only a visual interface, but also a simple compiler for the workspace. It checks the user-defined structure before the data is exported, reducing the risk of sending invalid build instructions to the robot system.
