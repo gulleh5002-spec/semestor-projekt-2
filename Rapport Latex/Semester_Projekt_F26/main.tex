@@ -1,0 +1,78 @@
+\documentclass{article}
+\usepackage{amsmath} 
+\usepackage{amssymb}
+\usepackage{subcaption}              % sub figures 
+\usepackage[utf8]{inputenc}          % allow utf-8 input
+\usepackage[margin=30mm]{geometry}   % set page margins
+\usepackage{minted}                  % highlighted code snippets
+\usepackage{parskip}
+\usepackage{siunitx}                 % create and use SI-units
+\usepackage[table,xcdraw]{xcolor}    % colors for tables
+\usepackage{float}                   % use H option for figures
+\usepackage[toc,page]{appendix}      % create table of contents
+\usepackage{fancyhdr}                % header and footer package
+\usepackage[hidelinks]{hyperref}     % references are hyperlinks
+\usepackage{cleveref}                % better reference command, very useful
+\usepackage{setspace}                % for setting line spacing
+\usepackage{graphicx}                % for including images
+\usepackage{wrapfig}                 % wraps text around figures
+\usepackage{circuitikz}              % for drawing electrical circuits
+\usepackage{listings}                % for adding code
+\lstset{language=C++}
+\usepackage{color}
+
+\usepackage{tikz}                    % for drawing flowcharts
+\usetikzlibrary{shapes.geometric, arrows}
+
+\usepackage{booktabs}                % for nicer tables
+
+\usepackage[sorting=none]{biblatex}  % Imports biblatex package
+\addbibresource{sources.bib}         % Import the bibliography file
+
+
+
+\begin{document}
+\pagestyle{empty}
+
+\input{Report/sections/Frontpage}
+\newpage
+
+\input{Report/sections/Abstract}
+\newpage
+
+\input{Report/sections/Titlepage}
+\newpage
+
+\tableofcontents % generate table of contents
+\newpage
+
+
+\cleardoublepage
+\pagenumbering{arabic}
+\pagestyle{plain}
+
+\input{Report/sections/Introduction}
+
+
+\input{Report/sections/Project Outline}
+\newpage
+
+\input{Report/sections/Methods}
+\newpage
+
+
+\input{Report/sections/Development Process}
+\newpage
+
+\input{Report/sections/Discussion And Improvements}
+
+\input{Report/sections/Conclusion}
+\newpage
+
+\printbibliography[heading=bibnumbered] 
+\newpage
+
+\input{Report/sections/Appendix}
+\newpage
+
+\end{document}

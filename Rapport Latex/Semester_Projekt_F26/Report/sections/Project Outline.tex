@@ -1,0 +1,46 @@
+\section{Project Outline}
+For the second semester project in Robotics the “task” is to design a system that manipulates a robot arm. With the goal of developing a custom gripper for the arm to manipulate objects. The system has the objective of interfacing with the arm via sensor input. To solve the task of identifying and picking up different colored objects and then placing them in predefined positions to make structure. 
+
+
+To manipulate the objects the task required the usage of a UR robot, and a self designed gripper. Including an interface programmed with C++, where a grid is used to define the objects end positions and the overall structure via user input and a program is used to check if it's valid. The objects’ starting position is in a tray where a sensor is used to find the orientation of said object. 
+
+
+The project is divided into four focus areas:
+
+\begin{itemize}
+\item Mechanical Design: 
+Creating different 3D printed gripper designs and choosing the best one based on the testing of each one for the specific task. \\
+
+\item Electronics and Sensors:
+Designing, building and testing different sensor setups, and then choosing the best suited setup for the goal. \\
+
+\item Software integration: 
+Developing C++ programs for each area: One for controlling the arm, another for the gripper, and a third program for the sensor management. \\
+
+\item User Interface: 
+Creating a Simple grid GUI that allows the user to pick the shape or structure they want the robot to create. 
+\end{itemize}
+
+\subsection*{Requirements}
+The requirements set for this project is outlined in the following table, with "Hard" and "Soft" requirements being set by the group and "Technical" requirements being set by the official project guidelines. The different colors illustrates the importance of each requirement. Green is the least important and red is the most important.
+
+
+\begin{table}[H]
+    \centering
+    \caption{Requirements for the project}
+    \label{tab:grid_table}
+    % Total width is roughly 3x4.5cm = 13.5cm, fitting perfectly in your margins
+    \begin{tabular}{| p{4.7cm} | p{4.7cm} | p{4.7cm} |} 
+        \hline
+        \textbf{Hard} & \textbf{Soft} & \textbf{Technical} \\ \hline
+        Build something with 6 cubes without it falling (20 times) \cellcolor{red!25} & Running smooth \cellcolor{red!25} & The GUI should be on the central computer \cellcolor{red!25} \\ \hline
+        Lift a cube \cellcolor{red!25} & Be able to design an array in the GUI \cellcolor{green!25}  & Designing and 3D printing own gripper \cellcolor{red!25} \\ \hline
+        Use Computer Vision to assess the built structure \cellcolor{yellow!25} & Built a 5x5 pyramid using triangular blocks as well \cellcolor{yellow!25}  & Construct and create tests \cellcolor{red!25} \\ \hline
+        Compiler should be able to check for legality of the placement in terms of the grid \cellcolor{red!25}  & Place a cube without damaging the cube or the gripper \cellcolor{green!25} & using PanzaBoard to control the gripper \cellcolor{red!25} \\ \hline
+        Can be able to build with at least three different color \cellcolor{green!25} & Design our own cubes \cellcolor{green!25} & Document each steps via Git \cellcolor{red!25} \\ \hline
+        Ability to track the precision of the system \cellcolor{red!25} & The gripper should be easy to assemble and disassemble \cellcolor{green!25} & Designing our own program to control everything seamlessly \cellcolor{red!25} \\ \hline
+    \end{tabular}
+\end{table}
+
+
+
