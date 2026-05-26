@@ -31,7 +31,6 @@ bool Robot::connectToPico(const std::string& ipAddress, int port) {
         return false;
     }
 
-    // Set socket to non-blocking mode so network lags don't freeze your main loop
     u_long mode = 1;
     ioctlsocket(connectSocket, FIONBIO, &mode);
 
