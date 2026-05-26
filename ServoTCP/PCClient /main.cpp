@@ -4,13 +4,13 @@
 #include <thread>
 
 
-// A main to show how you use the code:
+// A main to show how to use the code:
 
 int main() {
     // 1. Create your robot workspace object
     Robot robot;
 
-    // 2. Connect using the static IP address you gave your Pico server
+    // 2. Connect using the static IP address to the Pico server
     if (!robot.connectToPico("10.174.5.49", 5000)) {
         std::cerr << "[Error] Could not reach the Pico server. Check your Wi-Fi connections.\n";
         return 1;
