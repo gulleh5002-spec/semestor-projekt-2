@@ -197,11 +197,7 @@ int runManualRobotTest()
 
  
     Grid place(40, 40, 100, {0.2 ,0.2 ,0, 0, 0, 0}, 3);
-    Grid take(40, 40, 100, {0.5 ,0.2 ,0, 0, 0, 0}, 1);
-    //Block(1, {1, 1, 0}), lille 2
-     // Block(1, {1, 0, 0}), lille 1
-     //Block(1, {3, 0, 0}), stor 2
-     //Block(1, {3, 1, 0}), stor 3
+    Grid take(40, 40, 100, {0.5 ,0.2 ,0, 0, 0, 0}, 3);
     std::vector<Block> takeBlocks = {
         Block(1, {1, 1, 0}),
         //Block(1, {1, 1, 0}),
@@ -214,34 +210,8 @@ int runManualRobotTest()
 
     };
 
-    /*
-    std::vector<Block> takeBlocks = {
-       
-        
-    };
-
-    std::vector<Block> placeBlocks = {
-       
-
-    };
-    */
-    //robot.moveToGridPos(tray, takeBlocks[0], true);
-
     robot.build(tray, place, placeBlocks, takeBlocks);
-    //robot.movetool({0.1, 0.077, 0.1, 3.14, 0, 0}, 0.5, 0.5, place.grid_to_base, 2);
-    //robot.movetool({0.099, 0.127, 0.55, 3.14, 0, 0}, 0.5, 0.5, place.grid_to_base, 2);
-    //ArUcoDetector camera;
-    //camera.run();
-    //test der virker
-    //robot.drop();
-    //robot.moveToGridPos(place, placeBlocks[0], true);
-    //robot.take();
-    //robot.moveToGridPos(place, placeBlocks[1], true);
-    
-    //robot.moveToGridPos(placeP, takeBlocks[0], false);
-    //robot.moveToGridPos(placeP, takeBlocks[1], false);
-    //robot.drop();
-    //robot.getTCPPose();
+   
     return 0;
 }
 

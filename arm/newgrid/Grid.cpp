@@ -9,8 +9,8 @@ Grid::~Grid() {}
 
 
 
-// laver et 3d grid ved at lave 3 nested for loops og pushe blocks ind i et 3d vector grid. 
-// her bliver blocke objeterne så dannet med det koordiant der passer i deres frame
+// creates a 3D grid using 3 nested for loops and pushes blocks into a 3D vector grid.
+// each block object is assigned the coordinate that matches its position in the grid frame
 void Grid::makeGrid()
 {
     int laneswidth;
@@ -56,7 +56,7 @@ void Grid::printGrid()
     }
 }
 
-// placere en block i gridet ved at tagede dens index i gridet og sætte id lig det du valgte
+// places a block in the grid by taking its index in the grid and setting its id to the chosen value
 void Grid::placeBlock(std::vector<Block> Blocks)
 {
     for (int i = 0; i < Blocks.size(); i++)
@@ -64,14 +64,13 @@ void Grid::placeBlock(std::vector<Block> Blocks)
         int s = Blocks[i].getplace()[0];
         int x = Blocks[i].getplace()[1];
         int y = Blocks[i].getplace()[2];
+
+        
         if (s < 0 || s >= (int)grid.size() ||
             x < 0 || x >= (int)grid[s].size() ||
             y < 0 || y >= (int)grid[s][x].size())
         {
-            std::cout << "placeBlock: [" << s << "][" << x << "][" << y
-                      << "] out of bounds (grid size: " << grid.size() << "x"
-                      << (grid.empty() ? 0 : grid[0].size()) << "x"
-                      << (grid.empty() || grid[0].empty() ? 0 : grid[0][0].size()) << ")\n";
+                std::cout << "Error: Block " << Blocks[i].getId() << " has invalid place coordinates (" << s << ", " << x << ", " << y << "). Skipping this block." << std::endl;
             continue;
         }
         grid[s][x][y].Id = Blocks[i].getId();
@@ -81,7 +80,7 @@ void Grid::placeBlock(std::vector<Block> Blocks)
 
 
 
-// finder en block i i et given grid via at tjekke om de har samme id og returnere koordinaterne for den block og slette den block fra gridet ved at sætte id til 0
+// finds a block in a given grid by checking if it has the same id, returns the coordinates of that block and removes it from the grid by setting its id to 0
 std::vector<double> Grid::findBlock(Block block)
 {
     for (int i = 0; i < grid.size(); i++)

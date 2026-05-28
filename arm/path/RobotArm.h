@@ -23,32 +23,25 @@ public:
   // keep
   void home();
 
-  // keep
-  void movetool(std::vector<double> koordinatWorld , double speed, double acceleration, std::vector<double> gridFrame, int flange = 0);
 
-  void moveBlockKinamatik();
+  void movetool(std::vector<double> koordinatWorld , double speed, double acceleration, std::vector<double> gridFrame, int flange = 0);
 
   void getTcpInfo(std::vector<double> point);
 
   std::vector<double> getTCPPose();
-  void getRTDEinfor();
 
-  void moveblock(std::vector<double> koordinat1,
-                 std::vector<double> koordinat2,
-                 Grid& gridFrame1,
-                 Grid& gridFrame2, int method);
+  void moveblock(std::vector<double> koordinat1, std::vector<double> koordinat2, Grid& gridFrame1, Grid& gridFrame2, int method);
 
   void build(Grid& Gridblocks, Grid& Gridplace, std::vector<Block> buildBlocks, std::vector<Block> takeBlocks);
+ 
+  std::vector<double> approsemate();
+
+  std::vector<double> getTrayFrame();
+
   void moveToGridPos(Grid grid, Block block, bool m);
-
-
   void take();
   void drop();
-  std::vector<double> approsemate();
-  std::vector<double> getTrayFrame(bool oncamara);
-  void findTrayGrid();
-  void moveWithCameraAsPivot(std::vector<double> targetRotation, double speed, double acceleration);
-
+  
 
 
 private:
@@ -65,8 +58,3 @@ private:
   ArUcoDetector camera;
     
 };
-
-// regn på albuernes postioner og sørgde for der ikke kommer koliktions med
-// sigselv og klodeser samt finde den korteste bevælgese
-// evt brug moveC(via_punkt, slut_punkt, hastighed, acceleration, blend) til at
-// kommer over basen

@@ -33,6 +33,7 @@ std::vector<std::vector<double>> PathFinder::resolutionpath(std::vector<double> 
     double dz = koordinat[2] - startPose[2];
 
     double distance = std::sqrt(dx * dx + dy * dy + dz * dz);
+    
     int points = std::ceil(distance / 0.03);
 
     for (int i = 0; i <= points; i++)
@@ -48,15 +49,6 @@ std::vector<std::vector<double>> PathFinder::resolutionpath(std::vector<double> 
 
 }
 
-//std::vector<std::vector<double>> PathFinder::obstacalcheck(std::vector<std::vector<double>> path)
-//{
-   // std::vector<std::vector<double>> newPath;
-    //for (int i = 0; i < obstiacals.size(); i++)
-   // {
-    //    newPath = obstiacals[i].objektAvoid(path, tcpRadius);
-    //}
-  //  return newPath;
-//}
 
 std::vector<std::vector<std::vector<double>>> PathFinder::getPreferedInvseKinamtikSoltions(std::vector<std::vector<double>> points)
 {
@@ -69,14 +61,16 @@ std::vector<std::vector<std::vector<double>>> PathFinder::getPreferedInvseKinamt
         std::vector <std::vector<double>> JointList = IK.getInvseKinamtiksList(points[i], false);
         if (JointList.empty())
         {
+            // "debug "if a there si not ik solutions
             std::cout << "emty" << std::endl;
             preferedJointsList.push_back({});
 
         }
         else
         {
+            // "debug "if there a a ik soltions
             std::cout << "full" << std::endl;
-            std::vector <std::vector<double>>sortetdList = solutuonSorter(JointList, "albowOp");
+            std::vector <std::vector<double>>sortetdList = solutuonSorter(JointList, "ShulderOp");
             preferedJointsList.push_back(sortetdList);
 
         }
@@ -91,7 +85,7 @@ std::vector<std::vector<double>> PathFinder::solutuonSorter(std::vector<std::vec
     std::vector<std::vector<double>> sortetPointList;
     for (int i = 0; i < JointList.size(); i++)
     {
-        if (sol == "albowOp")
+        if (sol == "ShulderOp")
         {
             if (JointList[i][1] > M_PI)
             {

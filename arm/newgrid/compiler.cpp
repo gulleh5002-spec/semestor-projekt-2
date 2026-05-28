@@ -3,7 +3,7 @@
 
 
 
-compiler::compiler(/* args */)
+compiler::compiler()
 {
 }
 
@@ -39,11 +39,9 @@ std::vector<Block> compiler::compileplace(std::vector<Block> Blocks)
             }
              if (sameX && adjacentY && sameZ)
             {
-                Blocks[j].coordnate[6] = -3.14/2;
                 Blocks[j].moveMethod = 2;
 
             }
-            
         }
         
     }
